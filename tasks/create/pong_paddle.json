@@ -1,0 +1,12 @@
+{
+  "name": "pong_paddle",
+  "description": "Create a Pong-like paddle: a rectangular paddle at the bottom that moves horizontally following the mouse X position",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Paddle', you should complete the following: 1) When the green flag is clicked, make the paddle move only horizontally by following the mouse's X position. 3) Ensure it stays near the bottom of the stage.",
+  "initial_project": "pong_paddle.sb3",
+  "evaluation": {
+    "description": "Checks that a rectangular paddle sprite exists at the bottom, moves only horizontally, and follows the mouse X position",
+    "timeout": 20,
+    "function": "pong_paddle"
+  }
+}

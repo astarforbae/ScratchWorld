@@ -1,0 +1,12 @@
+{
+  "name": "maze_starter_timed_maze_challenge_modify",
+  "description": "Add a countdown timer and scoring system to the Maze Starter. Decrease time each second, penalize on wall touch, award bonus on reaching goal.",
+  "type": "extend",
+  "instruction": "This is a basic maze navigation game where players control a ball sprite using arrow keys to move through a maze. The ball bounces off blue walls and the goal is to reach a target sprite that displays 'You win!' when touched. Enhance the Maze Starter by adding two variables: timeLeft and score. On green flag: set timeLeft to 60 and score to 0. Start a forever loop that waits 1 second and decreases timeLeft by 1 until it reaches 0, at which point the game ends and all scripts should stop. While moving, if the Ball is touching the wall color, change score by -1 and push the Ball back. When the Ball reaches the goal, award a +50 score bonus and stop the timer.",
+  "initial_project": "maze_starter.sb3",
+  "evaluation": {
+    "function": "maze_starter_timed_maze_challenge_modify",
+    "timeout": 20,
+    "description": "Starts the project, verifies that timeLeft decreases over real time, that score decreases upon wall contact and increases upon reaching the goal, and that the timer stops at 0 or upon win."
+  }
+}

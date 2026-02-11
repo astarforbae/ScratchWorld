@@ -1,0 +1,26 @@
+{
+  "name": "check_palindrome_string",
+  "description": "Create a Scratch program that takes a string as input and checks if it is a palindrome. The sprite should say 'True' if it is, and 'False' otherwise.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that takes a string as input and checks if it is a palindrome. The sprite should say 'True' if it is, and 'False' otherwise.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "check_palindrome_string",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: check_palindrome_string",
+    "test_cases": [
+      {
+        "input": "radar",
+        "output": "True"
+      },
+      {
+        "input": "hello",
+        "output": "False"
+      },
+      {
+        "input": "12321",
+        "output": "True"
+      }
+    ]
+  }
+}

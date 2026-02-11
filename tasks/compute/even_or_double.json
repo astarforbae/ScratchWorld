@@ -1,0 +1,26 @@
+{
+  "name": "even_or_double",
+  "description": "Create a Scratch program that takes a number as input. If the number is even, output the number itself; if it is odd, output double the number. The sprite should say the result.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that takes a number as input. If the number is even, output the number itself; if it is odd, output double the number. The sprite should say the result.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "even_or_double",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: even_or_double",
+    "test_cases": [
+      {
+        "input": 4,
+        "output": 4
+      },
+      {
+        "input": 3,
+        "output": 6
+      },
+      {
+        "input": 0,
+        "output": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "simple_circuit_switch_immediate_turn_off_error",
+  "description": "Fix the bug where the Switch turns ON but immediately flips back OFF even when the circuit is correctly assembled.",
+  "type": "debug",
+  "instruction": "This is an interactive circuit simulation where users can drag and connect a battery, switch, and lightbulb to complete an electrical circuit. When all components are properly connected and the switch is turned on, the lightbulb illuminates with sound effects. But now in this Simple Circuit project, the Switch turns on but immediately flips back OFF even when the circuit is complete (connections complete = 3). Please help me fix this issue so that the Switch turns ON when the circuit is complete and the lightbulb illuminates with sound effects.",
+  "initial_project": "simple_circuit_switch_immediate_turn_off_error.sb3",
+  "evaluation": {
+    "function": "simple_circuit_switch_immediate_turn_off_error",
+    "timeout": 20,
+    "description": "Verifies three behaviors: (1) with a complete circuit, clicking the Switch turns it ON and it stays ON (no immediate OFF); (2) with an incomplete circuit, the Switch does not end in an ON state; (3) with a complete circuit, a subsequent click toggles the Switch back to OFF."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "armstrong_number_check",
+  "description": "Create a Scratch program that checks if a given positive integer is an Armstrong number (equal to the sum of its digits each raised to the power of the number of digits). The sprite should say 'True' if it is, and 'False' otherwise.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project to check if a given positive integer is an Armstrong number (equal to the sum of its digits each raised to the power of the number of digits). The sprite should say 'True' if it is, and 'False' otherwise.",
+  "initial_project": "armstrong_number_check.sb3",
+  "evaluation": {
+    "function": "armstrong_number_check",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: armstrong_number_check",
+    "test_cases": [
+      {
+        "input": 153,
+        "output": "True"
+      },
+      {
+        "input": 370,
+        "output": "True"
+      },
+      {
+        "input": 123,
+        "output": "False"
+      }
+    ]
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "title": "Scratch Composite API Catalog",
+  "version": "v0-draft",
+  "notes": [
+    "This is a draft, backend transport and implementation details are intentionally unspecified.",
+    "Focus is on API semantics, arguments, result shape, and error model.",
+    "Breaking changes will bump major version; additive changes will bump minor."
+  ],
+  "envelope": {
+    "description": "Single-call envelope emitted by the LLM per step.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "api": {"type": "string"},
+        "args": {"type": "object"}
+      },
+      "required": ["api", "args"]
+    },
+    "example": {"api": "add_block", "args": {"name": "when green flag clicked", "category": "Events", "place": "canvas"}}
+  },
+  "result": {
+    "description": "Canonical success/error payload returned by the backend.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "ok": {"type": "boolean"},
+        "data": {"type": "object"},
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {"type": "string"},
+            "message": {"type": "string"},
+            "details": {"type": "object"}
+          },
+          "required": ["code", "message"]
+        }
+      },
+      "required": ["ok"]
+    },
+    "examples": [
+      {"ok": true, "data": {"inserted": 1}},
+      {"ok": false, "error": {"code": "NOT_FOUND", "message": "Sprite not found: Cat"}}
+    ]
+  },
+  "error_codes": [
+    {"code": "INVALID_ARG", "description": "The provided args are missing required fields or have invalid types/values."},
+    {"code": "NOT_FOUND", "description": "A referenced entity (sprite, block, category) does not exist."},
+    {"code": "CONFLICT", "description": "The operation conflicts with existing state (e.g., duplicate variable)."},
+    {"code": "TIMEOUT", "description": "The operation did not complete in the allocated time."},
+    {"code": "UNSUPPORTED", "description": "The requested operation is not supported in the current context."},
+    {"code": "INTERNAL", "description": "An unexpected backend error occurred."}
+  ],
+  "apis": [
+    {
+      "name": "select_sprite",
+      "description": "Select a sprite context.",
+      "args_schema": {
+        "type": "object",
+        "properties": {"name": {"type": "string"}},
+        "required": ["name"]
+      },
+      "example": {"api": "select_sprite", "args": {"name": "Sprite1"}},
+      "result_examples": [
+        {"ok": true, "data": {"selected": "Sprite1"}},
+        {"ok": false, "error": {"code": "NOT_FOUND", "message": "Sprite not found: Foo"}}
+      ]
+    },
+    {
+      "name": "select_stage",
+      "description": "Select stage context.",
+      "args_schema": {"type": "object", "properties": {}},
+      "example": {"api": "select_stage", "args": {}},
+      "result_examples": [
+        {"ok": true, "data": {"selected": "Stage"}}
+      ]
+    },
+    {
+      "name": "add_variable",
+      "description": "Create a variable.",
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "scope": {"type": "string", "enum": ["sprite", "all"]}
+        },
+        "required": ["name", "scope"]
+      },
+      "example": {"api": "add_variable", "args": {"name": "score", "scope": "all"}},
+      "result_examples": [
+        {"ok": true, "data": {"created": {"name": "score", "scope": "all"}}},
+        {"ok": false, "error": {"code": "CONFLICT", "message": "Variable already exists: score"}}
+      ]
+    },
+    {
+      "name": "add_list",
+      "description": "Create a list.",
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "scope": {"type": "string", "enum": ["sprite", "all"]}
+        },
+        "required": ["name", "scope"]
+      },
+      "example": {"api": "add_list", "args": {"name": "items", "scope": "sprite"}},
+      "result_examples": [
+        {"ok": true, "data": {"created": {"name": "items", "scope": "sprite"}}},
+        {"ok": false, "error": {"code": "CONFLICT", "message": "List already exists: items"}}
+      ]
+    },
+    {
+      "name": "add_block",
+      "description": "Add a single block to the canvas without attempting any connections.",
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "blockType": {
+            "type": "string",
+            "description": "ScratchBlocks type, e.g., 'motion_movesteps'"
+          },
+          "creation": {
+            "type": "object",
+            "description": "Optional parameters required by certain special reporter blocks at creation time.",
+            "properties": {
+              "variableName": {"type": "string", "description": "Required when blockType is 'data_variable' to select which variable reporter to create."},
+              "listName": {"type": "string", "description": "Required when blockType is 'data_listcontents' to select which list reporter to create."}
+            }
+          }
+        },
+        "required": ["blockType"]
+      },
+      "example": {"api": "add_block", "args": {"blockType": "motion_movesteps"}},
+      "result_examples": [
+        {"ok": true, "data": {"result": {"success": true, "blockId": "<id>", "connected": false}}},
+        {"ok": false, "error": {"code": "INVALID_ARG", "message": "Unknown blockType: motion_movefoobar"}},
+        {"ok": false, "error": {"code": "INVALID_ARG", "message": "'creation.variableName' is required for blockType=data_variable"}},
+        {"ok": false, "error": {"code": "INVALID_ARG", "message": "'creation.listName' is required for blockType=data_listcontents"}},
+        {"ok": false, "error": {"code": "NOT_FOUND", "message": "Variable not found: score"}},
+        {"ok": false, "error": {"code": "NOT_FOUND", "message": "List not found: items"}}
+      ]
+    },
+    {
+      "name": "connect_blocks",
+      "description": "Connect an existing source block to a target (original) block with precise placement. Supports stack chaining, statement-slot insertion, value-slot insertion, and wraps.",
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "sourceBlockIndex": {"type": "integer", "description": "Source block index (from pseudocode) that will be connected/moved"},
+          "targetBlockIndex": {"type": "integer", "description": "Target block index (from pseudocode) to connect to"},
+          "placement": {
+            "type": "object",
+            "description": "How to connect the source to the target",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "stack_before",
+                  "stack_after",
+                  "statement_into",
+                  "value_into",
+                  "wrap"
+                ]
+              },
+              "inputName": {"type": "string", "description": "Required when kind is 'statement_into' or 'value_into'. The input/slot name (e.g., 'SUBSTACK', 'SUBSTACK2', 'STEPS', 'DEGREES')."}
+            },
+            "required": ["kind"]
+          }
+        },
+        "required": ["sourceBlockIndex", "targetBlockIndex", "placement"]
+      },
+      "example": {
+        "api": "connect_blocks",
+        "args": {
+          "sourceBlockIndex": 18,
+          "targetBlockIndex": 12,
+          "placement": {"kind": "value_into", "inputName": "STEPS"}
+        }
+      },
+      "result_examples": [
+        {"ok": true, "data": {"connected": true, "kind": "stack_after", "targetId": "<target-id>", "sourceId": "<source-id>"}},
+        {"ok": true, "data": {"connected": true, "kind": "value_into", "inputName": "STEPS", "targetId": "<target-id>", "sourceId": "<source-id>"}},
+        {"ok": false, "error": {"code": "NOT_FOUND", "message": "Block not found: <id>"}},
+        {"ok": false, "error": {"code": "CONNECTION_MISMATCH", "message": "Placement kind incompatible with target or inputs"}}
+      ]
+    },
+    {
+      "name": "detach_blocks",
+      "description": "Detach a block (and its following stack) from its current parent/stack, leaving the remaining chain connected. The detached stack becomes a new top-level stack.",
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "blockIndex": {"type": "integer", "description": "Index of the block to detach (1-based, from pseudocode). The block and its following stack are detached together."}
+        },
+        "required": ["blockIndex"]
+      },
+      "example": {"api": "detach_blocks", "args": {"blockIndex": 5}},
+      "result_examples": [
+        {"ok": true, "data": {"detached": true, "blockId": "<id>", "topId": "<id>"}},
+        {"ok": false, "error": {"code": "NOT_FOUND", "message": "Block not found: <id>"}}
+      ]
+    },
+    {
+      "name": "set_block_field",
+      "description": "Set a field value on a block.",
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "blockIndex": {
+            "type": "integer",
+            "description": "Index of the target block from pseudocode (1-based)."
+          },
+          "fieldName": {
+            "type": "string",
+            "description": "Name of the field to set, which is displayed in the pseudocode."
+          },
+          "value": {
+            "description": "New field value. Will be coerced to string for field storage; numeric fields typically accept numeric strings."
+          }
+        },
+        "required": ["blockIndex", "fieldName", "value"]
+      },
+      "example": {
+        "api": "set_block_field",
+        "args": {
+          "blockIndex": 7,
+          "fieldName": "X",
+          "value": 25
+        }
+      },
+      "result_examples": [
+        { "ok": true, "data": { "updated": 1, "blockIndex": 7, "fieldName": "X", "value": "25" } },
+        { "ok": false, "error": { "code": "NOT_FOUND", "message": "Block not found at index: 7" } },
+        { "ok": false, "error": { "code": "INVALID_FIELD", "message": "Field not found: X on block data_setvariableto" } }
+      ]
+    },
+    {
+      "name": "delete_block",
+      "description": "Delete a block by its index from the pseudocode.",
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "blockIndex": {"type": "integer", "description": "Block index from pseudocode (1-based)"}
+        },
+        "required": ["blockIndex"]
+      },
+      "example": {"api": "delete_block", "args": {"blockIndex": 3}},
+      "result_examples": [
+        {"ok": true, "data": {"deleted": true, "index": 3, "blockId": "block-id-123"}},
+        {"ok": false, "error": {"code": "NOT_FOUND", "message": "Block not found at index 3"}}
+      ]
+    },
+    {
+      "name": "done",
+      "description": "Mark the task as completed.",
+      "args_schema": {"type": "object", "properties": {}},
+      "example": {"api": "done", "args": {}},
+      "result_examples": [
+        {"ok": true, "data": {"status": "done"}}
+      ]
+    },
+    {
+      "name": "failed",
+      "description": "Mark the task as failed.",
+      "args_schema": {"type": "object", "properties": {}},
+      "example": {"api": "failed", "args": {}},
+      "result_examples": [
+        {"ok": true, "data": {"status": "failed"}}
+      ]
+    }
+  ]
+}

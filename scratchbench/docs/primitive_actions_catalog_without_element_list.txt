@@ -1,0 +1,10 @@
+Actions (api + args):
+- click: args { x: number, y: number, button?: 'left'|'right'|'middle' }
+- double_click: args { x: number, y: number }
+- drag_and_drop: args { start_x: number, start_y: number, end_x: number, end_y: number, duration?: number }
+- type: args { text: string }
+- key: args { key: string }
+- hotkey: args { keys: string[] }
+- scroll: args { direction: 'up'|'down'|'left'|'right', amount?: number, x?: number, y?: number }
+- done: args { }
+- failed: args { }

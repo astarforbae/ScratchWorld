@@ -1,0 +1,12 @@
+{
+  "name": "maze_starter_sprint_and_stamina_mechanic_modify",
+  "description": "Add a sprint ability that increases speed while a stamina variable drains; stamina regenerates when not sprinting.",
+  "type": "extend",
+  "instruction": "This is a basic maze navigation game where players control a ball sprite using arrow keys to move through a maze. The ball bounces off blue walls and the goal is to reach a target sprite that displays 'You win!' when touched. Add a sprint mode toggled by the space key, using a 'stamina' variable (0-20). When sprinting, the ball moves 15 steps and stamina decreases by 1 per tick; if stamina reaches 0, it must automatically switch back to normal mode. When in normal mode, the ball moves 10 steps and stamina regenerates by 1 per tick. Complete the remaining blocks.",
+  "initial_project": "maze_starter_sprint_and_stamina_mechanic_modify.sb3",
+  "evaluation": {
+    "function": "maze_starter_sprint_and_stamina_mechanic_modify",
+    "timeout": 20,
+    "description": "Holds the sprint key to confirm increased step size while stamina decreases; releases to confirm normal speed and stamina regeneration without exceeding cap."
+  }
+}

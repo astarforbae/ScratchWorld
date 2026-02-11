@@ -1,0 +1,26 @@
+{
+  "name": "highest_power_of_2",
+  "description": "Create a Scratch program that finds the highest power of 2 less than or equal to a given number. The sprite should say the result.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that finds the highest power of 2 less than or equal to a given number. The sprite should say the result.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "highest_power_of_2",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: highest_power_of_2",
+    "test_cases": [
+      {
+        "input": 10,
+        "output": 8
+      },
+      {
+        "input": 16,
+        "output": 16
+      },
+      {
+        "input": 1,
+        "output": 1
+      }
+    ]
+  }
+}

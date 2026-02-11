@@ -1,0 +1,1761 @@
+{
+  "_meta": {
+    "description": "Scratch blocks schema - inputs, fields, and branches for each block type",
+    "generated_by": "scrape_scratch_blocks.py",
+    "source": "https://github.com/scratchfoundation/scratch-blocks"
+  },
+  "blocks": {
+    "control_forever": {
+      "_opcode": "control_forever",
+      "category": "control",
+      "inputs": [],
+      "fields": [],
+      "branches": [
+        "SUBSTACK"
+      ]
+    },
+    "control_repeat": {
+      "_opcode": "control_repeat",
+      "category": "control",
+      "inputs": [
+        "TIMES"
+      ],
+      "fields": [],
+      "branches": [
+        "SUBSTACK"
+      ]
+    },
+    "control_repeat_until": {
+      "_opcode": "control_repeat_until",
+      "category": "control",
+      "inputs": [
+        "CONDITION"
+      ],
+      "fields": [],
+      "branches": [
+        "SUBSTACK"
+      ]
+    },
+    "control_while": {
+      "_opcode": "control_while",
+      "category": "control",
+      "inputs": [
+        "CONDITION"
+      ],
+      "fields": [],
+      "branches": [
+        "SUBSTACK"
+      ]
+    },
+    "control_for_each": {
+      "_opcode": "control_for_each",
+      "category": "control",
+      "inputs": [
+        "VALUE"
+      ],
+      "fields": [
+        "VARIABLE"
+      ],
+      "branches": [
+        "SUBSTACK"
+      ]
+    },
+    "control_if": {
+      "_opcode": "control_if",
+      "category": "control",
+      "inputs": [
+        "CONDITION"
+      ],
+      "fields": [],
+      "branches": [
+        "SUBSTACK"
+      ]
+    },
+    "control_if_else": {
+      "_opcode": "control_if_else",
+      "category": "control",
+      "inputs": [
+        "CONDITION"
+      ],
+      "fields": [],
+      "branches": [
+        "SUBSTACK",
+        "SUBSTACK2"
+      ]
+    },
+    "control_stop": {
+      "_opcode": "control_stop",
+      "category": "control",
+      "inputs": [],
+      "fields": [
+        "STOP_OPTION"
+      ],
+      "branches": []
+    },
+    "control_wait": {
+      "_opcode": "control_wait",
+      "category": "control",
+      "inputs": [
+        "DURATION"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "control_wait_until": {
+      "_opcode": "control_wait_until",
+      "category": "control",
+      "inputs": [
+        "CONDITION"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "control_start_as_clone": {
+      "_opcode": "control_start_as_clone",
+      "category": "control",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "control_create_clone_of": {
+      "_opcode": "control_create_clone_of",
+      "category": "control",
+      "inputs": [
+        "CLONE_OPTION"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "control_delete_this_clone": {
+      "_opcode": "control_delete_this_clone",
+      "category": "control",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "control_all_at_once": {
+      "_opcode": "control_all_at_once",
+      "category": "control",
+      "inputs": [],
+      "fields": [],
+      "branches": [
+        "SUBSTACK"
+      ]
+    },
+    "event_whenflagclicked": {
+      "_opcode": "event_whenflagclicked",
+      "category": "event",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "event_whenkeypressed": {
+      "_opcode": "event_whenkeypressed",
+      "category": "event",
+      "inputs": [],
+      "fields": [
+        "KEY_OPTION"
+      ],
+      "branches": []
+    },
+    "event_whenthisspriteclicked": {
+      "_opcode": "event_whenthisspriteclicked",
+      "category": "event",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "event_whenstageclicked": {
+      "_opcode": "event_whenstageclicked",
+      "category": "event",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "event_whenbackdropswitchesto": {
+      "_opcode": "event_whenbackdropswitchesto",
+      "category": "event",
+      "inputs": [],
+      "fields": [
+        "BACKDROP"
+      ],
+      "branches": []
+    },
+    "event_whengreaterthan": {
+      "_opcode": "event_whengreaterthan",
+      "category": "event",
+      "inputs": [
+        "VALUE"
+      ],
+      "fields": [
+        "WHENGREATERTHANMENU"
+      ],
+      "branches": []
+    },
+    "event_whenbroadcastreceived": {
+      "_opcode": "event_whenbroadcastreceived",
+      "category": "event",
+      "inputs": [],
+      "fields": [
+        "BROADCAST_OPTION"
+      ],
+      "branches": []
+    },
+    "event_broadcast": {
+      "_opcode": "event_broadcast",
+      "category": "event",
+      "inputs": [
+        "BROADCAST_INPUT"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "event_broadcastandwait": {
+      "_opcode": "event_broadcastandwait",
+      "category": "event",
+      "inputs": [
+        "BROADCAST_INPUT"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_movesteps": {
+      "_opcode": "motion_movesteps",
+      "category": "motion",
+      "inputs": [
+        "STEPS"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_turnright": {
+      "_opcode": "motion_turnright",
+      "category": "motion",
+      "inputs": [
+        "DEGREES"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_turnleft": {
+      "_opcode": "motion_turnleft",
+      "category": "motion",
+      "inputs": [
+        "DEGREES"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_goto": {
+      "_opcode": "motion_goto",
+      "category": "motion",
+      "inputs": [
+        "TO"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_gotoxy": {
+      "_opcode": "motion_gotoxy",
+      "category": "motion",
+      "inputs": [
+        "X",
+        "Y"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_glideto": {
+      "_opcode": "motion_glideto",
+      "category": "motion",
+      "inputs": [
+        "SECS",
+        "TO"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_glidesecstoxy": {
+      "_opcode": "motion_glidesecstoxy",
+      "category": "motion",
+      "inputs": [
+        "SECS",
+        "X",
+        "Y"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_pointindirection": {
+      "_opcode": "motion_pointindirection",
+      "category": "motion",
+      "inputs": [
+        "DIRECTION"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_pointtowards": {
+      "_opcode": "motion_pointtowards",
+      "category": "motion",
+      "inputs": [
+        "TOWARDS"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_changexby": {
+      "_opcode": "motion_changexby",
+      "category": "motion",
+      "inputs": [
+        "DX"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_setx": {
+      "_opcode": "motion_setx",
+      "category": "motion",
+      "inputs": [
+        "X"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_changeyby": {
+      "_opcode": "motion_changeyby",
+      "category": "motion",
+      "inputs": [
+        "DY"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_sety": {
+      "_opcode": "motion_sety",
+      "category": "motion",
+      "inputs": [
+        "Y"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "motion_ifonedgebounce": {
+      "_opcode": "motion_ifonedgebounce",
+      "category": "motion",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "motion_setrotationstyle": {
+      "_opcode": "motion_setrotationstyle",
+      "category": "motion",
+      "inputs": [],
+      "fields": [
+        "STYLE"
+      ],
+      "branches": []
+    },
+    "motion_xposition": {
+      "_opcode": "motion_xposition",
+      "category": "motion",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "motion_yposition": {
+      "_opcode": "motion_yposition",
+      "category": "motion",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "motion_direction": {
+      "_opcode": "motion_direction",
+      "category": "motion",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "looks_sayforsecs": {
+      "_opcode": "looks_sayforsecs",
+      "category": "looks",
+      "inputs": [
+        "MESSAGE",
+        "SECS"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "looks_say": {
+      "_opcode": "looks_say",
+      "category": "looks",
+      "inputs": [
+        "MESSAGE"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "looks_thinkforsecs": {
+      "_opcode": "looks_thinkforsecs",
+      "category": "looks",
+      "inputs": [
+        "MESSAGE",
+        "SECS"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "looks_think": {
+      "_opcode": "looks_think",
+      "category": "looks",
+      "inputs": [
+        "MESSAGE"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "looks_switchcostumeto": {
+      "_opcode": "looks_switchcostumeto",
+      "category": "looks",
+      "inputs": [
+        "COSTUME"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "looks_nextcostume": {
+      "_opcode": "looks_nextcostume",
+      "category": "looks",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "looks_switchbackdropto": {
+      "_opcode": "looks_switchbackdropto",
+      "category": "looks",
+      "inputs": [
+        "BACKDROP"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "looks_nextbackdrop": {
+      "_opcode": "looks_nextbackdrop",
+      "category": "looks",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "looks_changesizeby": {
+      "_opcode": "looks_changesizeby",
+      "category": "looks",
+      "inputs": [
+        "CHANGE"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "looks_setsizeto": {
+      "_opcode": "looks_setsizeto",
+      "category": "looks",
+      "inputs": [
+        "SIZE"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "looks_changeeffectby": {
+      "_opcode": "looks_changeeffectby",
+      "category": "looks",
+      "inputs": [
+        "CHANGE"
+      ],
+      "fields": [
+        "EFFECT"
+      ],
+      "branches": []
+    },
+    "looks_seteffectto": {
+      "_opcode": "looks_seteffectto",
+      "category": "looks",
+      "inputs": [
+        "VALUE"
+      ],
+      "fields": [
+        "EFFECT"
+      ],
+      "branches": []
+    },
+    "looks_cleargraphiceffects": {
+      "_opcode": "looks_cleargraphiceffects",
+      "category": "looks",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "looks_show": {
+      "_opcode": "looks_show",
+      "category": "looks",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "looks_hide": {
+      "_opcode": "looks_hide",
+      "category": "looks",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "looks_gotofrontback": {
+      "_opcode": "looks_gotofrontback",
+      "category": "looks",
+      "inputs": [],
+      "fields": [
+        "FRONT_BACK"
+      ],
+      "branches": []
+    },
+    "looks_goforwardbackwardlayers": {
+      "_opcode": "looks_goforwardbackwardlayers",
+      "category": "looks",
+      "inputs": [
+        "NUM"
+      ],
+      "fields": [
+        "FORWARD_BACKWARD"
+      ],
+      "branches": []
+    },
+    "looks_costumenumbername": {
+      "_opcode": "looks_costumenumbername",
+      "category": "looks",
+      "inputs": [],
+      "fields": [
+        "NUMBER_NAME"
+      ],
+      "branches": []
+    },
+    "looks_backdropnumbername": {
+      "_opcode": "looks_backdropnumbername",
+      "category": "looks",
+      "inputs": [],
+      "fields": [
+        "NUMBER_NAME"
+      ],
+      "branches": []
+    },
+    "looks_size": {
+      "_opcode": "looks_size",
+      "category": "looks",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sound_playuntildone": {
+      "_opcode": "sound_playuntildone",
+      "category": "sound",
+      "inputs": [
+        "SOUND_MENU"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sound_play": {
+      "_opcode": "sound_play",
+      "category": "sound",
+      "inputs": [
+        "SOUND_MENU"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sound_stopallsounds": {
+      "_opcode": "sound_stopallsounds",
+      "category": "sound",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sound_changeeffectby": {
+      "_opcode": "sound_changeeffectby",
+      "category": "sound",
+      "inputs": [
+        "VALUE"
+      ],
+      "fields": [
+        "EFFECT"
+      ],
+      "branches": []
+    },
+    "sound_seteffectto": {
+      "_opcode": "sound_seteffectto",
+      "category": "sound",
+      "inputs": [
+        "VALUE"
+      ],
+      "fields": [
+        "EFFECT"
+      ],
+      "branches": []
+    },
+    "sound_cleareffects": {
+      "_opcode": "sound_cleareffects",
+      "category": "sound",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sound_changevolumeby": {
+      "_opcode": "sound_changevolumeby",
+      "category": "sound",
+      "inputs": [
+        "VOLUME"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sound_setvolumeto": {
+      "_opcode": "sound_setvolumeto",
+      "category": "sound",
+      "inputs": [
+        "VOLUME"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sound_volume": {
+      "_opcode": "sound_volume",
+      "category": "sound",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_touchingobject": {
+      "_opcode": "sensing_touchingobject",
+      "category": "sensing",
+      "inputs": [
+        "TOUCHINGOBJECTMENU"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_touchingcolor": {
+      "_opcode": "sensing_touchingcolor",
+      "category": "sensing",
+      "inputs": [
+        "COLOR"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_coloristouchingcolor": {
+      "_opcode": "sensing_coloristouchingcolor",
+      "category": "sensing",
+      "inputs": [
+        "COLOR",
+        "COLOR2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_distanceto": {
+      "_opcode": "sensing_distanceto",
+      "category": "sensing",
+      "inputs": [
+        "DISTANCETOMENU"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_askandwait": {
+      "_opcode": "sensing_askandwait",
+      "category": "sensing",
+      "inputs": [
+        "QUESTION"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_answer": {
+      "_opcode": "sensing_answer",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_keypressed": {
+      "_opcode": "sensing_keypressed",
+      "category": "sensing",
+      "inputs": [
+        "KEY_OPTION"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_mousedown": {
+      "_opcode": "sensing_mousedown",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_mousex": {
+      "_opcode": "sensing_mousex",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_mousey": {
+      "_opcode": "sensing_mousey",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_setdragmode": {
+      "_opcode": "sensing_setdragmode",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [
+        "DRAG_MODE"
+      ],
+      "branches": []
+    },
+    "sensing_loudness": {
+      "_opcode": "sensing_loudness",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_timer": {
+      "_opcode": "sensing_timer",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_resettimer": {
+      "_opcode": "sensing_resettimer",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_of": {
+      "_opcode": "sensing_of",
+      "category": "sensing",
+      "inputs": [
+        "OBJECT"
+      ],
+      "fields": [
+        "PROPERTY"
+      ],
+      "branches": []
+    },
+    "sensing_current": {
+      "_opcode": "sensing_current",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [
+        "CURRENTMENU"
+      ],
+      "branches": []
+    },
+    "sensing_dayssince2000": {
+      "_opcode": "sensing_dayssince2000",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "sensing_username": {
+      "_opcode": "sensing_username",
+      "category": "sensing",
+      "inputs": [],
+      "fields": [],
+      "branches": []
+    },
+    "operator_add": {
+      "_opcode": "operator_add",
+      "category": "operators",
+      "inputs": [
+        "NUM1",
+        "NUM2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_subtract": {
+      "_opcode": "operator_subtract",
+      "category": "operators",
+      "inputs": [
+        "NUM1",
+        "NUM2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_multiply": {
+      "_opcode": "operator_multiply",
+      "category": "operators",
+      "inputs": [
+        "NUM1",
+        "NUM2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_divide": {
+      "_opcode": "operator_divide",
+      "category": "operators",
+      "inputs": [
+        "NUM1",
+        "NUM2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_random": {
+      "_opcode": "operator_random",
+      "category": "operators",
+      "inputs": [
+        "FROM",
+        "TO"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_gt": {
+      "_opcode": "operator_gt",
+      "category": "operators",
+      "inputs": [
+        "OPERAND1",
+        "OPERAND2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_lt": {
+      "_opcode": "operator_lt",
+      "category": "operators",
+      "inputs": [
+        "OPERAND1",
+        "OPERAND2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_equals": {
+      "_opcode": "operator_equals",
+      "category": "operators",
+      "inputs": [
+        "OPERAND1",
+        "OPERAND2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_and": {
+      "_opcode": "operator_and",
+      "category": "operators",
+      "inputs": [
+        "OPERAND1",
+        "OPERAND2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_or": {
+      "_opcode": "operator_or",
+      "category": "operators",
+      "inputs": [
+        "OPERAND1",
+        "OPERAND2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_not": {
+      "_opcode": "operator_not",
+      "category": "operators",
+      "inputs": [
+        "OPERAND"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_join": {
+      "_opcode": "operator_join",
+      "category": "operators",
+      "inputs": [
+        "STRING1",
+        "STRING2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_letter_of": {
+      "_opcode": "operator_letter_of",
+      "category": "operators",
+      "inputs": [
+        "LETTER",
+        "STRING"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_length": {
+      "_opcode": "operator_length",
+      "category": "operators",
+      "inputs": [
+        "STRING"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_contains": {
+      "_opcode": "operator_contains",
+      "category": "operators",
+      "inputs": [
+        "STRING1",
+        "STRING2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_mod": {
+      "_opcode": "operator_mod",
+      "category": "operators",
+      "inputs": [
+        "NUM1",
+        "NUM2"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_round": {
+      "_opcode": "operator_round",
+      "category": "operators",
+      "inputs": [
+        "NUM"
+      ],
+      "fields": [],
+      "branches": []
+    },
+    "operator_mathop": {
+      "_opcode": "operator_mathop",
+      "category": "operators",
+      "inputs": [
+        "NUM"
+      ],
+      "fields": [
+        "OPERATOR"
+      ],
+      "branches": []
+    },
+    "data_variable": {
+      "_opcode": "data_variable",
+      "category": "data",
+      "inputs": [],
+      "fields": [
+        "VARIABLE"
+      ],
+      "branches": []
+    },
+    "data_setvariableto": {
+      "_opcode": "data_setvariableto",
+      "category": "data",
+      "inputs": [
+        "VALUE"
+      ],
+      "fields": [
+        "VARIABLE"
+      ],
+      "branches": []
+    },
+    "data_changevariableby": {
+      "_opcode": "data_changevariableby",
+      "category": "data",
+      "inputs": [
+        "VALUE"
+      ],
+      "fields": [
+        "VARIABLE"
+      ],
+      "branches": []
+    },
+    "data_showvariable": {
+      "_opcode": "data_showvariable",
+      "category": "data",
+      "inputs": [],
+      "fields": [
+        "VARIABLE"
+      ],
+      "branches": []
+    },
+    "data_hidevariable": {
+      "_opcode": "data_hidevariable",
+      "category": "data",
+      "inputs": [],
+      "fields": [
+        "VARIABLE"
+      ],
+      "branches": []
+    },
+    "data_listcontents": {
+      "_opcode": "data_listcontents",
+      "category": "data",
+      "inputs": [],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_addtolist": {
+      "_opcode": "data_addtolist",
+      "category": "data",
+      "inputs": [
+        "ITEM"
+      ],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_deleteoflist": {
+      "_opcode": "data_deleteoflist",
+      "category": "data",
+      "inputs": [
+        "INDEX"
+      ],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_deletealloflist": {
+      "_opcode": "data_deletealloflist",
+      "category": "data",
+      "inputs": [],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_insertatlist": {
+      "_opcode": "data_insertatlist",
+      "category": "data",
+      "inputs": [
+        "ITEM",
+        "INDEX"
+      ],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_replaceitemoflist": {
+      "_opcode": "data_replaceitemoflist",
+      "category": "data",
+      "inputs": [
+        "INDEX",
+        "ITEM"
+      ],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_itemoflist": {
+      "_opcode": "data_itemoflist",
+      "category": "data",
+      "inputs": [
+        "INDEX"
+      ],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_itemnumoflist": {
+      "_opcode": "data_itemnumoflist",
+      "category": "data",
+      "inputs": [
+        "ITEM"
+      ],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_lengthoflist": {
+      "_opcode": "data_lengthoflist",
+      "category": "data",
+      "inputs": [],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_listcontainsitem": {
+      "_opcode": "data_listcontainsitem",
+      "category": "data",
+      "inputs": [
+        "ITEM"
+      ],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_showlist": {
+      "_opcode": "data_showlist",
+      "category": "data",
+      "inputs": [],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "data_hidelist": {
+      "_opcode": "data_hidelist",
+      "category": "data",
+      "inputs": [],
+      "fields": [
+        "LIST"
+      ],
+      "branches": []
+    },
+    "control_create_clone_of_menu": {
+      "_opcode": "control_create_clone_of_menu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "control"
+    },
+    "control_get_counter": {
+      "_opcode": "control_get_counter",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "control"
+    },
+    "control_incr_counter": {
+      "_opcode": "control_incr_counter",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "control"
+    },
+    "control_clear_counter": {
+      "_opcode": "control_clear_counter",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "control"
+    },
+    "event_whentouchingobject": {
+      "_opcode": "event_whentouchingobject",
+      "inputs": [
+        "TOUCHINGOBJECTMENU"
+      ],
+      "fields": [],
+      "branches": [],
+      "category": "event"
+    },
+    "event_touchingobjectmenu": {
+      "_opcode": "event_touchingobjectmenu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "event"
+    },
+    "event_broadcast_menu": {
+      "_opcode": "event_broadcast_menu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "event"
+    },
+    "motion_pointtowards_menu": {
+      "_opcode": "motion_pointtowards_menu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "motion"
+    },
+    "motion_goto_menu": {
+      "_opcode": "motion_goto_menu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "motion"
+    },
+    "motion_glideto_menu": {
+      "_opcode": "motion_glideto_menu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "motion"
+    },
+    "motion_scroll_right": {
+      "_opcode": "motion_scroll_right",
+      "inputs": [
+        "DISTANCE"
+      ],
+      "fields": [],
+      "branches": [],
+      "category": "motion"
+    },
+    "motion_scroll_up": {
+      "_opcode": "motion_scroll_up",
+      "inputs": [
+        "DISTANCE"
+      ],
+      "fields": [],
+      "branches": [],
+      "category": "motion"
+    },
+    "motion_align_scene": {
+      "_opcode": "motion_align_scene",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "motion"
+    },
+    "motion_xscroll": {
+      "_opcode": "motion_xscroll",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "motion"
+    },
+    "motion_yscroll": {
+      "_opcode": "motion_yscroll",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "motion"
+    },
+    "sensing_touchingobjectmenu": {
+      "_opcode": "sensing_touchingobjectmenu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "sensing"
+    },
+    "sensing_distancetomenu": {
+      "_opcode": "sensing_distancetomenu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "sensing"
+    },
+    "sensing_keyoptions": {
+      "_opcode": "sensing_keyoptions",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "sensing"
+    },
+    "sensing_loud": {
+      "_opcode": "sensing_loud",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "sensing"
+    },
+    "sensing_of_object_menu": {
+      "_opcode": "sensing_of_object_menu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "sensing"
+    },
+    "sensing_online": {
+      "_opcode": "sensing_online",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "sensing"
+    },
+    "sensing_userid": {
+      "_opcode": "sensing_userid",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "sensing"
+    },
+    "sound_sounds_menu": {
+      "_opcode": "sound_sounds_menu",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "sound"
+    },
+    "procedures_definition": {
+      "_opcode": "procedures_definition",
+      "inputs": [],
+      "fields": [],
+      "branches": [
+        "custom_block"
+      ],
+      "category": "procedures"
+    },
+    "procedures_call": {
+      "_opcode": "procedures_call",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "procedures"
+    },
+    "procedures_prototype": {
+      "_opcode": "procedures_prototype",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "procedures"
+    },
+    "procedures_declaration": {
+      "_opcode": "procedures_declaration",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "procedures"
+    },
+    "argument_reporter_boolean": {
+      "_opcode": "argument_reporter_boolean",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "procedures"
+    },
+    "argument_reporter_string_number": {
+      "_opcode": "argument_reporter_string_number",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "procedures"
+    },
+    "argument_editor_boolean": {
+      "_opcode": "argument_editor_boolean",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "procedures"
+    },
+    "argument_editor_string_number": {
+      "_opcode": "argument_editor_string_number",
+      "inputs": [],
+      "fields": [],
+      "branches": [],
+      "category": "procedures"
+    }
+  },
+  "expectedInputs": {
+    "control_repeat": [
+      "TIMES"
+    ],
+    "control_repeat_until": [
+      "CONDITION"
+    ],
+    "control_while": [
+      "CONDITION"
+    ],
+    "control_for_each": [
+      "VALUE"
+    ],
+    "control_if": [
+      "CONDITION"
+    ],
+    "control_if_else": [
+      "CONDITION"
+    ],
+    "control_wait": [
+      "DURATION"
+    ],
+    "control_wait_until": [
+      "CONDITION"
+    ],
+    "control_create_clone_of": [
+      "CLONE_OPTION"
+    ],
+    "event_whengreaterthan": [
+      "VALUE"
+    ],
+    "event_broadcast": [
+      "BROADCAST_INPUT"
+    ],
+    "event_broadcastandwait": [
+      "BROADCAST_INPUT"
+    ],
+    "motion_movesteps": [
+      "STEPS"
+    ],
+    "motion_turnright": [
+      "DEGREES"
+    ],
+    "motion_turnleft": [
+      "DEGREES"
+    ],
+    "motion_goto": [
+      "TO"
+    ],
+    "motion_gotoxy": [
+      "X",
+      "Y"
+    ],
+    "motion_glideto": [
+      "SECS",
+      "TO"
+    ],
+    "motion_glidesecstoxy": [
+      "SECS",
+      "X",
+      "Y"
+    ],
+    "motion_pointindirection": [
+      "DIRECTION"
+    ],
+    "motion_pointtowards": [
+      "TOWARDS"
+    ],
+    "motion_changexby": [
+      "DX"
+    ],
+    "motion_setx": [
+      "X"
+    ],
+    "motion_changeyby": [
+      "DY"
+    ],
+    "motion_sety": [
+      "Y"
+    ],
+    "looks_sayforsecs": [
+      "MESSAGE",
+      "SECS"
+    ],
+    "looks_say": [
+      "MESSAGE"
+    ],
+    "looks_thinkforsecs": [
+      "MESSAGE",
+      "SECS"
+    ],
+    "looks_think": [
+      "MESSAGE"
+    ],
+    "looks_switchcostumeto": [
+      "COSTUME"
+    ],
+    "looks_switchbackdropto": [
+      "BACKDROP"
+    ],
+    "looks_changesizeby": [
+      "CHANGE"
+    ],
+    "looks_setsizeto": [
+      "SIZE"
+    ],
+    "looks_changeeffectby": [
+      "CHANGE"
+    ],
+    "looks_seteffectto": [
+      "VALUE"
+    ],
+    "looks_goforwardbackwardlayers": [
+      "NUM"
+    ],
+    "sound_playuntildone": [
+      "SOUND_MENU"
+    ],
+    "sound_play": [
+      "SOUND_MENU"
+    ],
+    "sound_changeeffectby": [
+      "VALUE"
+    ],
+    "sound_seteffectto": [
+      "VALUE"
+    ],
+    "sound_changevolumeby": [
+      "VOLUME"
+    ],
+    "sound_setvolumeto": [
+      "VOLUME"
+    ],
+    "sensing_touchingobject": [
+      "TOUCHINGOBJECTMENU"
+    ],
+    "sensing_touchingcolor": [
+      "COLOR"
+    ],
+    "sensing_coloristouchingcolor": [
+      "COLOR",
+      "COLOR2"
+    ],
+    "sensing_distanceto": [
+      "DISTANCETOMENU"
+    ],
+    "sensing_askandwait": [
+      "QUESTION"
+    ],
+    "sensing_keypressed": [
+      "KEY_OPTION"
+    ],
+    "sensing_of": [
+      "OBJECT"
+    ],
+    "operator_add": [
+      "NUM1",
+      "NUM2"
+    ],
+    "operator_subtract": [
+      "NUM1",
+      "NUM2"
+    ],
+    "operator_multiply": [
+      "NUM1",
+      "NUM2"
+    ],
+    "operator_divide": [
+      "NUM1",
+      "NUM2"
+    ],
+    "operator_random": [
+      "FROM",
+      "TO"
+    ],
+    "operator_gt": [
+      "OPERAND1",
+      "OPERAND2"
+    ],
+    "operator_lt": [
+      "OPERAND1",
+      "OPERAND2"
+    ],
+    "operator_equals": [
+      "OPERAND1",
+      "OPERAND2"
+    ],
+    "operator_and": [
+      "OPERAND1",
+      "OPERAND2"
+    ],
+    "operator_or": [
+      "OPERAND1",
+      "OPERAND2"
+    ],
+    "operator_not": [
+      "OPERAND"
+    ],
+    "operator_join": [
+      "STRING1",
+      "STRING2"
+    ],
+    "operator_letter_of": [
+      "LETTER",
+      "STRING"
+    ],
+    "operator_length": [
+      "STRING"
+    ],
+    "operator_contains": [
+      "STRING1",
+      "STRING2"
+    ],
+    "operator_mod": [
+      "NUM1",
+      "NUM2"
+    ],
+    "operator_round": [
+      "NUM"
+    ],
+    "operator_mathop": [
+      "NUM"
+    ],
+    "data_setvariableto": [
+      "VALUE"
+    ],
+    "data_changevariableby": [
+      "VALUE"
+    ],
+    "data_addtolist": [
+      "ITEM"
+    ],
+    "data_deleteoflist": [
+      "INDEX"
+    ],
+    "data_insertatlist": [
+      "ITEM",
+      "INDEX"
+    ],
+    "data_replaceitemoflist": [
+      "INDEX",
+      "ITEM"
+    ],
+    "data_itemoflist": [
+      "INDEX"
+    ],
+    "data_itemnumoflist": [
+      "ITEM"
+    ],
+    "data_listcontainsitem": [
+      "ITEM"
+    ],
+    "event_whentouchingobject": [
+      "TOUCHINGOBJECTMENU"
+    ],
+    "motion_scroll_right": [
+      "DISTANCE"
+    ],
+    "motion_scroll_up": [
+      "DISTANCE"
+    ]
+  },
+  "expectedFields": {
+    "control_for_each": [
+      "VARIABLE"
+    ],
+    "control_stop": [
+      "STOP_OPTION"
+    ],
+    "event_whenkeypressed": [
+      "KEY_OPTION"
+    ],
+    "event_whenbackdropswitchesto": [
+      "BACKDROP"
+    ],
+    "event_whengreaterthan": [
+      "WHENGREATERTHANMENU"
+    ],
+    "event_whenbroadcastreceived": [
+      "BROADCAST_OPTION"
+    ],
+    "motion_setrotationstyle": [
+      "STYLE"
+    ],
+    "looks_changeeffectby": [
+      "EFFECT"
+    ],
+    "looks_seteffectto": [
+      "EFFECT"
+    ],
+    "looks_gotofrontback": [
+      "FRONT_BACK"
+    ],
+    "looks_goforwardbackwardlayers": [
+      "FORWARD_BACKWARD"
+    ],
+    "looks_costumenumbername": [
+      "NUMBER_NAME"
+    ],
+    "looks_backdropnumbername": [
+      "NUMBER_NAME"
+    ],
+    "sound_changeeffectby": [
+      "EFFECT"
+    ],
+    "sound_seteffectto": [
+      "EFFECT"
+    ],
+    "sensing_setdragmode": [
+      "DRAG_MODE"
+    ],
+    "sensing_of": [
+      "PROPERTY"
+    ],
+    "sensing_current": [
+      "CURRENTMENU"
+    ],
+    "operator_mathop": [
+      "OPERATOR"
+    ],
+    "data_variable": [
+      "VARIABLE"
+    ],
+    "data_setvariableto": [
+      "VARIABLE"
+    ],
+    "data_changevariableby": [
+      "VARIABLE"
+    ],
+    "data_showvariable": [
+      "VARIABLE"
+    ],
+    "data_hidevariable": [
+      "VARIABLE"
+    ],
+    "data_listcontents": [
+      "LIST"
+    ],
+    "data_addtolist": [
+      "LIST"
+    ],
+    "data_deleteoflist": [
+      "LIST"
+    ],
+    "data_deletealloflist": [
+      "LIST"
+    ],
+    "data_insertatlist": [
+      "LIST"
+    ],
+    "data_replaceitemoflist": [
+      "LIST"
+    ],
+    "data_itemoflist": [
+      "LIST"
+    ],
+    "data_itemnumoflist": [
+      "LIST"
+    ],
+    "data_lengthoflist": [
+      "LIST"
+    ],
+    "data_listcontainsitem": [
+      "LIST"
+    ],
+    "data_showlist": [
+      "LIST"
+    ],
+    "data_hidelist": [
+      "LIST"
+    ]
+  },
+  "expectedBranches": {
+    "control_forever": [
+      "SUBSTACK"
+    ],
+    "control_repeat": [
+      "SUBSTACK"
+    ],
+    "control_repeat_until": [
+      "SUBSTACK"
+    ],
+    "control_while": [
+      "SUBSTACK"
+    ],
+    "control_for_each": [
+      "SUBSTACK"
+    ],
+    "control_if": [
+      "SUBSTACK"
+    ],
+    "control_if_else": [
+      "SUBSTACK",
+      "SUBSTACK2"
+    ],
+    "control_all_at_once": [
+      "SUBSTACK"
+    ],
+    "procedures_definition": [
+      "custom_block"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "maze_starter_movement_mapping_error",
+  "description": "Fix the bug where movement is unusable due to incorrect direction mapping or zero step values.",
+  "type": "debug",
+  "instruction": "This is a basic maze navigation game where players control a ball sprite using arrow keys to move through a maze. The ball bounces off blue walls and the goal is to reach a target sprite that displays 'You win!' when touched. But now in this Maze Starter, the ball doesn't move when the arrow keys are pressed. Please help me fix this movement issue so that the ball moves in the correct directions with a proper step size.",
+  "initial_project": "maze_starter_movement_mapping_error.sb3",
+  "evaluation": {
+    "function": "maze_starter_movement_mapping_error",
+    "timeout": 20,
+    "description": "Simulates up/down/left/right key presses and checks the resulting displacement vectors. The test passes if directions match expected headings and the sprite translates by a sensible amount."
+  }
+}

@@ -1,0 +1,485 @@
+{
+  "id": "T2_030",
+  "category": "T2",
+  "instruction": "Drag the 'x position' block and connect it to the first input slot of the 'bigger than' block.",
+  "init_project": "T2_030.sb3",
+  "evaluation_config": {
+    "target_block_opcode": "motion_xposition",
+    "target_block_id": "u0J/,X1Jb,`bjC38K+NT",
+    "reference_block_id": ",,#aeTn9mrIhg6psjR}G",
+    "connection_type": "input",
+    "target_input_name": "OPERAND1",
+    "description": "Drag the 'x position' block from the flyout to the first input slot of the 'bigger than' block.",
+    "reference_block_opcode": "operator_gt",
+    "reference_block_structure": {
+      "id": ",,#aeTn9mrIhg6psjR}G",
+      "opcode": "operator_gt",
+      "position": {
+        "x": 150,
+        "y": 383
+      },
+      "boundingBox": null,
+      "screenBoundingBox": {
+        "x": 412.25,
+        "y": 351.5249938964844,
+        "left": 412.25,
+        "top": 351.5249938964844,
+        "right": 516.22265625,
+        "bottom": 378.5249938964844,
+        "width": 103.97265625,
+        "height": 27
+      },
+      "parent": "00T(J|%!Ukxi0[;qY38-",
+      "inputs": {
+        "OPERAND1": {
+          "name": "OPERAND1",
+          "block": "Szt;?g2T8,qlD%SYS8y[",
+          "shadow": "Szt;?g2T8,qlD%SYS8y["
+        },
+        "OPERAND2": {
+          "name": "OPERAND2",
+          "block": "w=4#7f[q0gJXC6Cgp_*q",
+          "shadow": "w=4#7f[q0gJXC6Cgp_*q"
+        }
+      },
+      "fields": {}
+    },
+    "pan_canvas_actions": [
+      {
+        "api": "custom_js",
+        "args": {
+          "fn": "\n({ ws, payload }) => {\n    if (!ws) return { success: false, error: \"Workspace not available\" };\n    // dx, dy 是屏幕像素偏移量（正值表示内容应该向右/向下移动）\n    const dx = (payload && payload.dx) || 0;\n    const dy = (payload && payload.dy) || 0;\n    const scale = ws.scale || 1;\n    \n    const canvas = ws.getCanvas();\n    if (!canvas) return { success: false, error: \"Cannot get canvas\" };\n    \n    // 获取当前的 transform\n    const currentTransform = canvas.getAttribute('transform') || '';\n    \n    // 解析当前的 translate 值\n    let currentTx = 0, currentTy = 0;\n    const translateMatch = currentTransform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    if (translateMatch) {\n        currentTx = parseFloat(translateMatch[1]) || 0;\n        currentTy = parseFloat(translateMatch[2]) || 0;\n    }\n    \n    // 在当前基础上增加 dx, dy（屏幕像素偏移）\n    const newTx = currentTx + dx;\n    const newTy = currentTy + dy;\n    \n    // 设置新的 transform（保持原来的 scale）\n    const newTransform = 'translate(' + newTx + ',' + newTy + ') scale(' + scale + ')';\n    canvas.setAttribute('transform', newTransform);\n    \n    // 同时更新 bubble canvas（气泡层）\n    const bubbleCanvas = ws.getBubbleCanvas();\n    if (bubbleCanvas) {\n        bubbleCanvas.setAttribute('transform', newTransform);\n    }\n    \n    // 更新 scrollX/scrollY 以保持内部状态一致\n    // scrollX = -translateX / scale\n    ws.scrollX = -newTx / scale;\n    ws.scrollY = -newTy / scale;\n    \n    return { \n        success: true, \n        mode: \"direct_svg_transform\",\n        inputDx: dx, inputDy: dy,\n        currentTransform,\n        currentTx, currentTy,\n        newTx, newTy,\n        newTransform,\n        newScrollX: ws.scrollX, \n        newScrollY: ws.scrollY,\n        scale\n    };\n}\n",
+          "payload": {
+            "dx": 131.70001220703125,
+            "dy": 17.25
+          }
+        }
+      }
+    ],
+    "workspace_state": {
+      "tx": 441.70001220703125,
+      "ty": 17.24999999999997,
+      "scale": 0.675,
+      "scrollX": -654.3703884548611,
+      "scrollY": -25.55555555555551,
+      "transform": "translate(441.70001220703125,17.24999999999997) scale(0.675)"
+    },
+    "seed_point": [
+      543,
+      383
+    ],
+    "target_stack_tail_block_id": "u0J/,X1Jb,`bjC38K+NT",
+    "drag_start_point": [
+      704,
+      334
+    ],
+    "first_valid_point": [
+      543,
+      383
+    ],
+    "feasible_points": [
+      [
+        543,
+        383
+      ],
+      [
+        545,
+        383
+      ],
+      [
+        547,
+        383
+      ],
+      [
+        549,
+        383
+      ],
+      [
+        551,
+        383
+      ],
+      [
+        553,
+        383
+      ],
+      [
+        555,
+        383
+      ],
+      [
+        557,
+        383
+      ],
+      [
+        559,
+        383
+      ],
+      [
+        561,
+        383
+      ],
+      [
+        563,
+        383
+      ],
+      [
+        565,
+        383
+      ],
+      [
+        567,
+        383
+      ],
+      [
+        569,
+        383
+      ],
+      [
+        571,
+        383
+      ],
+      [
+        573,
+        383
+      ],
+      [
+        575,
+        383
+      ],
+      [
+        577,
+        383
+      ],
+      [
+        579,
+        383
+      ],
+      [
+        581,
+        383
+      ],
+      [
+        583,
+        383
+      ],
+      [
+        585,
+        383
+      ],
+      [
+        587,
+        383
+      ],
+      [
+        589,
+        383
+      ],
+      [
+        591,
+        383
+      ],
+      [
+        593,
+        383
+      ],
+      [
+        595,
+        383
+      ],
+      [
+        597,
+        383
+      ],
+      [
+        599,
+        383
+      ],
+      [
+        601,
+        383
+      ],
+      [
+        603,
+        383
+      ],
+      [
+        605,
+        383
+      ],
+      [
+        607,
+        383
+      ],
+      [
+        609,
+        383
+      ]
+    ],
+    "feasible_start_points": [
+      [
+        704,
+        334
+      ],
+      [
+        709,
+        334
+      ],
+      [
+        704,
+        339
+      ],
+      [
+        704,
+        329
+      ],
+      [
+        699,
+        334
+      ],
+      [
+        714,
+        334
+      ],
+      [
+        709,
+        339
+      ],
+      [
+        704,
+        324
+      ],
+      [
+        699,
+        339
+      ],
+      [
+        704,
+        344
+      ],
+      [
+        699,
+        329
+      ],
+      [
+        709,
+        329
+      ],
+      [
+        694,
+        334
+      ],
+      [
+        719,
+        334
+      ],
+      [
+        714,
+        339
+      ],
+      [
+        714,
+        329
+      ],
+      [
+        709,
+        344
+      ],
+      [
+        709,
+        324
+      ],
+      [
+        699,
+        324
+      ],
+      [
+        704,
+        349
+      ],
+      [
+        699,
+        344
+      ],
+      [
+        694,
+        339
+      ],
+      [
+        689,
+        334
+      ],
+      [
+        694,
+        329
+      ],
+      [
+        719,
+        339
+      ],
+      [
+        724,
+        334
+      ],
+      [
+        719,
+        329
+      ],
+      [
+        714,
+        324
+      ],
+      [
+        714,
+        344
+      ],
+      [
+        709,
+        349
+      ],
+      [
+        694,
+        324
+      ],
+      [
+        699,
+        349
+      ],
+      [
+        694,
+        344
+      ],
+      [
+        689,
+        339
+      ],
+      [
+        684,
+        334
+      ],
+      [
+        689,
+        329
+      ],
+      [
+        719,
+        344
+      ],
+      [
+        729,
+        334
+      ],
+      [
+        724,
+        339
+      ],
+      [
+        719,
+        324
+      ],
+      [
+        724,
+        329
+      ],
+      [
+        689,
+        324
+      ],
+      [
+        689,
+        344
+      ],
+      [
+        714,
+        349
+      ],
+      [
+        694,
+        349
+      ],
+      [
+        684,
+        339
+      ],
+      [
+        679,
+        334
+      ],
+      [
+        684,
+        329
+      ],
+      [
+        724,
+        344
+      ],
+      [
+        719,
+        349
+      ],
+      [
+        729,
+        339
+      ],
+      [
+        734,
+        334
+      ],
+      [
+        689,
+        349
+      ],
+      [
+        729,
+        329
+      ],
+      [
+        724,
+        324
+      ],
+      [
+        684,
+        344
+      ],
+      [
+        679,
+        339
+      ],
+      [
+        729,
+        344
+      ],
+      [
+        679,
+        329
+      ],
+      [
+        724,
+        349
+      ],
+      [
+        734,
+        339
+      ],
+      [
+        684,
+        349
+      ],
+      [
+        679,
+        344
+      ],
+      [
+        674,
+        339
+      ],
+      [
+        734,
+        344
+      ],
+      [
+        729,
+        349
+      ]
+    ]
+  }
+}

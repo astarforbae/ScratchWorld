@@ -1,0 +1,12 @@
+{
+  "name": "pong_starter_paddle_bouncing_error",
+  "description": "Fix the problem that the pong ball doesn't bounce correctly when touching the paddle",
+  "type": "debug",
+  "instruction": "This is a basic Pong-style game where a ball bounces around the screen and players control a paddle that follows the mouse. The ball changes direction when hitting the paddle and the game ends when the ball touches red areas. But now in this Pong Game, the pong ball doesn't bounce correctly when it touches the paddle. Please help me fix this issue so the ball properly bounces off the paddle with correct physics.",
+  "initial_project": "pong_starter_paddle_bouncing_error.sb3",
+  "evaluation": {
+    "function": "pong_starter_paddle_bouncing_error",
+    "timeout": 20,
+    "description": "Evaluates whether the ball bounces correctly when touching the paddle. The test finds the Ball and Paddle sprites, starts the game, and monitors ball-paddle collisions. When the ball touches the paddle, it checks if the ball's direction changes appropriately (bounces). The test passes if the ball demonstrates proper bouncing behavior when hitting the paddle; otherwise, it fails."
+  }
+}

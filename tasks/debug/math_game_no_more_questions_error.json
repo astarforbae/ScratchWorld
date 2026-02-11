@@ -1,0 +1,12 @@
+{
+  "name": "math_game_no_more_questions_error",
+  "description": "Fix the issue where the Math Game ends after the first question instead of continuing with more questions",
+  "type": "debug",
+  "instruction": "This is an educational math quiz game featuring a character named Frank who asks addition problems. The game starts with a fixed question (3+3) and then generates random addition problems, providing visual and audio feedback for correct and incorrect answers. But now in this Math Game, when the player correctly answers the first question, the project ends instead of continuing with additional questions. Please help me fix this issue so that the game continues with more questions after each correct answer.",
+  "initial_project": "math_game_no_more_questions_error.sb3",
+  "evaluation": {
+    "function": "math_game_no_more_questions_error",
+    "timeout": 20,
+    "description": "Evaluates whether the math game continues with additional questions after the first correct answer. The test starts the game, answers the first question correctly, and then checks if a second question appears within the timeout period. The test passes if multiple questions are presented in sequence; otherwise, it fails if the game ends after just one question."
+  }
+}

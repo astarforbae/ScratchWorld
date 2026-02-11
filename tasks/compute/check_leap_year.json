@@ -1,0 +1,26 @@
+{
+  "name": "check_leap_year",
+  "description": "Create a Scratch program that checks if a given year (positive integer) is a leap year. The sprite should say 'True' if it is, and 'False' otherwise.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that checks if a given year (positive integer) is a leap year. The sprite should say 'True' if it is, and 'False' otherwise.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "check_leap_year",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: check_leap_year",
+    "test_cases": [
+      {
+        "input": 2000,
+        "output": "True"
+      },
+      {
+        "input": 2020,
+        "output": "True"
+      },
+      {
+        "input": 2100,
+        "output": "False"
+      }
+    ]
+  }
+}

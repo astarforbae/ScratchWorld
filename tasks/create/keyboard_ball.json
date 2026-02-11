@@ -1,0 +1,12 @@
+{
+  "name": "keyboard_ball",
+  "description": "Create a project with a ball sprite that can be moved up, down, left, and right using the keyboard arrow keys",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'ball', you should complete the following: 1) When the green flag is clicked, allow the user to move the ball using the arrow keys: up, down, left, and right. 2) Ensure the movement responds continuously while keys are pressed.",
+  "initial_project": "ball.sb3",
+  "evaluation": {
+    "function": "keyboard_ball",
+    "description": "Checks that the ball sprite responds to arrow key inputs and can move in all four directions: up, down, left, and right",
+    "timeout": 20
+  }
+}

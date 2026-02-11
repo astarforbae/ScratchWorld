@@ -1,0 +1,88 @@
+{
+  "task_id": "20",
+  "instruction": "Is the `wait until` block directly connected to the block directly above it?",
+  "screenshot": "054.png",
+  "task_type": "connection",
+  "tag": "connection_yes",
+  "ground_truth": "YES",
+  "prompt": [
+    {
+      "role": "system",
+      "content": "\nYou are an expert annotator for a visual perception benchmark based on Scratch programming canvases.\n\nYou will be given ONE screenshot of a Scratch canvas.\nYour task is to generate exactly ONE valid **Connection-type question** based solely on the visual content of the screenshot.\n\nIMPORTANT: This task evaluates visual perception only. Do NOT rely on Scratch semantics, execution order, or prior knowledge of Scratch blocks.\n\n---\n\n### 1. Task Definition (Connection)\nA Connection task asks whether a target block is visually connected to another block, either by:\n- direct vertical stacking, or\n- being placed inside a visually identifiable slot (e.g., control body slot, condition slot, or value slot).\n\nYou must generate a YES/NO question.\n\n---\n\n### 2. Allowed Connection Types\nYou may choose **one** of the following connection relations, if it is clearly visible in the screenshot:\n\n#### (A) Stack Connection\nA block is directly connected to the block immediately above or below it.\n\nTemplate:\n> Is the [spatial-superlative] `[block-type]` block directly connected to the block directly [above/below] it?\n\n#### (B) Control-slot Embedding\nA block is placed inside the body slot or condition slot of a control block.\n\nTemplate:\n> Is the [spatial-superlative] `[block-type]` block placed in the [slot-specifier] of the `[control-block-type]` block?\n\n**Slot Specifiers for Control Blocks:**\n- `body slot`: For standard C-shaped blocks (repeat, forever).\n- `if-body slot`: DISTINCTLY for the \"if\" part of an if-else block.\n- `else-body slot`: DISTINCTLY for the \"else\" part of an if-else block.\n- `condition slot`: For the hexagonal input shape in control blocks (if, repeat until).\n\n#### (C) Value/Boolean-slot Embedding\nA block is placed inside a value slot (round) or boolean slot (hexagonal) of an operator, sensing, or other reporter block.\n\nTemplate:\n> Is the `[block-type]` block placed in the [slot-specifier] of the `[parent-block-type]` block?\n\n**Slot Specifiers:**\n- `value slot`: Use ONLY if the parent block has exactly ONE round slot.\n- `left value slot` / `right value slot`: Use if the parent block has multiple round slots (e.g., operators).\n- `boolean slot`: Use for hexagonal slots in operators/sensing (e.g., \"not\", \"and\", \"or\").\n\n---\n\n### 3. Block-Type Naming Rules (CRITICAL)\n- Use ONLY the visible text labels shown on the blocks.\n- Do NOT include any field values (numbers, dropdown selections, text).\n- Do NOT use internal or symbolic names (e.g., motion_movesteps).\n\nExamples:\n- Use: `move steps` (NOT `move 10 steps`)\n- Use: `set to` (NOT `set score to`)\n- Use: `go to layer` (NOT `go to front layer`)\n\n---\n\n### 4. Spatial Reference Rules (CRITICAL)\n- **UNIQUE BLOCKS**: If there is ONLY ONE block of a specific type (e.g., only one `move steps` block), you MUST NOT use a spatial superlative. Refer to it simply as `the \"move steps\" block`.\n- **MULTIPLE BLOCKS**: If and ONLY IF there are multiple blocks of the same type, you MUST use exactly one spatial superlative to distinguish them:\n    - leftmost\n    - rightmost\n    - topmost\n    - bottommost\n\nDo NOT use ordinal or semantic terms such as \"first\", \"main\", or \"initial\".\n\n---\n\n### 5. Visual Analysis Guidelines (Heuristics)\nUse these empirical rules to distinguish true connections from visual artifacts:\n\n1.  **The Left-Alignment Rule (Stacking)**\n    *   For vertical stack connections (Next/Previous), connected blocks usually have their **left edges aligned**.\n    *   **True Connection**: The left edge of the bottom block aligns vertically with the left edge of the top block.\n    *   **False Connection**: The blocks are horizontally offset or misaligned, even if they are touching vertically.\n\n2.  **The Notch Rule (Alignment)**\n    *   For Stack connections, the \"bump\" (protrusion) of the bottom block must align perfectly with the \"notch\" (indentation) of the top block.\n    *   If they are touching but offset (misaligned), or if the shapes don't match, it is NOT a valid connection.\n\n3.  **The Canvas Occlusion Rule (Embedding)**\n    *   For C-shaped blocks (substacks) or input slots: A connected block fully occupies the slot area.\n    *   **True Connection**: The target block fills the slot completely. You cannot see the empty slot's background.\n    *   **False Connection**: You can see the empty background visible between the block and the slot boundaries.\n    *   **Empty Slot Backgrounds (Reference)**:\n        *   **Round (Value) Slots**: The empty background is usually **WHITE**.\n        *   **Hexagonal (Boolean) Slots**: The empty background is a **DARKER SHADE** of the parent block's color (e.g., darker green for Operators, darker orange for Control).\n\n---\n\n### 6. Constraints\n- **First, perform a visual analysis based on the heuristics above.**\n- Then, generate exactly ONE question and its answer.\n- The question must be answerable using visual evidence only.\n- Do NOT mention uncertainty in the final question.\n- Do NOT generate multiple questions.\n\n---\n\n### 7. Output Format\nOutput the analysis first, then the question and answer.\n\nFormat:\nAnalysis: [Briefly describe the visual state. E.g., \"I see a 'move steps' block. It is overlapping the 'turn' block, but there is a visible shadow between them, so they are not connected.\"]\nQuestion: [Your generated question]\nAnswer: [YES/NO]\n\nExample 1 (Stack):\nAnalysis: The `repeat` block is seamlessly joined with the `move steps` block below it. There is no shadow at the junction. The notch fits the bump.\nQuestion: Is the `repeat` block directly connected to the block directly below it?\nAnswer: YES\n\nExample 2 (False Positive Check):\nAnalysis: The `change x by` block is hovering over the `set x to` block. I can see a drop shadow beneath the `change x by` block, indicating it is floating.\nQuestion: Is the `change x by` block directly connected to the block directly below it?\nAnswer: NO\n\nExample 3 (Multiple blocks, If-else):\nAnalysis: There are two `move steps` blocks. The topmost one is distinctly placed inside the lower \"else\" mouth of the `if then else` block. It fits perfectly.\nQuestion: Is the topmost `move steps` block placed in the else-body slot of the `if then else` block?\nAnswer: YES\n"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "### Constraints and Hints for the Generating the Question\n\n\n#### Tag-Specific Constraint (MUST FOLLOW)\n**Target Answer: YES**\nThe hint points to blocks that ARE truly connected (stack connection or slot embedding).\nGenerate a question using the appropriate Connection template where the answer is YES.\n\n\n\n---\n\n#### Hint (CRITICAL)\nThe user has provided a specific hint to help you position your attention. \n\nThe hint always contain a block name, possibly with a spatial qualifier (an abbreviation).\n\n**Abbreviation Guide:**\n- `tm` = **topmost** (e.g., \"tm move\" -> topmost \"move steps\" block)\n- `bm` = **bottommost**\n- `lm` = **leftmost**\n- `rm` = **rightmost**\n- `inner` / `nested` = inside another block\n\nFor connection type tasks, the hint may:\n1. include positional words like \"above\", \"below\", \"in\", etc.\n2. two block names, indicating the target block and its parent/neighbor block.\n\n\n**Hint:** \"wait until above\"\n**Instruction**: Use this hint to IDENTIFY the target block(s) for your question. The question must be about the block(s) described in the hint.\n\n        "
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "<054.png>"
+          }
+        }
+      ]
+    }
+  ],
+  "response_content": "Analysis: In the workspace, a stack shows \"when clicked\" on top, then \"set drag mode\" below it, and the orange \"wait until\" block beneath. The \"wait until\" block’s left edge aligns with the block above, and the notch/bump junction fits cleanly with no visible shadow, indicating a true stack connection.\nQuestion: Is the \"wait until\" block directly connected to the block directly above it?\nAnswer: YES",
+  "full_response": {
+    "id": "chatcmpl-D1C2HUoZF6O2P0bYpzCEf2nii13i6",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Analysis: In the workspace, a stack shows \"when clicked\" on top, then \"set drag mode\" below it, and the orange \"wait until\" block beneath. The \"wait until\" block’s left edge aligns with the block above, and the notch/bump junction fits cleanly with no visible shadow, indicating a true stack connection.\nQuestion: Is the \"wait until\" block directly connected to the block directly above it?\nAnswer: YES",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": [],
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "provider_specific_fields": {
+          "content_filter_results": {}
+        }
+      }
+    ],
+    "created": 1769176965,
+    "model": "gpt-5-2025-08-07",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 357,
+      "prompt_tokens": 2644,
+      "total_tokens": 3001,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 256,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0
+      }
+    },
+    "prompt_filter_results": [
+      {
+        "prompt_index": 1,
+        "content_filter_result": {
+          "custom_blocklists": {
+            "filtered": false,
+            "details": []
+          }
+        }
+      },
+      {
+        "prompt_index": 0,
+        "content_filter_result": {}
+      }
+    ]
+  },
+  "focus_hint": "wait until above"
+}

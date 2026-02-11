@@ -1,0 +1,26 @@
+{
+  "name": "count_vowels",
+  "description": "Create a Scratch program that takes a string as input and counts how many vowels (a, e, i, o, u) it contains (case-insensitive). The sprite should say the count.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that takes a string as input and counts how many vowels (a, e, i, o, u) it contains (case-insensitive). The sprite should say the count.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "count_vowels",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: count_vowels",
+    "test_cases": [
+      {
+        "input": "hello",
+        "output": 2
+      },
+      {
+        "input": "sky",
+        "output": 0
+      },
+      {
+        "input": "AeIoU",
+        "output": 5
+      }
+    ]
+  }
+}

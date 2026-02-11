@@ -1,0 +1,26 @@
+{
+  "name": "digital_root",
+  "description": "Create a Scratch program that calculates the digital root of a given positive integer. The digital root is obtained by recursively summing the digits of the number until a single-digit number remains. The sprite should say the result.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that calculates the digital root of a given positive integer. The digital root is obtained by recursively summing the digits of the number until a single-digit number remains. The sprite should say the result.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "digital_root",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: digital_root",
+    "test_cases": [
+      {
+        "input": 16,
+        "output": 7
+      },
+      {
+        "input": 942,
+        "output": 6
+      },
+      {
+        "input": 12345,
+        "output": 6
+      }
+    ]
+  }
+}

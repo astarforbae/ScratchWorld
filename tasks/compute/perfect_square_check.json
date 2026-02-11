@@ -1,0 +1,26 @@
+{
+  "name": "perfect_square_check",
+  "description": "Create a Scratch program that checks if a given positive integer is a perfect square. The sprite should say 'True' if it is, and 'False' otherwise.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that checks if a given positive integer is a perfect square. The sprite should say 'True' if it is, and 'False' otherwise.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "perfect_square_check",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: perfect_square_check",
+    "test_cases": [
+      {
+        "input": 16,
+        "output": "True"
+      },
+      {
+        "input": 15,
+        "output": "False"
+      },
+      {
+        "input": 1,
+        "output": "True"
+      }
+    ]
+  }
+}

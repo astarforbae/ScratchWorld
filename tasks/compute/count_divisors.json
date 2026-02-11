@@ -1,0 +1,26 @@
+{
+  "name": "count_divisors",
+  "description": "Create a Scratch program that counts the number of divisors of a given positive integer. The sprite should say the count.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that counts the number of divisors of a given positive integer. The sprite should say the count.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "count_divisors",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: count_divisors",
+    "test_cases": [
+      {
+        "input": 6,
+        "output": 4
+      },
+      {
+        "input": 7,
+        "output": 2
+      },
+      {
+        "input": 12,
+        "output": 6
+      }
+    ]
+  }
+}

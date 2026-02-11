@@ -1,0 +1,12 @@
+{
+  "name": "simple_circuit_lightbulb_not_turning_on_error",
+  "description": "Fix the bug where the Lightbulb does not turn on even when the circuit is complete and the Switch is ON.",
+  "type": "debug",
+  "instruction": "This is an interactive circuit simulation where users can drag and connect a battery, switch, and lightbulb to complete an electrical circuit. When all components are properly connected and the switch is turned on, the lightbulb illuminates with sound effects. But now in this Simple Circuit project, even when 'ON or OFF' is ON and 'connections complete' equals 3, the Lightbulb does not turn on and remains in its OFF visual state. Please help me fix this issue so that the lightbulb turns on when the circuit is complete and the switch is ON.",
+  "initial_project": "simple_circuit_lightbulb_not_turning_on_error.sb3",
+  "evaluation": {
+    "function": "simple_circuit_lightbulb_not_turning_on_error",
+    "timeout": 20,
+    "description": "Arranges the components to complete the circuit, toggles the Switch ON, and verifies that the Lightbulb transitions to an ON visual state (costume/brightness) and remains OFF otherwise."
+  }
+}

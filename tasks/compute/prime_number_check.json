@@ -1,0 +1,26 @@
+{
+  "name": "prime_number_check",
+  "description": "Create a Scratch program that checks if a given positive integer greater than 1 is a prime number. The sprite should say 'True' if it is, and 'False' otherwise.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that checks if a given positive integer greater than 1 is a prime number. The sprite should say 'True' if it is, and 'False' otherwise.",
+  "initial_project": "prime_number_check.sb3",
+  "evaluation": {
+    "function": "prime_number_check",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: prime_number_check",
+    "test_cases": [
+      {
+        "input": 7,
+        "output": "True"
+      },
+      {
+        "input": 10,
+        "output": "False"
+      },
+      {
+        "input": 13,
+        "output": "True"
+      }
+    ]
+  }
+}

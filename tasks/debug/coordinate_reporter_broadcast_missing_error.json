@@ -1,0 +1,12 @@
+{
+  "name": "coordinate_reporter_broadcast_missing_error",
+  "description": "Fix the wrong broadcast messages that prevent proper mode switching between drag and input modes",
+  "type": "debug",
+  "instruction": "This is an interactive coordinate reporting tool where a sprite displays its current X and Y position on screen. Users can drag the sprite around or use input prompts to move it by specific amounts, with real-time coordinate feedback and mode switching between drag and input modes. The project now stops immediately after clicking the green flag; fix it so it behaves correctly.",
+  "initial_project": "coordinate_reporter_broadcast_missing_error.sb3",
+  "evaluation": {
+    "function": "coordinate_reporter_broadcast_missing_error",
+    "timeout": 20,
+    "description": "Evaluates whether the coordinate reporter properly switches between drag mode and input mode. The test clicks the green flag, verifies drag mode works (cat shows coordinates when dragged), then clicks the Input Numbers button and verifies it switches to input mode where the cat asks for coordinate changes."
+  }
+}

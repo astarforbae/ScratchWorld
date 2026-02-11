@@ -1,0 +1,12 @@
+{
+  "name": "gravity_ball",
+  "description": "Simulate a ball with gravity: it falls from the top, speeds up, bounces at the bottom with decreasing height, and eventually rests",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'ball', you should complete the following: 1) When the green flag is clicked, position the ball at the top of the stage and make it fall downward with increasing speed (simulate gravity). 2) When the ball hits the bottom of the stage, make it bounce upward but to a lower height each time. 3) Ensure the ball eventually comes to rest at the bottom.",
+  "initial_project": "ball.sb3",
+  "evaluation": {
+    "function": "gravity_ball",
+    "description": "Checks that the ball starts from the top, accelerates downward, bounces at the bottom with decreasing height, and eventually rests at the bottom",
+    "timeout": 20
+  }
+}

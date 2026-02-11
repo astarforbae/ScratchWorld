@@ -1,0 +1,12 @@
+{
+  "name": "make_it_fly_endless_scrolling_and_scoring_modify",
+  "description": "Add a score system that increases over time/distance and gradually speeds up the Buildings to raise difficulty.",
+  "type": "extend",
+  "instruction": "This is a simple flying game where a cat sprite can be controlled with arrow keys to fly up and down while buildings scroll continuously across the screen from right to left, creating a side-scrolling flight experience. Please create a variable score and increase it by one every second. Decrease the glide duration of Buildings over time to make obstacles move faster. Ensure the game runs continuously with visible score updates.",
+  "initial_project": "make_it_fly.sb3",
+  "evaluation": {
+    "function": "make_it_fly_endless_scrolling_and_scoring_modify",
+    "timeout": 30,
+    "description": "Evaluates that the score increases during gameplay and that Buildings' effective speed increases after some time/score, indicating rising difficulty."
+  }
+}

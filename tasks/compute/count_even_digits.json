@@ -1,0 +1,26 @@
+{
+  "name": "count_even_digits",
+  "description": "Create a Scratch program that counts the number of even digits in a given positive integer. The sprite should say the count.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that counts the number of even digits in a given positive integer. The sprite should say the count.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "count_even_digits",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: count_even_digits",
+    "test_cases": [
+      {
+        "input": 123456,
+        "output": 3
+      },
+      {
+        "input": 135,
+        "output": 0
+      },
+      {
+        "input": 202,
+        "output": 3
+      }
+    ]
+  }
+}

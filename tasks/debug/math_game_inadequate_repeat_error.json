@@ -1,0 +1,12 @@
+{
+  "name": "math_game_inadequate_repeat_error",
+  "description": "Fix the inadequate repeat issue where the game only shows 3 questions after the first question instead of continuing forever",
+  "type": "debug",
+  "instruction": "This is an educational math quiz game featuring a character named Frank who asks addition problems. The game starts with a fixed question (3+3) and then generates random addition problems, providing visual and audio feedback for correct and incorrect answers. But now in this Math Game, after answering the first question correctly, the program should continue presenting new math questions indefinitely in a forever loop. However, there's a bug where the game only shows 3 additional questions and then stops. Please help me fix this issue so that the game creates a forever loop of questions after the initial question.",
+  "initial_project": "math_game_inadequate_repeat_error.sb3",
+  "evaluation": {
+    "function": "math_game_inadequate_repeat_error",
+    "timeout": 20,
+    "description": "Evaluates whether the math game continues presenting questions indefinitely. The test starts the game, answers the first question, and then monitors for continuous question generation beyond the current 3-question limit. The test passes if the game presents more than 3 questions in sequence (indicating a forever loop); otherwise, it fails if the game stops after only 3 questions."
+  }
+}

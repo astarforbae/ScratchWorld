@@ -1,0 +1,19 @@
+Actions (api + args):
+- click: args { x?: number, y?: number, index?: number, description?: string, button?: 'left'|'right'|'middle' }
+- double_click: args { x?: number, y?: number, index?: number, description?: string }
+- drag_and_drop: args { start_x?: number, start_y?: number, end_x?: number, end_y?: number, start_index?: number, end_index?: number, source_description?: string, target_description?: string, duration?: number }
+- type: args { text: string }
+- key: args { key: string }
+- hotkey: args { keys: string[] }
+- scroll: args { direction: 'up'|'down'|'left'|'right', amount?: number, x?: number, y?: number, index?: number, description?: string }
+- save_to_knowledge: args { text: string }
+- done: args { }
+- failed: args { }
+
+Execution Rules:
+1. Targeting: For location-based actions, use EXACTLY ONE method:
+   - "index" if the UI element is numbered or tagged.
+   - "description" with a clear natural language element reference. (drag_and_drop accepts source_description and target_description)
+   - "x", "y" coordinates for direct screen interaction.
+2. Conciseness: Omit any optional parameters that remain at their default values.
+3. save_to_knowledge api can save key facts or element references for reuse in this task.

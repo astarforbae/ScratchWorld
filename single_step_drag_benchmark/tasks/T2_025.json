@@ -1,0 +1,460 @@
+{
+  "id": "T2_025",
+  "category": "T2",
+  "instruction": "Drag the 'currentLevel' data variable block from the flyout into the first input slot of the 'equal' block.",
+  "init_project": "T2_025.sb3",
+  "evaluation_config": {
+    "use_flyout": true,
+    "target_block_opcode": "data_variable",
+    "target_block_id": null,
+    "reference_block_id": "{dCcAGa_p^r(+.E(MIhN",
+    "connection_type": "input",
+    "target_input_name": "OPERAND1",
+    "description": "Drag the 'currentLevel' data variable block from the flyout and connect it into the first input slot of the 'equal' block.",
+    "reference_block_opcode": "operator_equals",
+    "variable_name": "currentLevel",
+    "locate_target_actions": [
+      {
+        "api": "click",
+        "args": {
+          "x": 31,
+          "y": 430
+        }
+      }
+    ],
+    "switch_sprite_actions": [
+      {
+        "api": "click",
+        "args": {
+          "x": 1143,
+          "y": 420
+        }
+      }
+    ],
+    "seed_point": [
+      590,
+      361
+    ],
+    "drag_start_point": [
+      131,
+      178
+    ],
+    "pan_canvas_actions": [
+      {
+        "api": "custom_js",
+        "args": {
+          "fn": "\n({ ws, payload }) => {\n    if (!ws) return { success: false, error: \"Workspace not available\" };\n    // dx, dy 是屏幕像素偏移量（正值表示内容应该向右/向下移动）\n    const dx = (payload && payload.dx) || 0;\n    const dy = (payload && payload.dy) || 0;\n    const scale = ws.scale || 1;\n    \n    const canvas = ws.getCanvas();\n    if (!canvas) return { success: false, error: \"Cannot get canvas\" };\n    \n    // 获取当前的 transform\n    const currentTransform = canvas.getAttribute('transform') || '';\n    \n    // 解析当前的 translate 值\n    let currentTx = 0, currentTy = 0;\n    const translateMatch = currentTransform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    if (translateMatch) {\n        currentTx = parseFloat(translateMatch[1]) || 0;\n        currentTy = parseFloat(translateMatch[2]) || 0;\n    }\n    \n    // 在当前基础上增加 dx, dy（屏幕像素偏移）\n    const newTx = currentTx + dx;\n    const newTy = currentTy + dy;\n    \n    // 设置新的 transform（保持原来的 scale）\n    const newTransform = 'translate(' + newTx + ',' + newTy + ') scale(' + scale + ')';\n    canvas.setAttribute('transform', newTransform);\n    \n    // 同时更新 bubble canvas（气泡层）\n    const bubbleCanvas = ws.getBubbleCanvas();\n    if (bubbleCanvas) {\n        bubbleCanvas.setAttribute('transform', newTransform);\n    }\n    \n    // 更新 scrollX/scrollY 以保持内部状态一致\n    // scrollX = -translateX / scale\n    ws.scrollX = -newTx / scale;\n    ws.scrollY = -newTy / scale;\n    \n    return { \n        success: true, \n        mode: \"direct_svg_transform\",\n        inputDx: dx, inputDy: dy,\n        currentTransform,\n        currentTx, currentTy,\n        newTx, newTy,\n        newTransform,\n        newScrollX: ws.scrollX, \n        newScrollY: ws.scrollY,\n        scale\n    };\n}\n",
+          "payload": {
+            "dx": 155.07147216796875,
+            "dy": -121.625
+          }
+        }
+      }
+    ],
+    "workspace_state": {
+      "tx": 465.0714721679687,
+      "ty": 105.00000000000006,
+      "scale": 0.675,
+      "scrollX": -688.9947735821758,
+      "scrollY": -155.55555555555563,
+      "transform": "translate(465.0714721679687,105.00000000000006) scale(0.675)"
+    },
+    "first_valid_point": [
+      620,
+      361
+    ],
+    "feasible_points": [
+      [
+        620,
+        361
+      ],
+      [
+        622,
+        361
+      ],
+      [
+        624,
+        361
+      ],
+      [
+        626,
+        361
+      ],
+      [
+        628,
+        361
+      ],
+      [
+        630,
+        361
+      ],
+      [
+        632,
+        361
+      ],
+      [
+        634,
+        361
+      ],
+      [
+        636,
+        361
+      ],
+      [
+        638,
+        361
+      ],
+      [
+        640,
+        361
+      ],
+      [
+        642,
+        361
+      ],
+      [
+        644,
+        361
+      ],
+      [
+        646,
+        361
+      ],
+      [
+        648,
+        361
+      ],
+      [
+        650,
+        361
+      ],
+      [
+        652,
+        361
+      ],
+      [
+        654,
+        361
+      ],
+      [
+        656,
+        361
+      ],
+      [
+        658,
+        361
+      ],
+      [
+        660,
+        361
+      ],
+      [
+        662,
+        361
+      ]
+    ],
+    "feasible_start_points": [
+      [
+        131,
+        178
+      ],
+      [
+        136,
+        178
+      ],
+      [
+        126,
+        178
+      ],
+      [
+        131,
+        173
+      ],
+      [
+        131,
+        183
+      ],
+      [
+        136,
+        183
+      ],
+      [
+        141,
+        178
+      ],
+      [
+        136,
+        173
+      ],
+      [
+        121,
+        178
+      ],
+      [
+        131,
+        168
+      ],
+      [
+        126,
+        173
+      ],
+      [
+        131,
+        188
+      ],
+      [
+        126,
+        183
+      ],
+      [
+        136,
+        188
+      ],
+      [
+        146,
+        178
+      ],
+      [
+        141,
+        183
+      ],
+      [
+        136,
+        168
+      ],
+      [
+        141,
+        173
+      ],
+      [
+        116,
+        178
+      ],
+      [
+        121,
+        183
+      ],
+      [
+        121,
+        173
+      ],
+      [
+        126,
+        188
+      ],
+      [
+        126,
+        168
+      ],
+      [
+        151,
+        178
+      ],
+      [
+        141,
+        188
+      ],
+      [
+        146,
+        173
+      ],
+      [
+        146,
+        183
+      ],
+      [
+        141,
+        168
+      ],
+      [
+        121,
+        188
+      ],
+      [
+        111,
+        178
+      ],
+      [
+        116,
+        173
+      ],
+      [
+        116,
+        183
+      ],
+      [
+        121,
+        168
+      ],
+      [
+        156,
+        178
+      ],
+      [
+        151,
+        183
+      ],
+      [
+        151,
+        173
+      ],
+      [
+        146,
+        188
+      ],
+      [
+        146,
+        168
+      ],
+      [
+        116,
+        188
+      ],
+      [
+        106,
+        178
+      ],
+      [
+        111,
+        183
+      ],
+      [
+        111,
+        173
+      ],
+      [
+        116,
+        168
+      ],
+      [
+        161,
+        178
+      ],
+      [
+        156,
+        173
+      ],
+      [
+        156,
+        183
+      ],
+      [
+        151,
+        188
+      ],
+      [
+        151,
+        168
+      ],
+      [
+        111,
+        188
+      ],
+      [
+        101,
+        178
+      ],
+      [
+        106,
+        183
+      ],
+      [
+        106,
+        173
+      ],
+      [
+        111,
+        168
+      ],
+      [
+        166,
+        178
+      ],
+      [
+        161,
+        183
+      ],
+      [
+        161,
+        173
+      ],
+      [
+        156,
+        188
+      ],
+      [
+        151,
+        193
+      ],
+      [
+        106,
+        188
+      ],
+      [
+        96,
+        178
+      ],
+      [
+        101,
+        183
+      ],
+      [
+        101,
+        173
+      ],
+      [
+        166,
+        183
+      ],
+      [
+        166,
+        173
+      ],
+      [
+        106,
+        168
+      ],
+      [
+        161,
+        188
+      ],
+      [
+        161,
+        168
+      ],
+      [
+        101,
+        188
+      ],
+      [
+        96,
+        183
+      ],
+      [
+        96,
+        173
+      ],
+      [
+        101,
+        168
+      ],
+      [
+        166,
+        188
+      ],
+      [
+        166,
+        168
+      ],
+      [
+        96,
+        188
+      ],
+      [
+        96,
+        168
+      ]
+    ]
+  },
+  "sprite": "goal"
+}

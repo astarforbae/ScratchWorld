@@ -1,0 +1,12 @@
+{
+  "name": "size_pulse",
+  "description": "Create a pulsing effect where the sprite smoothly grows and shrinks between 50% and 150% size in a loop",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) When the green flag is clicked, make Sprite1 continuously change its size to create a pulsing effect. 2) Increase size smoothly up to about 150%, then decrease smoothly down to about 50%. 3) Repeat this cycle forever.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "size_pulse",
+    "timeout": 20,
+    "description": "Verifies that the sprite repeatedly cycles its size between ~50% and ~150% with smooth transitions after the green flag is clicked"
+  }
+}

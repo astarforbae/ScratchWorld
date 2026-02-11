@@ -1,0 +1,12 @@
+{
+  "name": "balloon_clicker",
+  "description": "Create a simple clicker game with a balloon sprite and a score variable. When the balloon is clicked, the score increases, and it moves to a random position",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'balloon', you should complete the following: 1) Create a variable named 'score' and initialize it to 0 when the green flag is clicked. 2) Each time the balloon is clicked, increase 'score' by 1 and immediately move the balloon to a random position on the stage.",
+  "initial_project": "balloon.sb3",
+  "evaluation": {
+    "function": "balloon_clicker",
+    "timeout": 20,
+    "description": "Checks for the existence of a balloon sprite and a variable named 'score'. When the balloon is clicked, the score should increase by 1, and the balloon should move to a random position"
+  }
+}

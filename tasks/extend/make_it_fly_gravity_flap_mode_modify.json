@@ -1,0 +1,12 @@
+{
+  "name": "make_it_fly_gravity_flap_mode_modify",
+  "description": "Add gravity-based flap controls using a velocityY variable. The cat should fall over time and rise when the player flaps (e.g., presses space).",
+  "type": "extend",
+  "instruction": "This is a simple flying game where a cat sprite can be controlled with arrow keys to fly up and down while buildings scroll continuously across the screen from right to left, creating a side-scrolling flight experience. Please implement a gravity system: create a variable velocityY. In a forever loop, change velocityY by a negative amount and change y by velocityY. When the flap key is pressed (space), set velocityY to a positive impulse. Remove edge bounce from vertical motion for consistent physics. Do not control the cat with the up or down arrow keys; only space should trigger flaps.",
+  "initial_project": "make_it_fly.sb3",
+  "evaluation": {
+    "function": "make_it_fly_gravity_flap_mode_modify",
+    "timeout": 30,
+    "description": "Evaluates that the sprite descends under gravity when idle and gains altitude in response to flap inputs, with smooth continuous motion and no edge escape."
+  }
+}

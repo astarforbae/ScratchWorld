@@ -1,0 +1,12 @@
+{
+  "name": "simple_circuit_timed_assembly_challenge_modify",
+  "description": "Add a simple 10-second countdown timer that stops all scripts when time runs out.",
+  "type": "extend",
+  "instruction": "This is an interactive circuit simulation where users can drag and connect a battery, a switch, and a lightbulb to complete an electrical circuit. When all components are properly connected and the switch is turned on, the lightbulb illuminates with sound effects. Please add a simple 10-second countdown timer implemented on the Stage. 1. The countdown variable must be named \"timeLeft\". 2. When the \"timeLeft\" countdown finishes (reaches 0), stop all scripts.",
+  "initial_project": "simple_circuit.sb3",
+  "evaluation": {
+    "function": "simple_circuit_timed_assembly_challenge_modify",
+    "timeout": 20,
+    "description": "Verifies that the timeLeft variable starts at 10, decreases by 1 every second, and stops all scripts when it reaches 0."
+  }
+}

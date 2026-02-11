@@ -1,0 +1,12 @@
+{
+  "name": "simple_circuit_battery_connection_not_detected_error",
+  "description": "Fix the bug where placing the Battery at the correct terminal does not register a connection and the 'connections complete' count does not increase.",
+  "type": "debug",
+  "instruction": "This is an interactive circuit simulation where users can drag and connect a battery, switch, and lightbulb to complete an electrical circuit. When all components are properly connected and the switch is turned on, the lightbulb illuminates with sound effects. But now in this Simple Circuit project, when the Battery is placed at the correct connector position, it does not appear connected to the circuit: the 'connections complete' variable does not increase and the circuit remains incomplete. Please help me fix this issue so that the battery is properly connected to the circuit and the 'connections complete' count increases accordingly.",
+  "initial_project": "simple_circuit_battery_connection_not_detected_error.sb3",
+  "evaluation": {
+    "function": "simple_circuit_battery_connection_not_detected_error",
+    "timeout": 20,
+    "description": "Places the Battery at the correct terminal region and verifies that the connection is detected and 'connections complete' increases accordingly."
+  }
+}

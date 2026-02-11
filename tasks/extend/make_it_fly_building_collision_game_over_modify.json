@@ -1,0 +1,12 @@
+{
+  "name": "make_it_fly_building_collision_game_over_modify",
+  "description": "Add collision detection with Buildings that triggers a game over state (message and stop/reset). Optionally track lives.",
+  "type": "extend",
+  "instruction": "This is a simple flying game where a cat sprite can be controlled with arrow keys to fly up and down while buildings scroll continuously across the screen from right to left, creating a side-scrolling flight experience. Please add a collision detection system that when the cat touches the Buildings sprite, trigger a game over: stop the player's and Buildings' movement, display a \"Game Over\" message for 2 seconds, and stop all",
+  "initial_project": "make_it_fly.sb3",
+  "evaluation": {
+    "function": "make_it_fly_building_collision_game_over_modify",
+    "timeout": 30,
+    "description": "Evaluates that touching Buildings triggers a game over behavior (message + stop/reset) and normal play resumes only after reset or restart."
+  }
+}

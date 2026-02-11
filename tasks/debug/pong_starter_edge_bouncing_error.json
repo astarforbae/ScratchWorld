@@ -1,0 +1,12 @@
+{
+  "name": "pong_starter_edge_bouncing_error",
+  "description": "Fix the problem that the pong ball doesn't bounce when it touches the edge",
+  "type": "debug",
+  "instruction": "This is a basic Pong-style game where a ball bounces around the screen and players control a paddle that follows the mouse. The ball changes direction when hitting the paddle and the game ends when the ball touches red areas. But now in this Pong Game, the pong ball doesn't bounce when it touches the edges (left, right, or top edges of the screen). Please help me fix this issue so the ball properly bounces off the edges with correct physics.",
+  "initial_project": "pong_starter_edge_bouncing_error.sb3",
+  "evaluation": {
+    "function": "pong_starter_edge_bouncing_error",
+    "timeout": 20,
+    "description": "Evaluates whether the ball bounces correctly when touching the edges. The test finds the Ball sprite, starts the game, and monitors the ball's position and velocity. When the ball touches any edge (left, right, or top), it checks if the ball's direction changes appropriately (bounces). The test passes if the ball demonstrates proper edge bouncing behavior; otherwise, it fails."
+  }
+}

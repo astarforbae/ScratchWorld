@@ -1,0 +1,12 @@
+{
+  "name": "pong_starter_pong_not_moving_error",
+  "description": "Fix the problem that the pong ball doesn't move when the green flag is clicked",
+  "type": "debug",
+  "instruction": "This is a basic Pong-style game where a ball bounces around the screen and players control a paddle that follows the mouse. The ball changes direction when hitting the paddle and the game ends when the ball touches red areas. But now in this Pong Game, the pong ball doesn't move when the green flag is clicked. The ball should start moving automatically when the game begins. Please help me fix this issue so the ball starts moving with proper velocity when the green flag is clicked.",
+  "initial_project": "pong_starter_pong_not_moving_error.sb3",
+  "evaluation": {
+    "function": "pong_starter_pong_not_moving_error",
+    "timeout": 20,
+    "description": "Evaluates whether the ball starts moving when the green flag is clicked. The test finds the Ball sprite, records its initial position, starts the game, and monitors the ball's position over time. The test passes if the ball moves more than the movement threshold (10 pixels) from its initial position within the timeout period; otherwise, it fails."
+  }
+}

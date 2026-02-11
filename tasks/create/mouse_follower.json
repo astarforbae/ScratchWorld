@@ -1,0 +1,12 @@
+{
+  "name": "mouse_follower",
+  "description": "Create a sprite that continuously follows the mouse pointer: it always points toward the mouse and moves toward it",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) When the green flag is clicked, make Sprite1 move to the mouse pointer immediately and continuously point toward the mouse pointer. 2) Ensure this runs in a forever loop.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "mouse_follower",
+    "description": "Checks that the sprite continuously follows the mouse pointer, always pointing toward it and moving toward it",
+    "timeout": 20
+  }
+}

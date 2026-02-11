@@ -1,0 +1,12 @@
+{
+  "name": "coordinate_reporter_button_visibility_error",
+  "description": "Fix the button that remains hidden after switching modes, preventing users from accessing input mode",
+  "type": "debug",
+  "instruction": "This is an interactive coordinate reporting tool where a sprite displays its current X and Y position on screen. Users can drag the sprite around or use input prompts to move it by specific amounts, with real-time coordinate feedback and mode switching between drag and input modes. But now the Input Numbers button (the 'Button' sprite) disappears when clicked and doesn't reappear, fix this issue so users can switch modes seamlessly.",
+  "initial_project": "coordinate_reporter_button_visibility_error.sb3",
+  "evaluation": {
+    "function": "coordinate_reporter_button_visibility_error",
+    "timeout": 25,
+    "description": "Evaluates whether the Input Numbers button properly shows and hides based on the current mode. The test verifies the button is visible in drag mode, disappears when clicked for input mode, and reappears after the input sequence completes."
+  }
+}

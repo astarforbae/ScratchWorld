@@ -1,0 +1,12 @@
+{
+  "name": "sprite_conversation",
+  "description": "Create a project with two sprites that have a conversation using message broadcasting and receiving",
+  "type": "create",
+  "instruction": "Starting from a Scratch project with two sprites named 'Sprite1' and 'Sprite2', you should complete the following: 1) When the green flag is clicked, make Sprite1 say 'Hello!' for 2 seconds. 2) After Sprite1 finishes, make Sprite2 say 'Hi there!' for 2 seconds. 3) This conversation must be coordinated using message broadcasting and receiving between the sprites.",
+  "initial_project": "sprite_conversation.sb3",
+  "evaluation": {
+    "description": "Checks that there are two sprites; Sprite1 says 'Hello!' for 2 seconds, then Sprite2 says 'Hi there!' for 2 seconds, coordinated via broadcast/receive messages",
+    "timeout": 20,
+    "function": "sprite_conversation"
+  }
+}

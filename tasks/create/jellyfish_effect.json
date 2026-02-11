@@ -1,0 +1,12 @@
+{
+  "name": "jellyfish_effect",
+  "description": "Create a rising jellyfish effect: a jellyfish sprite at the bottom continuously clones itself; each clone rises from a random X position and is deleted at the top",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'jellyfish', you should complete the following: 1) When the green flag is clicked, hide the jellyfish sprite. 2) Continuously create clones of the jellyfish at random X positions along the bottom. 3) For each clone, make it rise upward at a constant speed until it reaches the top edge, then delete the clone.",
+  "initial_project": "jellyfish.sb3",
+  "evaluation": {
+    "description": "Checks that a jellyfish sprite exists, continuously creates clones at random X positions, clones rise upward, and delete themselves at the top edge",
+    "timeout": 20,
+    "function": "jellyfish_effect"
+  }
+}

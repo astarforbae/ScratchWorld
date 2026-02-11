@@ -1,0 +1,26 @@
+{
+  "name": "reverse_string",
+  "description": "Create a Scratch program that takes a string as input and reverses it. The sprite should say the reversed string.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that takes a string as input and reverses it. The sprite should say the reversed string.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "reverse_string",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: reverse_string",
+    "test_cases": [
+      {
+        "input": "hello",
+        "output": "olleh"
+      },
+      {
+        "input": "scratch",
+        "output": "hctarcs"
+      },
+      {
+        "input": "12345",
+        "output": "54321"
+      }
+    ]
+  }
+}

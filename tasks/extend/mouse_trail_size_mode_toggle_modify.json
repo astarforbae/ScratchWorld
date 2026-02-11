@@ -1,0 +1,12 @@
+{
+  "name": "mouse_trail_size_mode_toggle_modify",
+  "description": "Click the sprite to toggle between two size modes for clones: shrinking (current behavior) and growing.",
+  "type": "extend",
+  "instruction": "This is a visual effects demonstration where star sprites follow the mouse cursor, creating colorful trailing effects. Clicking on stars triggers sound effects and color changes, with clones that move randomly and fade away over time. Please add a toggle to switch clone sizing behavior when the sprite is clicked. Create a variable named 'size mode' with values 'shrink' or 'grow'. Initialize it to 'shrink' when green flag clicked. Add a 'when this sprite clicked' handler that flips the mode. In the clone's repeat loop, if mode is 'shrink', change size by a negative amount each step (-8); if mode is 'grow', change size by a positive amount (+8). Keep the existing movement and ghost fade, and still delete the clone at the end of the loop.",
+  "initial_project": "mouse_trail.sb3",
+  "evaluation": {
+    "function": "mouse_trail_size_mode_toggle_modify",
+    "timeout": 25,
+    "description": "Checks for a click-based toggle that flips a 'size mode' variable and that clones conditionally grow or shrink their size during their lifetime before being deleted."
+  }
+}

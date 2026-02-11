@@ -1,0 +1,12 @@
+{
+  "name": "hide_show_sprite",
+  "description": "Hide the sprite first, then show it after 2 seconds",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: when the green flag is clicked, hide 'Sprite1' immediately, wait 2 seconds, then show 'Sprite1' again.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "hide_show_sprite",
+    "timeout": 20,
+    "description": "Evaluates whether the sprite hides first, then shows after about 2 seconds (1.5–2.5s window). The test listens for visibility changes and passes if the correct hide-then-show sequence occurs in the expected timing."
+  }
+}

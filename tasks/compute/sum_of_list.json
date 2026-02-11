@@ -1,0 +1,43 @@
+{
+  "name": "sum_of_list",
+  "description": "Create a Scratch program that calculates the sum of a list of numbers. First, ask the user for the count of numbers to be entered. Then, ask for each number one by one. Finally, the sprite should say the sum.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that calculates the sum of a list of numbers. First, ask the user for the count of numbers to be entered. Then, ask for each number one by one. Finally, the sprite should say the sum.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "sum_of_list",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: sum_of_list",
+    "test_cases": [
+      {
+        "input": [
+          5,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "output": 15
+      },
+      {
+        "input": [
+          3,
+          10,
+          20,
+          30
+        ],
+        "output": 60
+      },
+      {
+        "input": [
+          3,
+          -1,
+          -2,
+          -3
+        ],
+        "output": -6
+      }
+    ]
+  }
+}

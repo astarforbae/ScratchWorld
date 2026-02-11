@@ -1,0 +1,19 @@
+{
+    "create": [
+        "ask_and_echo.json",
+        "backdrop_cycler.json",
+        "balloon_clicker.json",
+        "bouncing_cat.json",
+        "click_glide_mover.json",
+        "countdown_broadcast.json",
+        "drag_to_target.json",
+        "edge_wrap_runner.json",
+        "gravity_ball.json",
+        "hide_show_sprite.json",
+        "jellyfish_effect.json",
+        "keyboard_ball.json",
+        "mouse_follower.json",
+        "multi_scene_story.json",
+        "pong_paddle.json"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "check_harshad_number",
+  "description": "Create a Scratch program that checks if a given positive integer is a Harshad number (divisible by the sum of its digits). The sprite should say 'True' if it is, and 'False' otherwise.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that checks if a given positive integer is a Harshad number (divisible by the sum of its digits). The sprite should say 'True' if it is, and 'False' otherwise.",
+  "initial_project": "check_harshad_number.sb3",
+  "evaluation": {
+    "function": "check_harshad_number",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: check_harshad_number",
+    "test_cases": [
+      {
+        "input": 18,
+        "output": "True"
+      },
+      {
+        "input": 19,
+        "output": "False"
+      },
+      {
+        "input": 21,
+        "output": "True"
+      }
+    ]
+  }
+}

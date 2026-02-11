@@ -1,0 +1,274 @@
+{
+  "title": "Scratch Primitive Actions Catalog",
+  "version": "v0-draft",
+  "notes": [
+    "Comprehensive catalog of primitive UI actions for direct GUI interaction",
+    "Actions can use either coordinates (x, y) or element indices for targeting",
+    "Breaking changes will bump major version; additive changes will bump minor."
+  ],
+  "envelope": {
+    "description": "Single-action envelope emitted by the LLM per step.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "action_type": {"type": "string"},
+        "params": {"type": "object"}
+      },
+      "required": ["action_type", "params"]
+    },
+    "example": {"action_type": "click", "params": {"x": 100, "y": 200, "button": "left"}}
+  },
+  "result": {
+    "description": "Standard result payload returned by the action executor.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "ok": {"type": "boolean"},
+        "data": {"type": "object"},
+        "error": {
+          "type": "object", 
+          "properties": {
+            "code": {"type": "string"},
+            "message": {"type": "string"},
+            "details": {"type": "object"}
+          }
+        }
+      }
+    },
+    "examples": [
+      {"ok": true, "data": {"clicked": true, "position": [100, 200]}},
+      {"ok": false, "error": {"code": "ELEMENT_NOT_FOUND", "message": "No element found at index 5"}}
+    ]
+  },
+  "error_codes": [
+    {"code": "ELEMENT_NOT_FOUND", "description": "Referenced element index does not exist or coordinates are out of bounds."},
+    {"code": "INVALID_COORDINATES", "description": "Provided coordinates are invalid or out of screen bounds."},
+    {"code": "INVALID_PARAMS", "description": "Action parameters are missing required fields or have invalid values."},
+    {"code": "ACTION_FAILED", "description": "The UI action could not be completed successfully."},
+    {"code": "TIMEOUT", "description": "The action did not complete within the allocated time."}
+  ],
+  "actions": [
+    {
+      "name": "click",
+      "description": "Perform a mouse click at specified location or element",
+      "targeting": ["coordinate_based", "index_based", "description_based"],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "x": {"type": "number", "description": "X coordinate"},
+          "y": {"type": "number", "description": "Y coordinate"},
+          "index": {"type": "integer", "minimum": 0, "description": "Element index"},
+          "description": {"type": "string", "description": "Natural language description of the element to click"},
+          "button": {"type": "string", "enum": ["left", "right", "middle"], "default": "left"}
+        },
+        "anyOf": [
+          {"required": ["x", "y"]},
+          {"required": ["index"]},
+          {"required": ["description"]}
+        ]
+      },
+      "examples": [
+        {"action_type": "click", "params": {"x": 100, "y": 200, "button": "left"}},
+        {"action_type": "click", "params": {"index": 5, "button": "left"}},
+        {"action_type": "click", "params": {"x": 150, "y": 250}},
+        {"action_type": "click", "params": {"description": "the sprite named Cat in the sprite list", "button": "left"}}
+      ]
+    },
+    {
+      "name": "double_click", 
+      "description": "Perform a double mouse click",
+      "targeting": ["coordinate_based", "index_based", "description_based"],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "x": {"type": "number", "description": "X coordinate"},
+          "y": {"type": "number", "description": "Y coordinate"},
+          "index": {"type": "integer", "minimum": 0, "description": "Element index"},
+          "description": {"type": "string", "description": "Natural language description of the element to double-click"},
+          "button": {"type": "string", "enum": ["left", "right", "middle"], "default": "left"}
+        },
+        "anyOf": [
+          {"required": ["x", "y"]},
+          {"required": ["index"]},
+          {"required": ["description"]}
+        ]
+      },
+      "examples": [
+        {"action_type": "double_click", "params": {"x": 100, "y": 200}},
+        {"action_type": "double_click", "params": {"index": 2, "button": "left"}},
+        {"action_type": "double_click", "params": {"description": "the code block in the center area"}}
+      ]
+    },
+    {
+      "name": "drag_and_drop",
+      "description": "Drag from one location to another, useful for moving blocks or elements",
+      "targeting": ["coordinate_based", "index_based", "description_based", "mixed"],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "start_x": {"type": "number", "description": "Start X coordinate"},
+          "start_y": {"type": "number", "description": "Start Y coordinate"},
+          "end_x": {"type": "number", "description": "End X coordinate"},
+          "end_y": {"type": "number", "description": "End Y coordinate"},
+          "start_index": {"type": "integer", "minimum": 0, "description": "Start element index"},
+          "end_index": {"type": "integer", "minimum": 0, "description": "End element index"},
+          "source_description": {"type": "string", "description": "Natural language description of the source element to drag from"},
+          "target_description": {"type": "string", "description": "Natural language description of the target location to drag to"},
+          "duration": {"type": "number", "minimum": 0, "default": 0.0, "description": "Drag duration in seconds"}
+        },
+        "anyOf": [
+          {"required": ["start_x", "start_y", "end_x", "end_y"]},
+          {"required": ["start_x", "start_y", "end_index"]},
+          {"required": ["start_x", "start_y", "target_description"]},
+          {"required": ["start_index", "end_index"]},
+          {"required": ["start_index", "end_x", "end_y"]},
+          {"required": ["start_index", "target_description"]},
+          {"required": ["source_description", "end_x", "end_y"]},
+          {"required": ["source_description", "end_index"]},
+          {"required": ["source_description", "target_description"]}
+        ]
+      },
+      "examples": [
+        {"action_type": "drag_and_drop", "params": {"start_x": 100, "start_y": 200, "end_x": 300, "end_y": 400}},
+        {"action_type": "drag_and_drop", "params": {"start_index": 2, "end_index": 5}},
+        {"action_type": "drag_and_drop", "params": {"start_index": 1, "end_x": 250, "end_y": 350, "duration": 1.0}},
+        {"action_type": "drag_and_drop", "params": {"source_description": "the move 10 steps block in the palette", "target_description": "the code area under when flag clicked"}},
+        {"action_type": "drag_and_drop", "params": {"source_description": "the say Hello block", "end_x": 200, "end_y": 300}},
+        {"action_type": "drag_and_drop", "params": {"start_index": 3, "target_description": "the scripts area of the Cat sprite"}}
+      ]
+    },
+    {
+      "name": "scroll",
+      "description": "Scroll in a specific direction at a location",
+      "targeting": ["coordinate_based", "index_based", "description_based"],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "direction": {"type": "string", "enum": ["up", "down", "left", "right"], "description": "Scroll direction"},
+          "amount": {"type": "number", "minimum": 1, "default": 100, "description": "Scroll amount in pixels"},
+          "x": {"type": "number", "description": "X coordinate to scroll at"},
+          "y": {"type": "number", "description": "Y coordinate to scroll at"},
+          "index": {"type": "integer", "minimum": 0, "description": "Element index to scroll at"},
+          "description": {"type": "string", "description": "Natural language description of the element or area to scroll"}
+        },
+        "required": ["direction"],
+        "anyOf": [
+          {"required": ["direction", "x", "y"]},
+          {"required": ["direction", "index"]},
+          {"required": ["direction", "description"]},
+          {"required": ["direction"]}
+        ]
+      },
+      "examples": [
+        {"action_type": "scroll", "params": {"direction": "up", "amount": 100, "x": 400, "y": 300}},
+        {"action_type": "scroll", "params": {"direction": "down", "index": 0}},
+        {"action_type": "scroll", "params": {"direction": "left", "amount": 50}},
+        {"action_type": "scroll", "params": {"direction": "down", "description": "the blocks palette area", "amount": 200}},
+        {"action_type": "scroll", "params": {"direction": "up", "description": "the sprite list"}}
+      ]
+    },
+    {
+      "name": "type",
+      "description": "Type text at the current cursor/focus location",
+      "targeting": [],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "text": {"type": "string", "description": "Text to type"}
+        },
+        "required": ["text"]
+      },
+      "examples": [
+        {"action_type": "type", "params": {"text": "Hello World"}},
+        {"action_type": "type", "params": {"text": "10"}}
+      ]
+    },
+    {
+      "name": "key",
+      "description": "Press and release a single key",
+      "targeting": [],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "key": {"type": "string", "description": "Key name (e.g., 'Enter', 'Escape', 'Tab', 'Space', 'Backspace', 'Delete', 'F1', 'a', '1')"}
+        },
+        "required": ["key"]
+      },
+      "examples": [
+        {"action_type": "key", "params": {"key": "Enter"}},
+        {"action_type": "key", "params": {"key": "Escape"}},
+        {"action_type": "key", "params": {"key": "Tab"}}
+      ]
+    },
+    {
+      "name": "hotkey",
+      "description": "Press a combination of keys simultaneously (keyboard shortcuts)",
+      "targeting": [],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 2,
+            "description": "Array of keys to press together (e.g., ['Control', 'c'] for copy)"
+          }
+        },
+        "required": ["keys"]
+      },
+      "examples": [
+        {"action_type": "hotkey", "params": {"keys": ["Control", "c"]}},
+        {"action_type": "hotkey", "params": {"keys": ["Control", "v"]}},
+        {"action_type": "hotkey", "params": {"keys": ["Alt", "F4"]}}
+      ]
+    },
+    {
+      "name": "done",
+      "description": "Indicate that the task has been completed successfully",
+      "targeting": [],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {"type": "string", "description": "Optional completion message"}
+        }
+      },
+      "examples": [
+        {"action_type": "done"},
+        {"action_type": "done", "params": {"reason": "Task completed successfully"}}
+      ]
+    },
+    {
+      "name": "failed",
+      "description": "Indicate that the task cannot be completed",
+      "targeting": [],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {"type": "string", "description": "Reason why the task failed"}
+        },
+        "required": ["reason"]
+      },
+      "examples": [
+        {"action_type": "failed", "params": {"reason": "Required element not found"}},
+        {"action_type": "failed", "params": {"reason": "Cannot proceed without user input"}}
+      ]
+    },
+    {
+      "name": "save_to_knowledge",
+      "description": "Save facts, elements, texts, or other information to a long-term knowledge bank for reuse during this task. Can be used for storing important information, copy-pasting text, saving element references, etc.",
+      "targeting": [],
+      "params_schema": {
+        "type": "object",
+        "properties": {
+          "text": {"type": "string", "description": "The text or information to save to the knowledge bank"}
+        },
+        "required": ["text"]
+      },
+      "examples": [
+        {"action_type": "save_to_knowledge", "params": {"text": "The sprite name is 'Cat'"}},
+        {"action_type": "save_to_knowledge", "params": {"text": "Block position: x=100, y=200"}},
+        {"action_type": "save_to_knowledge", "params": {"text": "Variable 'score' is set to 10"}}
+      ]
+    }
+  ]
+}

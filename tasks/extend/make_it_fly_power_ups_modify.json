@@ -1,0 +1,12 @@
+{
+  "name": "make_it_fly_power_ups_modify",
+  "description": "Add collectible power-ups that grant a temporary slow motion effect when touched by the cat.",
+  "type": "extend",
+  "instruction": "This is a simple flying game where a cat sprite can be controlled with arrow keys to fly up and down while buildings scroll continuously across the screen from right to left, creating a side-scrolling flight experience. We want to add a feature where collecting a power-up item slows down the buildings. The project already includes a 'Power Up' sprite and a `glideDuration` variable to control the 'Buildings' sprite's speed. Please program the 'Power Up' sprite to generate a clone every few seconds at a random y-position on the right side of the screen that moves toward the left. When the cat touches a 'Power Up' clone, delete the clone and increase the `glideDuration` of the buildings to slow them down.",
+  "initial_project": "make_it_fly_power_ups_modify.sb3",
+  "evaluation": {
+    "function": "make_it_fly_power_ups_modify",
+    "timeout": 30,
+    "description": "Evaluates that Power Up clones appear every few seconds on the right and move left; touching a clone deletes it and cumulatively slows Buildings (increasing slow effect with each pickup)."
+  }
+}

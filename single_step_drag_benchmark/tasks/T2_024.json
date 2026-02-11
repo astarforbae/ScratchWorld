@@ -1,0 +1,288 @@
+{
+  "id": "T2_024",
+  "category": "T2",
+  "instruction": "Drag the 'operator_equals' block and connect it into the condition slot of the 'if then' block.",
+  "init_project": "T2_024.sb3",
+  "evaluation_config": {
+    "target_block_opcode": "operator_equals",
+    "target_block_id": "z~WtE?:Y4Ib8W*qT?,^G",
+    "reference_block_id": "vWx@XU42:=.KC$5tk4[p",
+    "connection_type": "input",
+    "target_input_name": "CONDITION",
+    "description": "Drag the 'equal' block from the flyout to the value input slot of the 'if then' block.",
+    "reference_block_opcode": "control_if",
+    "reference_block_structure": {
+      "id": "vWx@XU42:=.KC$5tk4[p",
+      "opcode": "control_if",
+      "position": {
+        "x": -53,
+        "y": 255
+      },
+      "boundingBox": null,
+      "screenBoundingBox": {
+        "x": 275.2250061035156,
+        "y": 265.125,
+        "left": 275.2250061035156,
+        "top": 265.125,
+        "right": 432.6265563964844,
+        "bottom": 389.32501220703125,
+        "width": 157.40155029296875,
+        "height": 124.20001220703125
+      },
+      "parent": "aJ]GU}M^M@n;KZ[F}6M}",
+      "inputs": {
+        "SUBSTACK": {
+          "name": "SUBSTACK",
+          "block": "xVi%^Hh$4h8?vP,,.5B=",
+          "shadow": null
+        }
+      },
+      "fields": {}
+    },
+    "pan_canvas_actions": [
+      {
+        "api": "custom_js",
+        "args": {
+          "fn": "\n({ ws, payload }) => {\n    if (!ws) return { success: false, error: \"Workspace not available\" };\n    // dx, dy 是屏幕像素偏移量（正值表示内容应该向右/向下移动）\n    const dx = (payload && payload.dx) || 0;\n    const dy = (payload && payload.dy) || 0;\n    const scale = ws.scale || 1;\n    \n    const canvas = ws.getCanvas();\n    if (!canvas) return { success: false, error: \"Cannot get canvas\" };\n    \n    // 获取当前的 transform\n    const currentTransform = canvas.getAttribute('transform') || '';\n    \n    // 解析当前的 translate 值\n    let currentTx = 0, currentTy = 0;\n    const translateMatch = currentTransform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    if (translateMatch) {\n        currentTx = parseFloat(translateMatch[1]) || 0;\n        currentTy = parseFloat(translateMatch[2]) || 0;\n    }\n    \n    // 在当前基础上增加 dx, dy（屏幕像素偏移）\n    const newTx = currentTx + dx;\n    const newTy = currentTy + dy;\n    \n    // 设置新的 transform（保持原来的 scale）\n    const newTransform = 'translate(' + newTx + ',' + newTy + ') scale(' + scale + ')';\n    canvas.setAttribute('transform', newTransform);\n    \n    // 同时更新 bubble canvas（气泡层）\n    const bubbleCanvas = ws.getBubbleCanvas();\n    if (bubbleCanvas) {\n        bubbleCanvas.setAttribute('transform', newTransform);\n    }\n    \n    // 更新 scrollX/scrollY 以保持内部状态一致\n    // scrollX = -translateX / scale\n    ws.scrollX = -newTx / scale;\n    ws.scrollY = -newTy / scale;\n    \n    return { \n        success: true, \n        mode: \"direct_svg_transform\",\n        inputDx: dx, inputDy: dy,\n        currentTransform,\n        currentTx, currentTy,\n        newTx, newTy,\n        newTransform,\n        newScrollX: ws.scrollX, \n        newScrollY: ws.scrollY,\n        scale\n    };\n}\n",
+          "payload": {
+            "dx": 209.6261749267578,
+            "dy": 82.04998779296875
+          }
+        }
+      }
+    ],
+    "workspace_state": {
+      "tx": 519.6261749267578,
+      "ty": 82.04998779296875,
+      "scale": 0.675,
+      "scrollX": -769.8165554470486,
+      "scrollY": -121.55553747106481,
+      "transform": "translate(519.6261749267578,82.04998779296875) scale(0.675)"
+    },
+    "seed_point": [
+      484,
+      362
+    ],
+    "target_stack_tail_block_id": "z~WtE?:Y4Ib8W*qT?,^G",
+    "drag_start_point": [
+      680,
+      258
+    ],
+    "first_valid_point": [
+      484,
+      362
+    ],
+    "feasible_points": [
+      [
+        484,
+        362
+      ],
+      [
+        486,
+        362
+      ],
+      [
+        488,
+        362
+      ],
+      [
+        490,
+        362
+      ],
+      [
+        492,
+        362
+      ],
+      [
+        494,
+        362
+      ],
+      [
+        496,
+        362
+      ],
+      [
+        498,
+        362
+      ],
+      [
+        500,
+        362
+      ],
+      [
+        502,
+        362
+      ],
+      [
+        504,
+        362
+      ],
+      [
+        506,
+        362
+      ],
+      [
+        508,
+        362
+      ],
+      [
+        510,
+        362
+      ],
+      [
+        512,
+        362
+      ],
+      [
+        514,
+        362
+      ],
+      [
+        516,
+        362
+      ],
+      [
+        518,
+        362
+      ],
+      [
+        520,
+        362
+      ],
+      [
+        522,
+        362
+      ],
+      [
+        524,
+        362
+      ],
+      [
+        526,
+        362
+      ],
+      [
+        528,
+        362
+      ],
+      [
+        530,
+        362
+      ],
+      [
+        532,
+        362
+      ],
+      [
+        534,
+        362
+      ],
+      [
+        536,
+        362
+      ],
+      [
+        538,
+        362
+      ],
+      [
+        540,
+        362
+      ],
+      [
+        542,
+        362
+      ],
+      [
+        544,
+        362
+      ],
+      [
+        546,
+        362
+      ],
+      [
+        548,
+        362
+      ],
+      [
+        550,
+        362
+      ],
+      [
+        552,
+        362
+      ],
+      [
+        554,
+        362
+      ],
+      [
+        556,
+        362
+      ],
+      [
+        558,
+        362
+      ]
+    ],
+    "feasible_start_points": [
+      [
+        680,
+        258
+      ],
+      [
+        685,
+        258
+      ],
+      [
+        680,
+        263
+      ],
+      [
+        685,
+        253
+      ],
+      [
+        685,
+        263
+      ],
+      [
+        680,
+        268
+      ],
+      [
+        675,
+        263
+      ],
+      [
+        690,
+        253
+      ],
+      [
+        685,
+        268
+      ],
+      [
+        680,
+        273
+      ],
+      [
+        675,
+        268
+      ],
+      [
+        685,
+        273
+      ],
+      [
+        685,
+        278
+      ],
+      [
+        690,
+        278
+      ]
+    ]
+  }
+}

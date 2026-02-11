@@ -1,0 +1,12 @@
+{
+  "name": "math_game_invalid_randomness_error",
+  "description": "Fix the invalid randomness issue where the first number in addition questions is always 1 instead of being random",
+  "type": "debug",
+  "instruction": "This is an educational math quiz game featuring a character named Frank who asks addition problems. The game starts with a fixed question (3+3) and then generates random addition problems, providing visual and audio feedback for correct and incorrect answers. But now in this Math Game, after completing the first question, the program should generate random addition questions. However, there's a bug where the first number in these addition questions is always 1 instead of being truly random. For example, questions appear as '1 + 5', '1 + 3', '1 + 8' instead of having varied first numbers. Please help me fix this randomness issue so that both numbers in the addition questions are properly randomized.",
+  "initial_project": "math_game_invalid_randomness_error.sb3",
+  "evaluation": {
+    "function": "math_game_invalid_randomness_error",
+    "timeout": 20,
+    "description": "Evaluates whether the math game generates truly random addition questions. The test starts the game, completes the first question, and then monitors multiple subsequent questions to check if the first number varies. The test passes if the first number in addition questions shows variation (not always 1); otherwise, it fails if the first number remains constant at 1."
+  }
+}

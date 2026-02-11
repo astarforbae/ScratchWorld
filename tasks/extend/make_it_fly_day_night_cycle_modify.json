@@ -1,0 +1,12 @@
+{
+  "name": "make_it_fly_day_night_cycle_modify",
+  "description": "Add a day–night lighting cycle that gradually transitions the scene brightness over time and loops.",
+  "type": "extend",
+  "instruction": "This is a simple flying game where a cat sprite can be controlled with arrow keys to fly up and down while buildings scroll continuously across the screen from right to left, creating a side-scrolling flight experience. Please implement a looping day–night cycle using the Stage’s graphic effects. Gradually adjust the Stage’s brightness effect each frame so that it transitions smoothly from bright (day) to dark (night) and back again. The transition should be continuous, and gameplay should remain unaffected throughout the cycle.",
+  "initial_project": "make_it_fly.sb3",
+  "evaluation": {
+    "function": "make_it_fly_day_night_cycle_modify",
+    "timeout": 30,
+    "description": "Evaluates that the Stage's visual brightness changes smoothly over time and loops back, without stopping Cat or Buildings motion."
+  }
+}

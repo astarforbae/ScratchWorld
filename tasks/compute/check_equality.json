@@ -1,0 +1,26 @@
+{
+  "name": "check_equality",
+  "description": "Create a Scratch program that checks whether the first and last characters of a given string are equal. The sprite should say 'Equal' if they are the same, and 'Not Equal' otherwise.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that checks whether the first and last characters of a given string are equal. The sprite should say 'Equal' if they are the same, and 'Not Equal' otherwise.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "check_equality",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: check_equality",
+    "test_cases": [
+      {
+        "input": "level",
+        "output": "Equal"
+      },
+      {
+        "input": "hello",
+        "output": "Not Equal"
+      },
+      {
+        "input": "a",
+        "output": "Equal"
+      }
+    ]
+  }
+}

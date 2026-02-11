@@ -1,0 +1,438 @@
+{
+  "id": "T2_029",
+  "category": "T2",
+  "instruction": "Drag the 'speed' block from the flyout and connect it into the second input slot of the 'multiply' block.",
+  "init_project": "T2_029.sb3",
+  "evaluation_config": {
+    "use_flyout": true,
+    "target_block_opcode": "data_variable",
+    "target_block_id": null,
+    "reference_block_id": "]rR.iw3%4?s2e92l7u}f",
+    "connection_type": "input",
+    "target_input_name": "NUM2",
+    "description": "Drag the 'speed' block and connect it into the second input slot of the 'multiply' block.",
+    "reference_block_opcode": "operator_multiply",
+    "reference_block_structure": {
+      "id": "]rR.iw3%4?s2e92l7u}f",
+      "opcode": "operator_multiply",
+      "position": {
+        "x": 834.931713104248,
+        "y": 501
+      },
+      "boundingBox": null,
+      "screenBoundingBox": {
+        "x": 678.5789184570312,
+        "y": 431.1750183105469,
+        "left": 678.5789184570312,
+        "top": 431.1750183105469,
+        "right": 759.4464721679688,
+        "bottom": 458.1750183105469,
+        "width": 80.8675537109375,
+        "height": 27
+      },
+      "parent": "D{p,m3e@px;40K|)(.pd",
+      "inputs": {
+        "NUM1": {
+          "name": "NUM1",
+          "block": "P/C~2cwkaWzKm{i_yGaZ",
+          "shadow": "P/C~2cwkaWzKm{i_yGaZ"
+        },
+        "NUM2": {
+          "name": "NUM2",
+          "block": "_{p2z|M|NgOl,?EUL{*5",
+          "shadow": "_{p2z|M|NgOl,?EUL{*5"
+        }
+      },
+      "fields": {}
+    },
+    "locate_target_actions": [
+      {
+        "api": "click",
+        "args": {
+          "x": 31,
+          "y": 430
+        }
+      }
+    ],
+    "pan_canvas_actions": [
+      {
+        "api": "custom_js",
+        "args": {
+          "fn": "\n({ ws, payload }) => {\n    if (!ws) return { success: false, error: \"Workspace not available\" };\n    // dx, dy 是屏幕像素偏移量（正值表示内容应该向右/向下移动）\n    const dx = (payload && payload.dx) || 0;\n    const dy = (payload && payload.dy) || 0;\n    const scale = ws.scale || 1;\n    \n    const canvas = ws.getCanvas();\n    if (!canvas) return { success: false, error: \"Cannot get canvas\" };\n    \n    // 获取当前的 transform\n    const currentTransform = canvas.getAttribute('transform') || '';\n    \n    // 解析当前的 translate 值\n    let currentTx = 0, currentTy = 0;\n    const translateMatch = currentTransform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    if (translateMatch) {\n        currentTx = parseFloat(translateMatch[1]) || 0;\n        currentTy = parseFloat(translateMatch[2]) || 0;\n    }\n    \n    // 在当前基础上增加 dx, dy（屏幕像素偏移）\n    const newTx = currentTx + dx;\n    const newTy = currentTy + dy;\n    \n    // 设置新的 transform（保持原来的 scale）\n    const newTransform = 'translate(' + newTx + ',' + newTy + ') scale(' + scale + ')';\n    canvas.setAttribute('transform', newTransform);\n    \n    // 同时更新 bubble canvas（气泡层）\n    const bubbleCanvas = ws.getBubbleCanvas();\n    if (bubbleCanvas) {\n        bubbleCanvas.setAttribute('transform', newTransform);\n    }\n    \n    // 更新 scrollX/scrollY 以保持内部状态一致\n    // scrollX = -translateX / scale\n    ws.scrollX = -newTx / scale;\n    ws.scrollY = -newTy / scale;\n    \n    return { \n        success: true, \n        mode: \"direct_svg_transform\",\n        inputDx: dx, inputDy: dy,\n        currentTransform,\n        currentTx, currentTy,\n        newTx, newTy,\n        newTransform,\n        newScrollX: ws.scrollX, \n        newScrollY: ws.scrollY,\n        scale\n    };\n}\n",
+          "payload": {
+            "dx": -271.79083251953125,
+            "dy": -84.67501831054688
+          }
+        }
+      }
+    ],
+    "workspace_state": {
+      "tx": 34.98729238510123,
+      "ty": -84.67501831054685,
+      "scale": 0.675,
+      "scrollX": -51.83302575570552,
+      "scrollY": 125.4444715711805,
+      "transform": "translate(34.98729238510123,-84.67501831054685) scale(0.675)"
+    },
+    "seed_point": [
+      599,
+      361
+    ],
+    "drag_start_point": [
+      120,
+      218
+    ],
+    "first_valid_point": [
+      659,
+      361
+    ],
+    "feasible_points": [
+      [
+        659,
+        361
+      ],
+      [
+        661,
+        361
+      ],
+      [
+        663,
+        361
+      ],
+      [
+        665,
+        361
+      ],
+      [
+        667,
+        361
+      ],
+      [
+        669,
+        361
+      ],
+      [
+        671,
+        361
+      ],
+      [
+        673,
+        361
+      ],
+      [
+        675,
+        361
+      ],
+      [
+        677,
+        361
+      ],
+      [
+        679,
+        361
+      ],
+      [
+        681,
+        361
+      ],
+      [
+        683,
+        361
+      ],
+      [
+        685,
+        361
+      ],
+      [
+        687,
+        361
+      ],
+      [
+        689,
+        361
+      ],
+      [
+        691,
+        361
+      ],
+      [
+        693,
+        361
+      ],
+      [
+        695,
+        361
+      ],
+      [
+        697,
+        361
+      ],
+      [
+        699,
+        361
+      ],
+      [
+        701,
+        361
+      ],
+      [
+        703,
+        361
+      ],
+      [
+        705,
+        361
+      ],
+      [
+        707,
+        361
+      ],
+      [
+        709,
+        361
+      ],
+      [
+        711,
+        361
+      ],
+      [
+        713,
+        361
+      ],
+      [
+        715,
+        361
+      ],
+      [
+        717,
+        361
+      ],
+      [
+        719,
+        361
+      ],
+      [
+        721,
+        361
+      ]
+    ],
+    "feasible_start_points": [
+      [
+        120,
+        218
+      ],
+      [
+        125,
+        218
+      ],
+      [
+        115,
+        218
+      ],
+      [
+        120,
+        223
+      ],
+      [
+        120,
+        213
+      ],
+      [
+        115,
+        223
+      ],
+      [
+        125,
+        213
+      ],
+      [
+        130,
+        218
+      ],
+      [
+        125,
+        223
+      ],
+      [
+        115,
+        213
+      ],
+      [
+        120,
+        208
+      ],
+      [
+        110,
+        218
+      ],
+      [
+        130,
+        223
+      ],
+      [
+        110,
+        223
+      ],
+      [
+        125,
+        208
+      ],
+      [
+        135,
+        218
+      ],
+      [
+        130,
+        213
+      ],
+      [
+        110,
+        213
+      ],
+      [
+        115,
+        208
+      ],
+      [
+        120,
+        203
+      ],
+      [
+        105,
+        218
+      ],
+      [
+        105,
+        223
+      ],
+      [
+        135,
+        223
+      ],
+      [
+        130,
+        208
+      ],
+      [
+        135,
+        213
+      ],
+      [
+        115,
+        203
+      ],
+      [
+        125,
+        203
+      ],
+      [
+        110,
+        208
+      ],
+      [
+        105,
+        213
+      ],
+      [
+        120,
+        198
+      ],
+      [
+        100,
+        218
+      ],
+      [
+        100,
+        223
+      ],
+      [
+        130,
+        203
+      ],
+      [
+        110,
+        203
+      ],
+      [
+        135,
+        208
+      ],
+      [
+        125,
+        198
+      ],
+      [
+        105,
+        208
+      ],
+      [
+        100,
+        213
+      ],
+      [
+        115,
+        198
+      ],
+      [
+        95,
+        218
+      ],
+      [
+        95,
+        223
+      ],
+      [
+        135,
+        203
+      ],
+      [
+        130,
+        198
+      ],
+      [
+        105,
+        203
+      ],
+      [
+        110,
+        198
+      ],
+      [
+        95,
+        213
+      ],
+      [
+        100,
+        208
+      ],
+      [
+        135,
+        198
+      ],
+      [
+        105,
+        198
+      ],
+      [
+        100,
+        203
+      ],
+      [
+        95,
+        208
+      ],
+      [
+        100,
+        198
+      ],
+      [
+        95,
+        203
+      ],
+      [
+        95,
+        198
+      ]
+    ]
+  }
+}

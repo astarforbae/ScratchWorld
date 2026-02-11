@@ -1,0 +1,26 @@
+{
+  "name": "decimal_to_binary",
+  "description": "Create a Scratch program that takes a positive integer as input and converts it into its binary representation (a string of 0s and 1s). The sprite should say the binary string.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that takes a positive integer as input and converts it into its binary representation (a string of 0s and 1s). The sprite should say the binary string.",
+  "initial_project": "decimal_to_binary.sb3",
+  "evaluation": {
+    "function": "decimal_to_binary",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: decimal_to_binary",
+    "test_cases": [
+      {
+        "input": 5,
+        "output": "101"
+      },
+      {
+        "input": 10,
+        "output": "1010"
+      },
+      {
+        "input": 99,
+        "output": "1100011"
+      }
+    ]
+  }
+}

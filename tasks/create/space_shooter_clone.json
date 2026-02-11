@@ -1,0 +1,12 @@
+{
+  "name": "space_shooter_clone",
+  "description": "Press space to fire a bullet clone from the sprite's position upward; the clone moves up and deletes itself at the top edge.",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) When the green flag is clicked, allow the player to press the space key to create a clone that starts at Sprite1's current x,y. 2) For each clone, move it upward repeatedly until it reaches the top edge, then delete the clone. 3) Support multiple presses of space to fire multiple clones over time.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "space_shooter_clone",
+    "timeout": 25,
+    "description": "Simulates space key presses; verifies clones are created at the sprite position, travel upward, and delete near the top edge."
+  }
+}

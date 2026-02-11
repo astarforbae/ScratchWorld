@@ -1,0 +1,12 @@
+{
+  "name": "party_costume",
+  "description": "Why didn't Ben's costume change?",
+  "type": "debug",
+  "instruction": "This is an animated party scene with dancing characters and changing backgrounds. Features a ghost that glides back and forth, a dancing character named Casey with multiple costume animations, and cycling backdrops with background music. But now Ben's costume is not changing. Please help me fix this issue.",
+  "initial_project": "party_costume.sb3",
+  "evaluation": {
+    "function": "party_costume",
+    "timeout": 20,
+    "description": "Evaluate whether Ben's costume changes. The test locates the Ben sprite, triggers the green flag event, and periodically checks the sprite's costume index. If the costume index differs from the initial value, it indicates the costume has changed and the test passes; if no costume change is detected within the timeout, the test fails."
+  }
+}

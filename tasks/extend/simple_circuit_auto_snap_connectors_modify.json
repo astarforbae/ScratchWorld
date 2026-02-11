@@ -1,0 +1,12 @@
+{
+  "name": "simple_circuit_auto_snap_connectors_modify",
+  "description": "Implement snap-to-terminal behavior for the Battery sprite when near the connection point (-180, 5).",
+  "type": "extend",
+  "instruction": "This is an interactive circuit simulation where users can drag and connect a battery, switch, and lightbulb to complete an electrical circuit. When all components are properly connected and the switch is turned on, the lightbulb illuminates with sound effects. Please add a functionality that when the Battery sprite is dragged close to the terminal position (-180, 5), it automatically glides to that exact position. The snapping should occur when the Battery is within a Manhattan distance of 50 from the target position (|x - (-180)| + |y - 5| < 50).",
+  "initial_project": "simple_circuit.sb3",
+  "evaluation": {
+    "function": "simple_circuit_auto_snap_connectors_modify",
+    "timeout": 20,
+    "description": "Moves the Battery sprite near the terminal position (-180, 5) and verifies that it automatically snaps to that exact position using glide animation."
+  }
+}

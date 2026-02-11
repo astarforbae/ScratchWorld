@@ -1,0 +1,12 @@
+{
+  "name": "say_hello",
+  "description": "Example task configuration: make the sprite say 'hello'",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: When the green flag is clicked, make Sprite1 say 'hello'.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "say_hello",
+    "timeout": 20,
+    "description": "Evaluates whether the sprite says the text 'hello' (case-sensitive). The test listens for SAY events and passes if the spoken text matches; otherwise it fails if no matching SAY event occurs within the time limit."
+  }
+}

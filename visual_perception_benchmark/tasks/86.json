@@ -1,0 +1,88 @@
+{
+  "task_id": "86",
+  "instruction": "Is there any `forever` block that is visible in the canvas?",
+  "screenshot": "013.png",
+  "task_type": "existence",
+  "tag": "existence_yes_occluded",
+  "ground_truth": "YES",
+  "prompt": [
+    {
+      "role": "system",
+      "content": "\nYou are an expert annotator for a visual perception benchmark based on Scratch programming canvases.\n\nYou will be given ONE screenshot of a Scratch canvas.\nYour task is to generate exactly ONE valid **Existence-type question** based solely on the visual content of the screenshot.\n\nIMPORTANT: This task evaluates visual perception only. Do NOT rely on Scratch semantics, execution order, or prior knowledge of Scratch blocks.\n\n---\n\n### 1. Task Definition (Existence)\nAn Existence task asks whether a specific type (or category) of block is present and visible on the canvas.\nIt specifically targets scenarios involving occlusion (blocks partially covered by others) and confusability (similar looking blocks).\n\nYou must generate a YES/NO question.\n\n---\n\n### 2. Allowed Task Types\nYou may choose **one** of the following types based on what is visible:\n\n#### (A) Block-Type Existence (Identifiable)\nAsks if a specific block type is present.\nTarget: The block is either clearly visible OR partially occluded but still uniquely identifiable by its remaining text/shape.\n\nTemplate:\n> Is there any `[block-type]` block that is visible in the canvas?\n\n#### (B) Category Existence (Unidentifiable)\nAsks if a block of a certain *category* (color) is present.\nTarget: The block is heavily occluded, so you cannot read the text to determine the exact type, BUT you can see enough color/shape to know its category (e.g., a blue Motion block).\n\nTemplate:\n> Is there any `[category]` block that is visible in the canvas?\n\n**Categories:**\n- motion (blue)\n- looks (purple)\n- sound (magenta)\n- events (yellow)\n- control (gold/amber)\n- sensing (cyan)\n- operators (green)\n- variables (dark orange)\n\n---\n\n### 3. Block-Type Naming Rules (CRITICAL)\n- Use ONLY the visible text labels shown on the blocks.\n- Do NOT include any field values (numbers, dropdown selections, text).\n- Do NOT use internal or symbolic names (e.g., motion_movesteps).\n\nExamples:\n- Use: `move steps` (NOT `move 10 steps`)\n- Use: `set to` (NOT `set score to`)\n- Use: `go to layer` (NOT `go to front layer`)\n\n---\n\n### 4. Visual Analysis Guidelines (Heuristics)\nUse these rules to determine existence and identifiability:\n\n1.  **Occlusion vs. Absence**\n    *   **Occluded**: You can see *part* of a block (e.g., a corner, a slice of color) behind another block. It EXISTS.\n    *   **Absent**: You see absolutely no pixels belonging to that block.\n\n2.  **Identifiable vs. Unidentifiable**\n    *   **Identifiable**: You can see enough text or unique shape features to be 100% sure of the block name (e.g., \"mov...\" on a blue block is likely \"move steps\").\n    *   **Unidentifiable**: You see a blue block behind a stack, but no text. It could be \"move steps\" or \"turn degrees\". In this case, you MUST use the **Category Existence** template (\"Is there any motion block...\"), NOT the specific block name.\n\n---\n\n### 5. Constraints\n- **First, perform a visual analysis based on the heuristics above.**\n- Then, generate exactly ONE question and its answer.\n- Do NOT generate questions about \"My Blocks\" (pink custom blocks).\n- Do NOT generate multiple questions.\n\n---\n\n### 6. Output Format\nOutput the analysis first, then the question and answer.\n\nFormat:\nAnalysis: [Briefly describe visible blocks. E.g., \"I see a stack of yellow Event blocks. Behind them, there is a small corner of a green Operator block visible.\"]\nQuestion: [Your question]\nAnswer: [YES/NO]\n\nExample 1 (Occluded but Identifiable):\nAnalysis: There is a `say` block partially covered by a `wait` block. I can clearly see the purple color and the word \"say\".\nQuestion: Is there any `say` block that is visible in the canvas?\nAnswer: YES\n\nExample 2 (Unidentifiable / Category):\nAnalysis: There is a blue block almost entirely hidden behind the `when flag clicked` block. I can only see its blue color, so I know it is a Motion block, but I cannot read the text.\nQuestion: Is there any `motion` block that is visible in the canvas?\nAnswer: YES\n\nExample 3 (Negative / Confusable):\nAnalysis: I see a `change x by` block. The user is asking about `set x to` (implied negative generation). These look similar but are different. There is no `set x to` block visible.\nQuestion: Is there any `set x to` block that is visible in the canvas?\nAnswer: NO\n"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "### Constraints and Hints for the Generating the Question\n\n\n#### Tag-Specific Constraint (MUST FOLLOW)\n**Target Answer: YES (Occluded)**\nThe hint points to a block that is partially occluded but still identifiable by its text/shape.\nGenerate a Block-Type Existence question where the answer is YES.\n\n\n\n---\n\n#### Hint (CRITICAL)\nThe user has provided a specific hint to help you position your attention. \n\nThe hint always contain a block name, possibly with a spatial qualifier (an abbreviation).\n\n**Abbreviation Guide:**\n- `tm` = **topmost** (e.g., \"tm move\" -> topmost \"move steps\" block)\n- `bm` = **bottommost**\n- `lm` = **leftmost**\n- `rm` = **rightmost**\n- `inner` / `nested` = inside another block\n\nFor connection type tasks, the hint may:\n1. include positional words like \"above\", \"below\", \"in\", etc.\n2. two block names, indicating the target block and its parent/neighbor block.\n\n\n**Hint:** \"forever\"\n**Instruction**: Use this hint to IDENTIFY the target block(s) for your question. The question must be about the block(s) described in the hint.\n\n        "
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "<013.png>"
+          }
+        }
+      ]
+    }
+  ],
+  "response_content": "Analysis: In the main script area, there is a control stack starting with a yellow event block. Beneath it, an amber C-shaped \"forever\" loop is present. It is partially covered by an \"if then\" block placed inside it, but the C-shape and the word \"forever\" are still visible, making it identifiable.\nQuestion: Is there any `forever` block that is visible in the canvas?\nAnswer: YES",
+  "full_response": {
+    "id": "chatcmpl-D1CEhRpHRZaqsV5OrOZek2lGPuh9x",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Analysis: In the main script area, there is a control stack starting with a yellow event block. Beneath it, an amber C-shaped \"forever\" loop is present. It is partially covered by an \"if then\" block placed inside it, but the C-shape and the word \"forever\" are still visible, making it identifiable.\nQuestion: Is there any `forever` block that is visible in the canvas?\nAnswer: YES",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": [],
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "provider_specific_fields": {
+          "content_filter_results": {}
+        }
+      }
+    ],
+    "created": 1769177735,
+    "model": "gpt-5-2025-08-07",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 613,
+      "prompt_tokens": 2200,
+      "total_tokens": 2813,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 512,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 1152
+      }
+    },
+    "prompt_filter_results": [
+      {
+        "prompt_index": 1,
+        "content_filter_result": {
+          "custom_blocklists": {
+            "filtered": false,
+            "details": []
+          }
+        }
+      },
+      {
+        "prompt_index": 0,
+        "content_filter_result": {}
+      }
+    ]
+  },
+  "focus_hint": "forever"
+}

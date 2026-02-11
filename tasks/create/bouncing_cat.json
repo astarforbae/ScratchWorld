@@ -1,0 +1,12 @@
+{
+  "name": "bouncing_cat",
+  "description": "Create a project where the default cat sprite moves horizontally back and forth on the stage, bounces at edges, and faces its movement direction",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) When the green flag is clicked, make Sprite1 move horizontally across the stage. 2) If Sprite1 touches the edge, make it bounce and face the direction it is moving. 3) Ensure this behavior runs in a forever loop.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "bouncing_cat",
+    "description": "Checks that the cat sprite moves horizontally on the stage, bounces at edges, faces the movement direction, and loops forever after the green flag is clicked",
+    "timeout": 20
+  }
+}

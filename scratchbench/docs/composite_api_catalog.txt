@@ -1,0 +1,31 @@
+APIs (api + args):
+- select_sprite: args { name: string }
+  Switch the editing target to the named sprite.
+- select_stage: args { }
+  Switch the editing target to the Stage.
+- add_variable: args { name: string, scope: 'sprite'|'all' }
+  Create a variable scoped to the current sprite or global.
+- add_list: args { name: string, scope: 'sprite'|'all' }
+  Create a list scoped to the current sprite or global.
+- add_block: args { blockType: string, creation?: { variableName?: string, listName?: string } }
+  Create a new block in the current workspace, with optional variable/list binding.
+- connect_blocks: args { sourceBlockIndex: number, targetBlockIndex: number, placement: { kind: 'stack_before'|'stack_after'|'statement_into'|'value_into'|'wrap', inputName?: string } }
+  Connect one block to another (stack, insert into C-slot, value slot, or wrap).
+- detach_blocks: args { blockIndex: number }
+  Detach a block (and its stack) into a new top-level stack.
+- set_block_field: args { blockIndex: number, fieldName: string, value: any }
+  Set a block field (e.g., dropdown, text, number) to a new value.
+- delete_block: args { blockIndex: number }
+  Delete a block (and its attached stack, if any).
+- done: args { }
+  Mark task as completed.
+- failed: args { }
+  Mark task as failed.
+
+Execution Rules:
+1. add_block: args.creation.variableName is required when blockType='data_variable'.
+2. add_block: args.creation.listName is required when blockType='data_listcontents'.
+   For other blockType values, creation.variableName and creation.listName are not supported and are ignored.
+3. connect_blocks: placement.inputName is required when kind is 'statement_into' or 'value_into'.
+4. connect_blocks: value slots (e.g., CONDITIONS, numeric/string inputs) must use kind='value_into'; statement slots (C-shaped SUBSTACK/SUBSTACK2) use kind='statement_into'.
+5. detach_blocks: detaches the specified block and its following stack into a new top-level stack.

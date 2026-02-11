@@ -1,0 +1,12 @@
+{
+  "name": "maze_starter_patrolling_obstacles_modify",
+  "description": "Add one Obstacle sprite that patrol and resets upon collision with the Ball.",
+  "type": "extend",
+  "instruction": "This is a basic maze navigation game where players control a ball sprite using arrow keys to move through a maze. The ball bounces off blue walls and the goal is to reach a target sprite that displays 'You win!' when touched. To add an additional gameplay challenge, implement the following feature: make the Obstacle sprite continuously patrol along a path (move and bounce on edge). If the Ball touches the Obstacle, reset Ball to the start position.",
+  "initial_project": "maze_starter_patrolling_obstacles_modify.sb3",
+  "evaluation": {
+    "function": "maze_starter_patrolling_obstacles_modify",
+    "timeout": 20,
+    "description": "Observes obstacle motion over time and checks collision behavior: Ball resets position when a collision occurs."
+  }
+}

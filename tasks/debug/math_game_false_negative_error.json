@@ -1,0 +1,12 @@
+{
+  "name": "math_game_false_negative_error",
+  "description": "Fix the false negative error in the Math Game where correct answers are marked as wrong",
+  "type": "debug",
+  "instruction": "This is an educational math quiz game featuring a character named Frank who asks addition problems. The game starts with a fixed question (3+3) and then generates random addition problems, providing visual and audio feedback for correct and incorrect answers. But now in this Math Game, when the player enters the correct answer (for example, entering 6 for the question 3+3), the sprite incorrectly says 'wrong' instead of recognizing it as the correct answer. Please help me fix this false negative error so that correct answers are properly recognized and validated.",
+  "initial_project": "math_game_false_negative_error.sb3",
+  "evaluation": {
+    "function": "math_game_false_negative_error",
+    "timeout": 20,
+    "description": "Evaluates whether the math game correctly validates answers. The test starts the game, waits for a math question to appear, identifies the correct answer, inputs it, and checks if the game responds with a positive feedback (like 'correct' or 'right') instead of incorrectly saying 'wrong'. The test passes if correct answers are properly recognized; otherwise, it fails."
+  }
+}

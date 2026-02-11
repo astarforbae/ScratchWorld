@@ -1,0 +1,26 @@
+{
+  "name": "find_largest_prime_factor",
+  "description": "Create a Scratch program that takes a positive integer greater than 1 as input and outputs its largest prime factor. The sprite should say the result.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that takes a positive integer greater than 1 as input and outputs its largest prime factor. The sprite should say the result.",
+  "initial_project": "find_largest_prime_factor.sb3",
+  "evaluation": {
+    "function": "find_largest_prime_factor",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: find_largest_prime_factor",
+    "test_cases": [
+      {
+        "input": 10,
+        "output": 5
+      },
+      {
+        "input": 24,
+        "output": 3
+      },
+      {
+        "input": 13,
+        "output": 13
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "edge_wrap_runner",
+  "description": "Make the sprite continuously move to the right and wrap from the right edge back to the left edge, looping forever",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) When the green flag is clicked, move Sprite1 to the right at a constant speed. 2) When Sprite1's x-position goes beyond the right edge of the stage, instantly wrap it to the left edge at the same y-position. 3) Repeat this behavior forever.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "edge_wrap_runner",
+    "timeout": 20,
+    "description": "Checks that the sprite's x increases steadily and that crossing the right boundary causes an immediate jump to the left boundary, repeating continuously"
+  }
+}

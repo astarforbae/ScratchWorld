@@ -1,0 +1,12 @@
+{
+  "name": "pong_starter_touching_red_error",
+  "description": "Fix the problem that the Pong Game doesn't end when the ball touches the bottom",
+  "type": "debug",
+  "instruction": "This is a basic Pong-style game where a ball bounces around the screen and players control a paddle that follows the mouse. The ball changes direction when hitting the paddle and the game ends when the ball touches red areas. But now in this Pong Game, the game doesn't end even when the pong ball touches the bottom of the screen. Please help me fix this issue so the game properly ends when the ball reaches the bottom.",
+  "initial_project": "pong_starter_touching_red_error.sb3",
+  "evaluation": {
+    "function": "pong_starter_touching_red_error",
+    "timeout": 20,
+    "description": "Evaluates whether the game properly ends when the ball touches the bottom. The test finds the Ball sprite, starts the game, and monitors the ball's Y coordinate. When the ball reaches the bottom threshold (Y <= -180), the test checks if the game stops or shows a game over state. The test passes if the game properly ends within the timeout period; otherwise, it fails."
+  }
+}

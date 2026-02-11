@@ -1,0 +1,12 @@
+{
+  "name": "maze_starter_footstep_trail_with_fading_clones_modify",
+  "description": "Add a visual trail behind the Ball using clones that fade out with ghost effect and delete themselves.",
+  "type": "extend",
+  "instruction": "This is a basic maze navigation game where players control a ball sprite using arrow keys to move through a maze. The ball bounces off blue walls and the goal is to reach a target sprite that displays 'You win!' when touched. Create a clone-based trail effect. In the Ball sprite, periodically create clones while moving. In 'when I start as a clone', set the clone's ghost effect to 0, then in a repeat loop increase ghost by a small amount until the clone becomes invisible, then delete the clone. Ensure clones do not affect gameplay by spacing clone creation.",
+  "initial_project": "maze_starter_footstep_trail_with_fading_clones_modify.sb3",
+  "evaluation": {
+    "function": "maze_starter_footstep_trail_with_fading_clones_modify",
+    "timeout": 20,
+    "description": "Verifies that clones are created during movement, their ghost effect increases over time causing fade-out, and clones delete themselves to prevent buildup."
+  }
+}

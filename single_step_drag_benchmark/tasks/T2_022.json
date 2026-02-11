@@ -1,0 +1,176 @@
+{
+  "id": "T2_022",
+  "category": "T2",
+  "instruction": "Drag the 'operator_equals' block and connect it into the first input slot of the 'operator_and' block.",
+  "init_project": "T2_022.sb3",
+  "evaluation_config": {
+    "target_block_opcode": "operator_equals",
+    "target_block_id": "cgvE5Ba`],[x;|R9Hf3c",
+    "reference_block_id": "QX,D4Rv:Ih.k]LfktOxn",
+    "connection_type": "input",
+    "target_input_name": "OPERAND1",
+    "description": "Drag the 'equal' block and connect it into the first input slot of the 'and' block.",
+    "reference_block_opcode": "operator_and",
+    "reference_block_structure": {
+      "id": "QX,D4Rv:Ih.k]LfktOxn",
+      "opcode": "operator_and",
+      "position": {
+        "x": 143,
+        "y": 293
+      },
+      "boundingBox": null,
+      "screenBoundingBox": {
+        "x": 407.5249938964844,
+        "y": 290.7750244140625,
+        "left": 407.5249938964844,
+        "top": 290.7750244140625,
+        "right": 673.994140625,
+        "bottom": 328.57501220703125,
+        "width": 266.4691467285156,
+        "height": 37.79998779296875
+      },
+      "parent": "5h6s!gHy?hjZ3D$2bG2O",
+      "inputs": {
+        "OPERAND2": {
+          "name": "OPERAND2",
+          "block": "k3}#!br`/){1zokPPyce",
+          "shadow": null
+        }
+      },
+      "fields": {}
+    },
+    "pan_canvas_actions": [
+      {
+        "api": "custom_js",
+        "args": {
+          "fn": "\n({ ws, payload }) => {\n    if (!ws) return { success: false, error: \"Workspace not available\" };\n    // dx, dy 是屏幕像素偏移量（正值表示内容应该向右/向下移动）\n    const dx = (payload && payload.dx) || 0;\n    const dy = (payload && payload.dy) || 0;\n    const scale = ws.scale || 1;\n    \n    const canvas = ws.getCanvas();\n    if (!canvas) return { success: false, error: \"Cannot get canvas\" };\n    \n    // 获取当前的 transform\n    const currentTransform = canvas.getAttribute('transform') || '';\n    \n    // 解析当前的 translate 值\n    let currentTx = 0, currentTy = 0;\n    const translateMatch = currentTransform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    if (translateMatch) {\n        currentTx = parseFloat(translateMatch[1]) || 0;\n        currentTy = parseFloat(translateMatch[2]) || 0;\n    }\n    \n    // 在当前基础上增加 dx, dy（屏幕像素偏移）\n    const newTx = currentTx + dx;\n    const newTy = currentTy + dy;\n    \n    // 设置新的 transform（保持原来的 scale）\n    const newTransform = 'translate(' + newTx + ',' + newTy + ') scale(' + scale + ')';\n    canvas.setAttribute('transform', newTransform);\n    \n    // 同时更新 bubble canvas（气泡层）\n    const bubbleCanvas = ws.getBubbleCanvas();\n    if (bubbleCanvas) {\n        bubbleCanvas.setAttribute('transform', newTransform);\n    }\n    \n    // 更新 scrollX/scrollY 以保持内部状态一致\n    // scrollX = -translateX / scale\n    ws.scrollX = -newTx / scale;\n    ws.scrollY = -newTy / scale;\n    \n    return { \n        success: true, \n        mode: \"direct_svg_transform\",\n        inputDx: dx, inputDy: dy,\n        currentTransform,\n        currentTx, currentTy,\n        newTx, newTy,\n        newTransform,\n        newScrollX: ws.scrollX, \n        newScrollY: ws.scrollY,\n        scale\n    };\n}\n",
+          "payload": {
+            "dx": 54.46211242675781,
+            "dy": -147.94998168945312
+          }
+        }
+      }
+    ],
+    "workspace_state": {
+      "tx": 364.4621124267578,
+      "ty": 84.07501831054685,
+      "scale": 0.675,
+      "scrollX": -539.9438702618634,
+      "scrollY": -124.55558268229163,
+      "transform": "translate(364.4621124267578,84.07501831054685) scale(0.675)"
+    },
+    "seed_point": [
+      461,
+      389
+    ],
+    "target_stack_tail_block_id": "cgvE5Ba`],[x;|R9Hf3c",
+    "drag_start_point": [
+      680,
+      317
+    ],
+    "first_valid_point": [
+      491,
+      389
+    ],
+    "feasible_points": [
+      [
+        491,
+        389
+      ],
+      [
+        493,
+        389
+      ],
+      [
+        495,
+        389
+      ],
+      [
+        497,
+        389
+      ],
+      [
+        499,
+        389
+      ],
+      [
+        501,
+        389
+      ],
+      [
+        503,
+        389
+      ],
+      [
+        505,
+        389
+      ],
+      [
+        507,
+        389
+      ]
+    ],
+    "feasible_start_points": [
+      [
+        680,
+        317
+      ],
+      [
+        685,
+        317
+      ],
+      [
+        680,
+        322
+      ],
+      [
+        685,
+        312
+      ],
+      [
+        680,
+        327
+      ],
+      [
+        685,
+        322
+      ],
+      [
+        675,
+        322
+      ],
+      [
+        690,
+        312
+      ],
+      [
+        685,
+        327
+      ],
+      [
+        680,
+        332
+      ],
+      [
+        675,
+        327
+      ],
+      [
+        685,
+        332
+      ],
+      [
+        685,
+        337
+      ],
+      [
+        690,
+        337
+      ],
+      [
+        695,
+        337
+      ]
+    ]
+  }
+}

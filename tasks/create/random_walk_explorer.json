@@ -1,0 +1,12 @@
+{
+  "name": "random_walk_explorer",
+  "description": "Make the sprite perform a continuous random walk: randomly turn small amounts and move a few steps, bouncing at edges",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) When the green flag is clicked, make Sprite1 perform a random walk. 2) In a forever loop, turn a small random amount and move several steps. 3) If Sprite1 touches the stage edge, bounce and continue wandering. 4) The motion should appear continuous and random.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "random_walk_explorer",
+    "timeout": 20,
+    "description": "Observes continuous wandering with random heading changes and steps, with proper edge bouncing over time"
+  }
+}

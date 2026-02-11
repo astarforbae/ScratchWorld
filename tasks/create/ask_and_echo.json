@@ -1,0 +1,12 @@
+{
+  "name": "ask_and_echo",
+  "description": "Ask the user a question and then repeat (say) the exact answer they typed.",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) When the green flag is clicked, use 'ask and wait' to ask 'What is your name?'. 2) After the user enters an answer, make Sprite1 say exactly the same text they typed for 2 seconds.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "ask_and_echo",
+    "timeout": 25,
+    "description": "Verifies use of ask-and-wait, captures the answer, and says the exact answer text for about 2 seconds."
+  }
+}

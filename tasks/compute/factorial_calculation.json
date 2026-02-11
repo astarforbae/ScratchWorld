@@ -1,0 +1,26 @@
+{
+  "name": "factorial_calculation",
+  "description": "Create a Scratch program that calculates the factorial of a given positive integer. The sprite should say the result.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that calculates the factorial of a given positive integer. The sprite should say the result.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "factorial_calculation",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: factorial_calculation",
+    "test_cases": [
+      {
+        "input": 5,
+        "output": 120
+      },
+      {
+        "input": 3,
+        "output": 6
+      },
+      {
+        "input": 1,
+        "output": 1
+      }
+    ]
+  }
+}

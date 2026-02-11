@@ -1,0 +1,12 @@
+{
+  "name": "mouse_trail_glide_to_goal_modify",
+  "description": "Add a new sprite named 'Goal' and modify the Mouse Trail so each clone glides to the Goal for ~1 second and then deletes itself. The Goal should appear at a random position when the project starts.",
+  "type": "extend",
+  "instruction": "This is a visual effects demonstration where star sprites follow the mouse cursor, creating colorful trailing effects. Clicking on stars triggers sound effects and color changes, with clones that move randomly and fade away over time. Please implement the following: (1) When the green flag is clicked, place the 'Goal' sprite at a random position on the stage. (2) Make the clones of 'Mouse Trail' glide to the 'Goal' sprite once they are created and finish the glide in about 1 second. After the glide completes, delete the clone.",
+  "initial_project": "mouse_trail_glide_to_goal_modify.sb3",
+  "evaluation": {
+    "function": "mouse_trail_glide_to_goal_modify",
+    "timeout": 25,
+    "description": "Verifies a 'Goal' sprite exists and appears at a random location on start, clones glide toward the Goal for about a second, and then delete themselves without excessive buildup."
+  }
+}

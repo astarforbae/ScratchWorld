@@ -1,0 +1,26 @@
+{
+  "name": "fibonacci_nth_term",
+  "description": "Create a Scratch program that takes a positive integer N as input and outputs the Nth number in the Fibonacci sequence (1, 1, 2, 3, 5...). The sprite should say the result.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that takes a positive integer N as input and outputs the Nth number in the Fibonacci sequence (1, 1, 2, 3, 5...). The sprite should say the result.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "fibonacci_nth_term",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: fibonacci_nth_term",
+    "test_cases": [
+      {
+        "input": 1,
+        "output": 1
+      },
+      {
+        "input": 2,
+        "output": 1
+      },
+      {
+        "input": 6,
+        "output": 8
+      }
+    ]
+  }
+}

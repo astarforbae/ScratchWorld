@@ -1,0 +1,12 @@
+{
+  "name": "countdown_broadcast",
+  "description": "Create a countdown timer that starts at 5 and counts down to 0, waiting 1 second between numbers. When it reaches 0, broadcast 'timeup' and say 'Time's up!' for 2 seconds.",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) Create a variable named 'timer'. 2) When the green flag is clicked, set 'timer' to 5. 3) Repeatedly wait 1 second and change 'timer' by -1 until it reaches 0. 4) When 'timer' becomes 0, broadcast a message named 'timeup' and make Sprite1 say 'Time's up!' for 2 seconds.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "countdown_broadcast",
+    "timeout": 25,
+    "description": "Verifies variable 'timer' is initialized to 5, decremented once per ~1s to 0, and upon reaching 0 a 'timeup' broadcast is sent and the sprite says 'Time's up!' for about 2 seconds."
+  }
+}

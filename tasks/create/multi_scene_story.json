@@ -1,0 +1,12 @@
+{
+  "name": "multi_scene_story",
+  "description": "Design a multi-scene story with at least two different backdrops and two button sprites that switch scenes",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with two backdrops and two default sprites named 'Previous' and 'Next', you should complete the following: 1) When the 'Next' button sprite is clicked, switch to the next backdrop. 2) When the 'Previous' button sprite is clicked, switch to the previous backdrop.",
+  "initial_project": "multi_scene_story.sb3",
+  "evaluation": {
+    "description": "Checks that there are at least two different backdrops and two button sprites ('Next' and 'Previous'), and that clicking them correctly switches backdrops",
+    "timeout": 20,
+    "function": "multi_scene_story"
+  }
+}

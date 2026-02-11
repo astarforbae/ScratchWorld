@@ -1,0 +1,12 @@
+{
+  "name": "mouse_trail_direction_increment_control_modify",
+  "description": "Use a degree variable to control the clones' pointing direction. It starts at 0 and gradually increases so the trail curves/spirals as clones move.",
+  "type": "extend",
+  "instruction": "This is a visual effects demonstration where star sprites follow the mouse cursor, creating colorful trailing effects. Clicking on stars triggers sound effects and color changes, with clones that move randomly and fade away over time. Please create a variable named 'degree'. When the green flag is clicked, set 'degree' to 0. In the main loop that follows the mouse (not inside the clone loop), gradually increase 'degree' over time. For each clone, set their direction to the value of 'degree' when they are created, then proceed with the existing clone behavior (movement, fade/shrink during its repeat, and delete).",
+  "initial_project": "mouse_trail.sb3",
+  "evaluation": {
+    "function": "mouse_trail_direction_increment_control_modify",
+    "timeout": 25,
+    "description": "Checks that a 'degree' variable exists, is initialized to 0 at start, increases over time in the main loop, and that each clone sets its direction once at start based on the current 'degree'; other behaviors remain unchanged."
+  }
+}

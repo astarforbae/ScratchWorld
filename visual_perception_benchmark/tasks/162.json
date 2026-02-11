@@ -1,0 +1,88 @@
+{
+  "task_id": "162",
+  "instruction": "Is the dropdown field in the `touching [object] ?` block set to `Paddle`?",
+  "screenshot": "108.png",
+  "task_type": "field",
+  "tag": "equivalence_dropdown_yes",
+  "ground_truth": "YES",
+  "prompt": [
+    {
+      "role": "system",
+      "content": "\nYou are an expert annotator for a visual perception benchmark based on Scratch programming canvases.\n\nYou will be given ONE screenshot of a Scratch canvas.\nYour task is to generate exactly ONE valid **Field-type question** based solely on the visual content of the screenshot.\n\nIMPORTANT: This task evaluates visual perception and OCR capabilities. Do NOT rely on Scratch semantics.\n\n---\n\n### 1. Task Definition (Field)\nA Field task asks the model to read the value of a specific input field within a block.\nFields can be Numeric (round), Text (rectangular/round), or Dropdown (menu).\n\n---\n\n\n### 2. Allowed Task Types\nYou may choose **one** of the following types:\n\n#### (A) Exact Match (Read Value)\nAsks for the precise string/number shown in the field.\n\nTemplate:\n> What number is shown in the numeric field of the [spatial-superlative] `[block-type]` block?\n> What text is shown in the text field of the [spatial-superlative] `[block-type]` block?\n> What option is selected in the dropdown field of the [spatial-superlative] `[block-type]` block?\n\n#### (B) Equivalence (Verify Value)\nAsks if the field value equals a specific target.\n\nTemplate:\n> Is the numeric field in the [spatial-superlative] `[block-type]` block equal to [target-number]?\n> Is the text field in the [spatial-superlative] `[block-type]` block equal to \"[target-text]\"?\n> Is the dropdown field in the [spatial-superlative] `[block-type]` block set to \"[target-option]\"?\n\n\n---\n\n### 3. Block-Type Naming Rules (CRITICAL)\n- Use ONLY the visible text labels shown on the blocks.\n- Do NOT include any field values (numbers, dropdown selections, text).\n- Do NOT use internal or symbolic names (e.g., motion_movesteps).\n\nExamples:\n- Use: `move steps` (NOT `move 10 steps`)\n- Use: `set to` (NOT `set score to`)\n- Use: `go to layer` (NOT `go to front layer`)\n\n---\n\n### 4. Spatial Reference Rules (CRITICAL)\n- **UNIQUE BLOCKS**: If there is ONLY ONE block of a specific type (e.g., only one `move steps` block), you MUST NOT use a spatial superlative. Refer to it simply as `the \"move steps\" block`.\n- **MULTIPLE BLOCKS**: If and ONLY IF there are multiple blocks of the same type, you MUST use exactly one spatial superlative to distinguish them:\n    - leftmost\n    - rightmost\n    - topmost\n    - bottommost\n\nDo NOT use ordinal or semantic terms such as \"first\", \"main\", or \"initial\".\n\n---\n\n### 5. Visual Analysis Guidelines (Heuristics)\nUse these rules to ensure validity:\n\n1.  **Field Type Identification**\n    *   **Numeric**: Usually white, round or semi-round.\n    *   **Text**: Usually white, round or semi-round.\n    *   **Dropdown**: Same or darker color than the block, has a downward arrow icon.\n\n2.  **Occupied check**\n    *   Check if the field is \"clean\" (showing text/number) or \"occupied\" (covered by another block). If occupied, SKIP IT.\n\n---\n\n\n### 6. Constraints\n- **[EXCLUDE] Color Fields**: Do NOT generate questions for color pickers (squares of color).\n- **[CONSTRAINT] Literal Values Only**: TARGET ONLY fields that display a direct value (number, text, or dropdown selection).\n- **[EXCLUDE] Occupied Fields**: If a field contains another block (e.g., a round reporter block is placed inside a numeric slot), do NOT use it. The field is visually obscured/replaced by the block.\n- **First, perform a visual analysis based on the heuristics above.**\n- Then, generate exactly ONE question and its answer.\n- Do NOT generate questions about \"My Blocks\" (pink custom blocks).\n- Do NOT generate multiple questions.\n\n---\n\n\n### 7. Output Format\nOutput the analysis first, then the question and answer.\n\nFormat:\nAnalysis: [Briefly describe the target field. E.g., \"I see a 'move steps' block. The numeric field contains the number '10'. It is not occupied by any other block.\"]\nQuestion: [Your question]\nAnswer: [Expected Answer]\n\nExample 1 (Exact Match, Numeric):\nAnalysis: I see a `move steps` block. The hole is white and shows \"10\". It is empty (not occupied).\nQuestion: What number is shown in the numeric field of the `move steps` block?\nAnswer: 10\n\nExample 2 (Equivalence, Dropdown):\nAnalysis: I see a `stop` block. The dropdown menu currently shows \"all\".\nQuestion: Is the dropdown field in the `stop` block set to \"all\"?\nAnswer: YES\n\nExample 3 (Negative Equivalence):\nAnalysis: I see a `point in direction` block. The value is \"90\". The target asked is \"180\".\nQuestion: Is the numeric field in the `point in direction` block equal to 180?\nAnswer: NO\n"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "### Constraints and Hints for the Generating the Question\n\n\n#### Tag-Specific Constraint (MUST FOLLOW)\n**Question Type: Equivalence (YES/NO)**\n**Target Answer: YES**\n**Field Type: Dropdown field** (has downward arrow icon)\nGenerate a YES/NO question asking if the dropdown is set to a specific option.\nUse the ACTUAL option shown in the dropdown so that the answer is YES.\n\n**Provided target value: Paddle**\nYou MUST use this exact value as the target in the question.\n\n\n\n---\n\n#### Hint (CRITICAL)\nThe user has provided a specific hint to help you position your attention. \n\nThe hint always contain a block name, possibly with a spatial qualifier (an abbreviation).\n\n**Abbreviation Guide:**\n- `tm` = **topmost** (e.g., \"tm move\" -> topmost \"move steps\" block)\n- `bm` = **bottommost**\n- `lm` = **leftmost**\n- `rm` = **rightmost**\n- `inner` / `nested` = inside another block\n\nFor connection type tasks, the hint may:\n1. include positional words like \"above\", \"below\", \"in\", etc.\n2. two block names, indicating the target block and its parent/neighbor block.\n\n\n**Hint:** \"touching\"\n**Instruction**: Use this hint to IDENTIFY the target block(s) for your question. The question must be about the block(s) described in the hint.\n\n        "
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "<108.png>"
+          }
+        }
+      ]
+    }
+  ],
+  "response_content": "Analysis: I see a `touching ?` sensing block inside an `if then` control block. Its dropdown field shows the option \"Paddle\" and is not occupied by any other block.\nQuestion: Is the dropdown field in the `touching ?` block set to \"Paddle\"?\nAnswer: YES",
+  "full_response": {
+    "id": "chatcmpl-D1CSmCve4KLIkDrurqXVFcANb4VO2",
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "content": "Analysis: I see a `touching ?` sensing block inside an `if then` control block. Its dropdown field shows the option \"Paddle\" and is not occupied by any other block.\nQuestion: Is the dropdown field in the `touching ?` block set to \"Paddle\"?\nAnswer: YES",
+          "refusal": null,
+          "role": "assistant",
+          "annotations": [],
+          "audio": null,
+          "function_call": null,
+          "tool_calls": null
+        },
+        "provider_specific_fields": {
+          "content_filter_results": {}
+        }
+      }
+    ],
+    "created": 1769178608,
+    "model": "gpt-5-2025-08-07",
+    "object": "chat.completion",
+    "service_tier": null,
+    "system_fingerprint": null,
+    "usage": {
+      "completion_tokens": 458,
+      "prompt_tokens": 2325,
+      "total_tokens": 2783,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 384,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cached_tokens": 0
+      }
+    },
+    "prompt_filter_results": [
+      {
+        "prompt_index": 1,
+        "content_filter_result": {
+          "custom_blocklists": {
+            "filtered": false,
+            "details": []
+          }
+        }
+      },
+      {
+        "prompt_index": 0,
+        "content_filter_result": {}
+      }
+    ]
+  },
+  "focus_hint": "touching"
+}

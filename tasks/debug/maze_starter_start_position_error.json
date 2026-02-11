@@ -1,0 +1,12 @@
+{
+  "name": "maze_starter_start_position_error",
+  "description": "Fix the bug where the ball starts inside a wall or off-screen due to corrupted start coordinates.",
+  "type": "debug",
+  "instruction": "This is a basic maze navigation game where players control a ball sprite using arrow keys to move through a maze. The ball bounces off blue walls and the goal is to reach a target sprite that displays 'You win!' when touched. The ball should start at the maze entrance at the left top of the stage. But now in this Maze Starter, the ball starts in the center of the stage. Please help me fix this start position issue so that the ball starts at the maze entrance at the left top of the stage.",
+  "initial_project": "maze_starter_start_position_error.sb3",
+  "evaluation": {
+    "function": "maze_starter_start_position_error",
+    "timeout": 20,
+    "description": "Runs the project, checks the ball's initial position against a known valid start region, and confirms it is not touching a wall and is visible. The test passes if the start position is within bounds and not colliding."
+  }
+}

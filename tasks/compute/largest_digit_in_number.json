@@ -1,0 +1,26 @@
+{
+  "name": "largest_digit_in_number",
+  "description": "Create a Scratch program that takes a positive integer as input and finds the largest digit within that number. The sprite should say the result.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that takes a positive integer as input and finds the largest digit within that number. The sprite should say the result.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "largest_digit_in_number",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: largest_digit_in_number",
+    "test_cases": [
+      {
+        "input": 1293,
+        "output": 9
+      },
+      {
+        "input": 505,
+        "output": 5
+      },
+      {
+        "input": 111,
+        "output": 1
+      }
+    ]
+  }
+}

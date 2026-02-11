@@ -1,0 +1,12 @@
+{
+  "name": "simple_circuit_variable_brightness_by_resistance_modify",
+  "description": "Add a Resistance variable that starts at 10 and decreases over time, affecting Lightbulb brightness and preventing operation when it reaches zero.",
+  "type": "extend",
+  "instruction": "Create an interactive circuit simulation where users can drag and connect a battery, switch, and lightbulb to complete an electrical circuit. Modify blocks so that when the components are correctly connected and the switch is turned on, the lightbulb lights up and then gradually decreases in brightness over time. Ensure that turning the switch off and then back on resets the lightbulb to its normal brightness level.",
+  "initial_project": "simple_circuit.sb3",
+  "evaluation": {
+    "function": "simple_circuit_variable_brightness_by_resistance_modify",
+    "timeout": 20,
+    "description": "Verifies that Resistance starts at 10, decreases by 1 every second, affects bulb brightness proportionally, and prevents the bulb from turning on when Resistance reaches 0."
+  }
+}

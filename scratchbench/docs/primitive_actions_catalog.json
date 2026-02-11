@@ -1,0 +1,224 @@
+{
+  "title": "Scratch Primitive Actions Catalog",
+  "version": "v0-draft",
+  "notes": [
+    "Comprehensive catalog of primitive UI actions for direct GUI interaction",
+    "Actions can use either coordinates (x, y) or element indices for targeting",
+    "Breaking changes will bump major version; additive changes will bump minor."
+  ],
+  "envelope": {
+    "description": "Single-action envelope emitted by the LLM per step.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "api": {"type": "string"},
+        "args": {"type": "object"}
+      },
+      "required": ["api", "args"]
+    },
+    "example": {"api": "click", "args": {"x": 100, "y": 200, "button": "left"}}
+  },
+  "result": {
+    "description": "Standard result payload returned by the action executor.",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "ok": {"type": "boolean"},
+        "data": {"type": "object"},
+        "error": {
+          "type": "object", 
+          "properties": {
+            "code": {"type": "string"},
+            "message": {"type": "string"},
+            "details": {"type": "object"}
+          }
+        }
+      }
+    },
+    "examples": [
+      {"ok": true, "data": {"clicked": true, "position": [100, 200]}},
+      {"ok": false, "error": {"code": "ELEMENT_NOT_FOUND", "message": "No element found at index 5"}}
+    ]
+  },
+  "error_codes": [
+    {"code": "ELEMENT_NOT_FOUND", "description": "Referenced element index does not exist or coordinates are out of bounds."},
+    {"code": "INVALID_COORDINATES", "description": "Provided coordinates are invalid or out of screen bounds."},
+    {"code": "INVALID_ARGS", "description": "Action arguments are missing required fields or have invalid values."},
+    {"code": "ACTION_FAILED", "description": "The UI action could not be completed successfully."},
+    {"code": "TIMEOUT", "description": "The action did not complete within the allocated time."}
+  ],
+  "actions": [
+    {
+      "name": "click",
+      "description": "Perform a mouse click at specified location or element",
+      "targeting": ["coordinate_based", "index_based"],
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "x": {"type": "number", "description": "X coordinate (use with y, not with index)"},
+          "y": {"type": "number", "description": "Y coordinate (use with x, not with index)"},
+          "index": {"type": "integer", "minimum": 0, "description": "Element index (use instead of x, y)"},
+          "button": {"type": "string", "enum": ["left", "right", "middle"], "default": "left"}
+        },
+        "anyOf": [
+          {"required": ["x", "y"]},
+          {"required": ["index"]}
+        ]
+      },
+      "examples": [
+        {"api": "click", "args": {"x": 100, "y": 200, "button": "left"}},
+        {"api": "click", "args": {"index": 5, "button": "left"}},
+        {"api": "click", "args": {"x": 150, "y": 250}}
+      ]
+    },
+    {
+      "name": "double_click", 
+      "description": "Perform a double mouse click",
+      "targeting": ["coordinate_based", "index_based"],
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "x": {"type": "number", "description": "X coordinate (use with y, not with index)"},
+          "y": {"type": "number", "description": "Y coordinate (use with x, not with index)"},
+          "index": {"type": "integer", "minimum": 0, "description": "Element index (use instead of x, y)"},
+          "button": {"type": "string", "enum": ["left", "right", "middle"], "default": "left"}
+        },
+        "anyOf": [
+          {"required": ["x", "y"]},
+          {"required": ["index"]}
+        ]
+      },
+      "examples": [
+        {"api": "double_click", "args": {"x": 100, "y": 200}},
+        {"api": "double_click", "args": {"index": 2, "button": "left"}}
+      ]
+    },
+    {
+      "name": "drag_and_drop",
+      "description": "Drag from one location to another, useful for moving blocks or elements",
+      "targeting": ["coordinate_based", "index_based", "mixed"],
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "start_x": {"type": "number", "description": "Start X coordinate (use with start_y, not with start_index)"},
+          "start_y": {"type": "number", "description": "Start Y coordinate (use with start_x, not with start_index)"},
+          "start_index": {"type": "integer", "minimum": 0, "description": "Start element index (use instead of start_x, start_y)"},
+          "end_x": {"type": "number", "description": "End X coordinate (use with end_y, not with end_index)"},
+          "end_y": {"type": "number", "description": "End Y coordinate (use with end_x, not with end_index)"},
+          "end_index": {"type": "integer", "minimum": 0, "description": "End element index (use instead of end_x, end_y)"},
+          "duration": {"type": "number", "minimum": 0, "default": 0.0, "description": "Drag duration in seconds"}
+        },
+        "anyOf": [
+          {"required": ["start_x", "start_y", "end_x", "end_y"]},
+          {"required": ["start_index", "end_index"]},
+          {"required": ["start_x", "start_y", "end_index"]},
+          {"required": ["start_index", "end_x", "end_y"]}
+        ]
+      },
+      "examples": [
+        {"api": "drag_and_drop", "args": {"start_x": 100, "start_y": 200, "end_x": 300, "end_y": 400}},
+        {"api": "drag_and_drop", "args": {"start_index": 2, "end_index": 5}},
+        {"api": "drag_and_drop", "args": {"start_index": 1, "end_x": 250, "end_y": 350, "duration": 1.0}}
+      ]
+    },
+    {
+      "name": "scroll",
+      "description": "Scroll in a specific direction at a location",
+      "targeting": ["coordinate_based", "index_based"],
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "direction": {"type": "string", "enum": ["up", "down", "left", "right"], "description": "Scroll direction"},
+          "amount": {"type": "number", "minimum": 1, "default": 100, "description": "Scroll amount in pixels"},
+          "x": {"type": "number", "description": "X coordinate to scroll at (use with y, not with index)"},
+          "y": {"type": "number", "description": "Y coordinate to scroll at (use with x, not with index)"},
+          "index": {"type": "integer", "minimum": 0, "description": "Element index to scroll at (use instead of x, y)"}
+        },
+        "required": ["direction"],
+        "anyOf": [
+          {"required": ["direction", "x", "y"]},
+          {"required": ["direction", "index"]},
+          {"required": ["direction"]}
+        ]
+      },
+      "examples": [
+        {"api": "scroll", "args": {"direction": "up", "amount": 100, "x": 400, "y": 300}},
+        {"api": "scroll", "args": {"direction": "down", "index": 0}},
+        {"api": "scroll", "args": {"direction": "left", "amount": 50}}
+      ]
+    },
+    {
+      "name": "type",
+      "description": "Type text at the current cursor/focus location",
+      "targeting": [],
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "text": {"type": "string", "description": "Text to type"}
+        },
+        "required": ["text"]
+      },
+      "examples": [
+        {"api": "type", "args": {"text": "Hello World"}},
+        {"api": "type", "args": {"text": "10"}}
+      ]
+    },
+    {
+      "name": "key",
+      "description": "Press and release a single key",
+      "targeting": [],
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "key": {"type": "string", "description": "Key name (e.g., 'Enter', 'Escape', 'Tab', 'Space', 'Backspace', 'Delete', 'F1', 'a', '1')"}
+        },
+        "required": ["key"]
+      },
+      "examples": [
+        {"api": "key", "args": {"key": "Enter"}},
+        {"api": "key", "args": {"key": "Escape"}},
+        {"api": "key", "args": {"key": "Tab"}}
+      ]
+    },
+    {
+      "name": "hotkey",
+      "description": "Press a combination of keys simultaneously (keyboard shortcuts)",
+      "targeting": [],
+      "args_schema": {
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 2,
+            "description": "Array of keys to press together (e.g., ['Control', 'c'] for copy)"
+          }
+        },
+        "required": ["keys"]
+      },
+      "examples": [
+        {"api": "hotkey", "args": {"keys": ["Control", "c"]}},
+        {"api": "hotkey", "args": {"keys": ["Control", "v"]}},
+        {"api": "hotkey", "args": {"keys": ["Alt", "F4"]}}
+      ]
+    },
+    {
+      "name": "done",
+      "description": "Indicate that the task has been completed successfully",
+      "targeting": [],
+      "args_schema": {"type": "object", "properties": {}},
+      "examples": [
+        {"api": "done", "args": {}}
+      ]
+    },
+    {
+      "name": "failed",
+      "description": "Indicate that the task cannot be completed",
+      "targeting": [],
+      "args_schema": {"type": "object", "properties": {}},
+      "examples": [
+        {"api": "failed", "args": {}}
+      ]
+    }
+  ]
+}

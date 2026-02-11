@@ -1,0 +1,12 @@
+{
+  "name": "drag_to_target",
+  "description": "Make the cat draggable and add a target sprite (e.g., a colored square). When the cat touches the target, say 'Success!' for 2 seconds.",
+  "type": "create",
+  "instruction": "Starting from the provided Scratch project with a single default sprite named 'Sprite1' and a sprite named 'Target', you should complete the following: 1) When the green flag is clicked, set Sprite1 to be draggable. 2) When Sprite1 is dragged to touch the 'Target' sprite, make Sprite1 say 'Success!' for 2 seconds.",
+  "initial_project": "drag_to_target.sb3",
+  "evaluation": {
+    "function": "drag_to_target",
+    "timeout": 25,
+    "description": "Checks that Sprite1 is draggable, a 'Target' sprite exists, and that when touching the target the cat says 'Success!' for ~2 seconds."
+  }
+}

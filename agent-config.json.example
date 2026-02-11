@@ -1,0 +1,35 @@
+{
+    "agent-s2": {
+        "embedding_engine": {
+            "embedding_model": "<Embedding Model>",
+            "base_url": "<YOUR_BASE_URL>",
+            "api_key": "<YOUR_EMBEDDING_API_KEY>"
+        },
+        "grounding_engine": {
+            "engine_type": "openai",
+            "model": "UI-TARS-1.5-7B",
+            "base_url": "http://localhost:8000/v1",
+            "api_key": "<YOUR_GROUNDING_API_KEY>",
+            "grounding_width": 1280,
+            "grounding_height": 720
+        },
+        "documents": {
+            "composite_api_catalog": "composite_api_catalog.txt",
+            "blocks_catalog": "blocks_catalog.txt",
+            "primitive_actions_catalog": "primitive_actions_catalog_agents.txt"
+        }
+    },
+    "awm": {
+        "awm_config": {
+            "use_workflow_memory": true,
+            "use_thinking": true,
+            "use_memory": true,
+            "use_history": true
+        },
+        "documents": {
+            "composite_api_catalog": "composite_api_catalog.txt",
+            "blocks_catalog": "blocks_catalog.txt",
+            "primitive_actions_catalog": "primitive_actions_catalog.txt"
+        }
+    }
+}

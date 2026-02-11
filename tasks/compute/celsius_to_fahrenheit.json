@@ -1,0 +1,26 @@
+{
+  "name": "celsius_to_fahrenheit",
+  "description": "Create a Scratch program that converts a given temperature from Celsius to Fahrenheit. The sprite should say the converted temperature.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that converts a given temperature from Celsius to Fahrenheit. The sprite should say the converted temperature.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "celsius_to_fahrenheit",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: celsius_to_fahrenheit",
+    "test_cases": [
+      {
+        "input": 0,
+        "output": 32
+      },
+      {
+        "input": 100,
+        "output": 212
+      },
+      {
+        "input": -40,
+        "output": -40
+      }
+    ]
+  }
+}

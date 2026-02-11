@@ -1,0 +1,418 @@
+{
+  "id": "T2_017",
+  "category": "T2",
+  "instruction": "Drag the 'number' block (data variable) from the flyout and connect it into the value input slot of the 'length of' block.",
+  "init_project": "T2_017.sb3",
+  "evaluation_config": {
+    "target_block_opcode": "data_variable",
+    "target_block_id": null,
+    "reference_block_id": "Ou:[i/U[qA;AdW9%}O/8",
+    "connection_type": "input",
+    "target_input_name": "STRING",
+    "description": "Drag the 'number' block (data variable) from the flyout and connect it into the value input slot of the 'length of list' block.",
+    "reference_block_opcode": "operator_length",
+    "use_flyout": true,
+    "variable_name": "number",
+    "locate_target_actions": [
+      {
+        "api": "click",
+        "args": {
+          "x": 31,
+          "y": 430
+        }
+      }
+    ],
+    "reference_block_structure": {
+      "id": "Ou:[i/U[qA;AdW9%}O/8",
+      "opcode": "operator_length",
+      "position": {
+        "x": 367.70486068725586,
+        "y": 417
+      },
+      "boundingBox": null,
+      "screenBoundingBox": {
+        "x": 559.2008056640625,
+        "y": 374.4750061035156,
+        "left": 559.2008056640625,
+        "top": 374.4750061035156,
+        "right": 658.0945434570312,
+        "bottom": 401.4750061035156,
+        "width": 98.89373779296875,
+        "height": 27
+      },
+      "parent": "UJewHsu7we/LCsMjJmwS",
+      "inputs": {
+        "STRING": {
+          "name": "STRING",
+          "block": "%[NUB/r**dtoH@P@mGDC",
+          "shadow": "%[NUB/r**dtoH@P@mGDC"
+        }
+      },
+      "fields": {}
+    },
+    "pan_canvas_actions": [
+      {
+        "api": "custom_js",
+        "args": {
+          "fn": "\n({ ws, payload }) => {\n    if (!ws) return { success: false, error: \"Workspace not available\" };\n    // dx, dy 是屏幕像素偏移量（正值表示内容应该向右/向下移动）\n    const dx = (payload && payload.dx) || 0;\n    const dy = (payload && payload.dy) || 0;\n    const scale = ws.scale || 1;\n    \n    const canvas = ws.getCanvas();\n    if (!canvas) return { success: false, error: \"Cannot get canvas\" };\n    \n    // 获取当前的 transform\n    const currentTransform = canvas.getAttribute('transform') || '';\n    \n    // 解析当前的 translate 值\n    let currentTx = 0, currentTy = 0;\n    const translateMatch = currentTransform.match(/translate\\(([^,]+),\\s*([^)]+)\\)/);\n    if (translateMatch) {\n        currentTx = parseFloat(translateMatch[1]) || 0;\n        currentTy = parseFloat(translateMatch[2]) || 0;\n    }\n    \n    // 在当前基础上增加 dx, dy（屏幕像素偏移）\n    const newTx = currentTx + dx;\n    const newTy = currentTy + dy;\n    \n    // 设置新的 transform（保持原来的 scale）\n    const newTransform = 'translate(' + newTx + ',' + newTy + ') scale(' + scale + ')';\n    canvas.setAttribute('transform', newTransform);\n    \n    // 同时更新 bubble canvas（气泡层）\n    const bubbleCanvas = ws.getBubbleCanvas();\n    if (bubbleCanvas) {\n        bubbleCanvas.setAttribute('transform', newTransform);\n    }\n    \n    // 更新 scrollX/scrollY 以保持内部状态一致\n    // scrollX = -translateX / scale\n    ws.scrollX = -newTx / scale;\n    ws.scrollY = -newTy / scale;\n    \n    return { \n        success: true, \n        mode: \"direct_svg_transform\",\n        inputDx: dx, inputDy: dy,\n        currentTransform,\n        currentTx, currentTy,\n        newTx, newTy,\n        newTransform,\n        newScrollX: ws.scrollX, \n        newScrollY: ws.scrollY,\n        scale\n    };\n}\n",
+          "payload": {
+            "dx": 31.352325439453125,
+            "dy": -27.975006103515625
+          }
+        }
+      }
+    ],
+    "workspace_state": {
+      "tx": 341.3523254394531,
+      "ty": -27.975006103515625,
+      "scale": 0.675,
+      "scrollX": -505.7071487991898,
+      "scrollY": 41.44445348668981,
+      "transform": "translate(341.3523254394531,-27.975006103515625) scale(0.675)"
+    },
+    "seed_point": [
+      590,
+      361
+    ],
+    "drag_start_point": [
+      114,
+      280
+    ],
+    "first_valid_point": [
+      650,
+      361
+    ],
+    "feasible_points": [
+      [
+        650,
+        361
+      ],
+      [
+        652,
+        361
+      ],
+      [
+        654,
+        361
+      ],
+      [
+        656,
+        361
+      ],
+      [
+        658,
+        361
+      ],
+      [
+        660,
+        361
+      ],
+      [
+        662,
+        361
+      ],
+      [
+        664,
+        361
+      ],
+      [
+        666,
+        361
+      ],
+      [
+        668,
+        361
+      ],
+      [
+        670,
+        361
+      ],
+      [
+        672,
+        361
+      ],
+      [
+        674,
+        361
+      ],
+      [
+        676,
+        361
+      ],
+      [
+        678,
+        361
+      ],
+      [
+        680,
+        361
+      ],
+      [
+        682,
+        361
+      ],
+      [
+        684,
+        361
+      ],
+      [
+        686,
+        361
+      ],
+      [
+        688,
+        361
+      ],
+      [
+        690,
+        361
+      ],
+      [
+        692,
+        361
+      ],
+      [
+        694,
+        361
+      ],
+      [
+        696,
+        361
+      ],
+      [
+        698,
+        361
+      ],
+      [
+        700,
+        361
+      ],
+      [
+        702,
+        361
+      ],
+      [
+        704,
+        361
+      ],
+      [
+        706,
+        361
+      ],
+      [
+        708,
+        361
+      ],
+      [
+        710,
+        361
+      ]
+    ],
+    "feasible_start_points": [
+      [
+        114,
+        280
+      ],
+      [
+        119,
+        280
+      ],
+      [
+        109,
+        280
+      ],
+      [
+        114,
+        275
+      ],
+      [
+        114,
+        285
+      ],
+      [
+        124,
+        280
+      ],
+      [
+        119,
+        285
+      ],
+      [
+        104,
+        280
+      ],
+      [
+        119,
+        275
+      ],
+      [
+        109,
+        285
+      ],
+      [
+        109,
+        275
+      ],
+      [
+        114,
+        270
+      ],
+      [
+        124,
+        275
+      ],
+      [
+        129,
+        280
+      ],
+      [
+        99,
+        280
+      ],
+      [
+        124,
+        285
+      ],
+      [
+        104,
+        275
+      ],
+      [
+        104,
+        285
+      ],
+      [
+        119,
+        270
+      ],
+      [
+        114,
+        265
+      ],
+      [
+        109,
+        270
+      ],
+      [
+        134,
+        280
+      ],
+      [
+        129,
+        275
+      ],
+      [
+        124,
+        270
+      ],
+      [
+        129,
+        285
+      ],
+      [
+        99,
+        275
+      ],
+      [
+        104,
+        270
+      ],
+      [
+        99,
+        285
+      ],
+      [
+        119,
+        265
+      ],
+      [
+        109,
+        265
+      ],
+      [
+        139,
+        280
+      ],
+      [
+        134,
+        285
+      ],
+      [
+        134,
+        275
+      ],
+      [
+        129,
+        270
+      ],
+      [
+        124,
+        265
+      ],
+      [
+        94,
+        275
+      ],
+      [
+        104,
+        265
+      ],
+      [
+        99,
+        270
+      ],
+      [
+        144,
+        280
+      ],
+      [
+        139,
+        285
+      ],
+      [
+        139,
+        275
+      ],
+      [
+        134,
+        270
+      ],
+      [
+        129,
+        265
+      ],
+      [
+        99,
+        265
+      ],
+      [
+        144,
+        275
+      ],
+      [
+        144,
+        285
+      ],
+      [
+        139,
+        270
+      ],
+      [
+        134,
+        265
+      ],
+      [
+        144,
+        270
+      ],
+      [
+        139,
+        265
+      ],
+      [
+        144,
+        265
+      ]
+    ]
+  }
+}

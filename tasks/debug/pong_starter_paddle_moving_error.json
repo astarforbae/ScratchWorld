@@ -1,0 +1,12 @@
+{
+  "name": "pong_starter_paddle_moving_error",
+  "description": "Fix the inconsistent movement between the Paddle and mouse in the Pong Game",
+  "type": "debug",
+  "instruction": "This is a basic Pong-style game where a ball bounces around the screen and players control a paddle that follows the mouse. The ball changes direction when hitting the paddle and the game ends when the ball touches red areas. But now in this Pong Game, the Paddle's movement is inconsistent with the mouse movement. Please help me fix this issue.",
+  "initial_project": "pong_starter_paddle_moving_error.sb3",
+  "evaluation": {
+    "function": "pong_starter_paddle_moving_error",
+    "timeout": 20,
+    "description": "Evaluates whether the Paddle can follow mouse movement. The test finds the Paddle sprite, starts only the Paddle sprite, then simulates mouse movement at different X coordinate positions. It detects whether the Paddle's X coordinate follows the mouse X coordinate. If the Paddle is within the tolerance range (10 pixels) of the mouse position in more than 60% of the test positions, the test passes; otherwise, it fails."
+  }
+}

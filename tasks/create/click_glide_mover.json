@@ -1,0 +1,12 @@
+{
+  "name": "click_glide_mover",
+  "description": "On mouse click, the sprite glides smoothly to the mouse position in about 1 second; repeats forever",
+  "type": "create",
+  "instruction": "Starting from an empty Scratch project with a single default sprite named 'Sprite1', you should complete the following: 1) When the green flag is clicked, wait for mouse clicks. 2) Each time the mouse is clicked, make Sprite1 glide for 1 second to the mouse’s position at the moment of the click. 3) Ensure this works repeatedly for multiple clicks.",
+  "initial_project": "default.sb3",
+  "evaluation": {
+    "function": "click_glide_mover",
+    "timeout": 20,
+    "description": "Simulates mouse clicks at different positions and verifies that the sprite glides (not teleports) to those positions in ~1 second each time"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "simple_circuit_multi_voltage_battery_levels_modify",
+  "description": "Add discrete Voltage levels on the Battery that affect Lightbulb brightness or sound when the circuit is ON and complete.",
+  "type": "extend",
+  "instruction": "This is an interactive circuit simulation where users can drag and connect a battery, switch, and lightbulb to complete an electrical circuit. When all components are properly connected and the switch is turned on, the lightbulb illuminates with sound effects. Please add a 'Voltage' variable with discrete levels (3V, 6V). Implement a click handler on the Battery to cycle through levels. When 'ON or OFF' = ON and 'connections complete' = 3, scale the Lightbulb's brightness (brightness effect) according to Voltage level.",
+  "initial_project": "simple_circuit.sb3",
+  "evaluation": {
+    "function": "simple_circuit_multi_voltage_battery_levels_modify",
+    "timeout": 20,
+    "description": "Cycles Battery Voltage levels with a complete ON circuit and verifies corresponding brightness or pitch changes for each level."
+  }
+}

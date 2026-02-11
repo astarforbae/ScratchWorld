@@ -1,0 +1,26 @@
+{
+  "name": "perfect_number_check",
+  "description": "Create a Scratch program that checks if a given positive integer is a perfect number (equal to the sum of its proper divisors). The sprite should say 'True' if it is, and 'False' otherwise.",
+  "type": "compute",
+  "instruction": "Complete the given Scratch starter project that checks if a given positive integer is a perfect number (equal to the sum of its proper divisors). The sprite should say 'True' if it is, and 'False' otherwise.",
+  "initial_project": "mbpp_default.sb3",
+  "evaluation": {
+    "function": "perfect_number_check",
+    "timeout": 30,
+    "description": "Tests if the sprite correctly executes the task: perfect_number_check",
+    "test_cases": [
+      {
+        "input": 6,
+        "output": "True"
+      },
+      {
+        "input": 28,
+        "output": "True"
+      },
+      {
+        "input": 12,
+        "output": "False"
+      }
+    ]
+  }
+}

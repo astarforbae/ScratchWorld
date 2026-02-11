@@ -1,0 +1,12 @@
+{
+  "name": "maze_starter_multi_level_maze_progression_modify",
+  "description": "Introduce multi-level progression using multiple backdrops. Upon reaching the goal, switch to the next level and reset player position.",
+  "type": "extend",
+  "instruction": "This is a basic maze navigation game in which players use the arrow keys to control a Ball sprite moving through a maze. The Ball bounces off blue wall sprites, and the objective is to reach the Goal sprite. Create a variable called currentLevel for all sprites and set it to 1 at the start of the game. The Stage has been designed with three backdrops, which represent three levels in the game. When the Ball touches the Goal, increase currentLevel by 1, switch the Stage to the next existing backdrop, and reset the Ball’s x and y position to the same starting location for the new level. This process should repeat as the player progresses through the three levels. When the final level (Level 3) is completed, the Goal should display the message “You win!” to indicate that the player has finished the game.",
+  "initial_project": "maze_starter_multi_level_maze_progression_modify.sb3",
+  "evaluation": {
+    "function": "maze_starter_multi_level_maze_progression_modify",
+    "timeout": 20,
+    "description": "Simulates reaching the goal, checks that the backdrop changes, Ball position resets, and that a subsequent goal triggers final completion behavior."
+  }
+}
