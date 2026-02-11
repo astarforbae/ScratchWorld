@@ -4,7 +4,7 @@
   <strong>See, Plan, Snap: Evaluating Multimodal GUI Agents in Scratch.</strong>
 </p>
 
-**ScratchWorld** is a comprehensive benchmark for evaluating **GUI agents** on [Scratch](https://scratch.mit.edu/), with a focus on precise screen-grounded interaction (especially accurate drag-and-drop) rather than text-only code generation.
+**ScratchWorld** is a comprehensive benchmark for evaluating **GUI agents** in [Scratch](https://scratch.mit.edu/), with a focus on precise screen-grounded interaction (especially accurate drag-and-drop) rather than text-only code generation.
 
 ### 🎮 Interaction Modes
 - **Primitive Mode:** Agents use low-level GUI actions (click, drag-and-drop, type, key operations) for fine-grained control.
