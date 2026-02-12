@@ -19,7 +19,7 @@ The benchmark evaluates performance across four distinct software engineering ca
 
 ## 📢 Update
 
-- 2026-02-12: We release our [paper](https://example.com/arxiv), [leaderboard](https://huggingface.co/spaces/astarforbae/ScratchWorld-Leaderboard), and [code](https://github.com/astarforbae/ScratchWorld):
+- 2026-02-12: We release our [paper](https://arxiv.org/abs/2602.10814), [leaderboard](https://huggingface.co/spaces/astarforbae/ScratchWorld-Leaderboard), and [code](https://github.com/astarforbae/ScratchWorld):
 
 ## 📚 Table of Contents
 
