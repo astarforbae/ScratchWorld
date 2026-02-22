@@ -667,7 +667,7 @@ class SingleStepDragBenchmarkRunner:
             
             if response.status_code != 200:
                 return {
-                    "ok": False,
+                    "success": False,
                     "error": f"HTTP {response.status_code}: {response.text}"
                 }
             
@@ -675,7 +675,7 @@ class SingleStepDragBenchmarkRunner:
             return result
         except Exception as e:
             logger.error(f"执行动作失败: {e}")
-            return {"ok": False, "error": str(e)}
+            return {"success": False, "error": str(e)}
     
     def _resolve_index_args(self, args: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -1482,7 +1482,7 @@ class SingleStepDragBenchmarkRunner:
                 "execution_result": result,
                 "evaluation_result": evaluation_result,
                 "exported_file": exported_filename,
-                "success": result.get("ok", False) and evaluation_result,
+                "success": result.get("success", False) and evaluation_result,
                 "timestamp": datetime.now().isoformat()
             }
             
