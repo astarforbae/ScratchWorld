@@ -26,7 +26,7 @@ class RightClickAction(BaseModel):
 class MoveToAction(BaseModel):
     x: int
     y: int
-    duration: float = 0  # 移动时长（秒）
+    duration: float = 0.5  # 移动时长（秒）
 
 
 class DragAndDropAction(BaseModel):
@@ -34,7 +34,7 @@ class DragAndDropAction(BaseModel):
     start_y: int
     end_x: int
     end_y: int
-    duration: float = 0  # 拖拽时长（秒）
+    duration: float = 0.5  # 拖拽时长（秒）
 
 
 class ScrollAction(BaseModel):
