@@ -35,6 +35,8 @@ scratch-bench-api/output/
 
 single_step_drag_benchmark/*
 !single_step_drag_benchmark/tasks/
+!single_step_drag_benchmark/connection_utils.py
+!single_step_drag_benchmark/coordinate_resize.py
 
 visual_perception_benchmark/*.py
 scratchbench/docs/awm*

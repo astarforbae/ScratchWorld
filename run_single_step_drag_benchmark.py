@@ -380,7 +380,7 @@ class SingleStepDragBenchmarkRunner:
                 resp = requests.post(url, json=args, timeout=10)
             else:
                 # 封装动作调用 encapsulated/execute
-                url = self._url("/encapsulated/execute")
+                url = self._url("/composite/execute")
                 payload = {"api": api, "args": args}
                 resp = requests.post(url, json=payload, timeout=10)
             
@@ -511,15 +511,16 @@ class SingleStepDragBenchmarkRunner:
         if not state:
             return True
         try:
-            url = self._url("/encapsulated/execute")
+            url = self._url("/composite/execute")
             payload = {"api": "custom_js", "args": {"fn": SET_WORKSPACE_STATE_JS, "payload": state}}
             resp = requests.post(url, json=payload, timeout=10)
             if resp.status_code != 200:
                 logger.warning(f"设置画布状态失败: HTTP {resp.status_code}")
                 return False
-            data = resp.json().get("data", {}).get("result", {})
-            if not data.get("success"):
-                logger.warning(f"设置画布状态失败: {data.get('error', 'unknown error')}")
+            resp_json = resp.json()
+            if not resp_json.get("success"):
+                error_info = resp_json.get("error") or resp_json.get("data", {}).get("error", "unknown error")
+                logger.warning(f"设置画布状态失败: {error_info}")
                 return False
             return True
         except Exception as e:
@@ -809,7 +810,7 @@ class SingleStepDragBenchmarkRunner:
     def fetch_blocks_structure(self):
         """获取块结构"""
         try:
-            url = self._url("/encapsulated/execute")
+            url = self._url("/composite/execute")
             payload = {"api": "get_blocks_structure", "args": {}}
             resp = requests.post(url, json=payload, timeout=10)
             if resp.status_code == 200:
